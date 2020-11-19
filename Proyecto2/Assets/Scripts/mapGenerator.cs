@@ -4,27 +4,54 @@ using UnityEngine;
 
 public class mapGenerator : MonoBehaviour
 {
-   
-    public GameObject bloque;
-    public int ancho;
-    public int lenght=0;
-    public int altura;
-    public float blockSize;
-    void Start()
-    {
-        for (int x=0;x<ancho;x++){
-                for (int z= 0; z<altura;z++){
+    [SerializeField]
+    private GameObject Ground_block;
+    [SerializeField]
+    private GameObject Wall_block;
+    [SerializeField]
+    private int widthAndHeight;
+    [SerializeField]
+    private int lenght=0;
+    [SerializeField]
+    private float blockSize;
+    
+  
+    
+    private void generateBlock(GameObject newObject, int x,int y, int z){
+        
+        GameObject newBlock=Instantiate(newObject,gameObject.transform);       //Instancio el objeto y le asigno de padre el mapa
+        newBlock.transform.position=new Vector3(x*blockSize, 0, z*blockSize);  //establezco a que distancia esta
+        newBlock.gameObject.name= lenght.ToString();                           //le cambio el nombre
+    }   
+    
 
-                    GameObject newBlock=Instantiate(bloque);
-                    newBlock.transform.parent= gameObject.transform;// le asigno un objeto padre
-                    newBlock.transform.position=new Vector3(x*blockSize, 0, z*blockSize);  //establezco a que distancia esta
-                    newBlock.transform.eulerAngles=new Vector3(90,0,0);  //lo roto
-                    newBlock.gameObject.name= lenght.ToString();
+    public void generateGround(){
+         for (int x=0;x<widthAndHeight;x++){
+             
+                for (int z= 0; z<widthAndHeight;z++){
+
+                    if(x==0 || x== widthAndHeight-1){
+                        generateBlock(Wall_block,x,0,z);
+
+                    }
+                    else if(z==0 || z==widthAndHeight-1){
+                           generateBlock(Wall_block,x,0,z);
+
+                    }
+                    else{
+                        generateBlock(Ground_block,x,0,z);
+                    }
                     lenght++;
 
-                }
-                 
-            }
+                }     
+        }
+    }
+
+
+    void Start()
+    {
+       generateGround();
+
     }
 
 
