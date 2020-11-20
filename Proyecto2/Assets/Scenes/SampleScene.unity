@@ -1912,7 +1912,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136627474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.2, y: 4.3, z: 8.88}
+  m_LocalPosition: {x: 3.2, y: 4.3, z: 7.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 820467461536667577}
@@ -10099,13 +10099,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0, y: 0.90954846, z: -0.41559798, w: 0}
-  m_LocalPosition: {x: 4.4, y: 9.440975, z: 14.645}
+  m_LocalRotation: {x: -0, y: 0.8777927, z: -0.47904077, w: 0}
+  m_LocalPosition: {x: 7.52, y: 21.2, z: 21.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 49.114002, y: 180.00002, z: 0}
+  m_LocalEulerAnglesHint: {x: 57.246002, y: 180.00002, z: 0}
 --- !u!1001 &976691690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13221,10 +13221,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b66eddd541bdba4ba53ea92e3e2c960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloque: {fileID: 5449813551072354207, guid: 9a9352ae4b083a54aab5be03b499bd63, type: 3}
-  ancho: 11
+  Ground_block: {fileID: 6838731608821614140, guid: d7ae040a35874d84d8463beb7eab1e0d,
+    type: 3}
+  Wall_block: {fileID: 5449813551072354207, guid: 9a9352ae4b083a54aab5be03b499bd63,
+    type: 3}
+  widthAndHeight: 10
   lenght: 0
-  altura: 15
   blockSize: 2.1
 --- !u!4 &1353003646
 Transform:

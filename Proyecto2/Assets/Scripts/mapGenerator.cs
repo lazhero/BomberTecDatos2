@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class mapGenerator : MonoBehaviour
 {
+    
+    public GameObject Ground_block;
+    public GameObject Wall_block;
+    
     [SerializeField]
-    private GameObject Ground_block;
-    [SerializeField]
-    private GameObject Wall_block;
-    [SerializeField]
-    private int widthAndHeight;
+    private int widthAndHeight=10;
     [SerializeField]
     private int lenght=0;
     [SerializeField]
-    private float blockSize;
+    private float blockSize=2.1f;
     
   
     
@@ -46,7 +46,6 @@ public class mapGenerator : MonoBehaviour
                 }     
         }
     }
-
 
     void Start()
     {
