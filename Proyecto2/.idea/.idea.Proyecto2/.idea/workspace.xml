@@ -14,6 +14,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Moving.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DataStructures/OutOfIndex.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DataStructures/DGraph.cs" />
       </list>
     </option>
   </component>
@@ -58,6 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1605901717848</updated>
       <workItem from="1605901736814" duration="2119000" />
+      <workItem from="1605913419648" duration="2793000" />
     </task>
     <servers />
   </component>

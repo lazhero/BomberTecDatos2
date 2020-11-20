@@ -8,6 +8,11 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="Bomb.cs" t="Include" />
+          <e p="DataStructures" t="Include">
+            <e p="DGraph.cs" t="Include" />
+            <e p="DirectedGraph.cs" t="Include" />
+            <e p="LinkedList.cs" t="Include" />
+          </e>
           <e p="GenerateBombs.cs" t="Include" />
           <e p="mapGenerator.cs" t="Include" />
           <e p="Moving.cs" t="Include" />
