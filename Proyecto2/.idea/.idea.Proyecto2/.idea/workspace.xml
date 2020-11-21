@@ -63,6 +63,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Block.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DataStructures/DGraph.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bomb.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DeleteParticles.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DeleteExplosion.cs" />
       </list>
     </option>
   </component>
@@ -111,6 +114,7 @@
       <workItem from="1605913419648" duration="2793000" />
       <workItem from="1605923261882" duration="17783000" />
       <workItem from="1605948689811" duration="12978000" />
+      <workItem from="1605913419648" duration="5502000" />
     </task>
     <servers />
   </component>
