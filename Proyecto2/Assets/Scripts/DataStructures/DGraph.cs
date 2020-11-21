@@ -1,63 +1,64 @@
 ﻿using System;
-using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 
-public class DGraph<T> where T:IComparable
+
+public class DGraph<T> 
 {
     private T[] Nodes;
-    private float[,] relations;
-    
-
-    DGraph(int nodesNumber)
-    {
-        if (!PositiveVerification(nodesNumber)) nodesNumber = 0;
+    public float[][] relations{ set; get; }
+    private int maxNodeRelations { set; get; } = 4;
+    /**
+     * @brief Constructor
+     * @param int cuantity of nodes
+     */
+    public DGraph(int nodesNumber) { 
+        
         Nodes = new T[nodesNumber];
-        relations=new float[nodesNumber,nodesNumber];
+        relations=new float[nodesNumber][];
 
     }
 
-    public void setNode(int pos, T data)
-    {
+    public void setNodeData(int pos, T data) {
         if(!OnRange(pos))throw new IndexOutOfRangeException();
         Nodes[pos] = data;
     }
 
-    public T getNode(int pos)
-    {
+    public T getNode(int pos) {
         if (!OnRange(pos)) throw new IndexOutOfRangeException();
         return Nodes[pos];
     }
 
-    public void SetRelationShip(int from,int to,float price)
-    {
-        if(!OnRange(from))throw new IndexOutOfRangeException();
-        if(!OnRange(to))throw  new IndexOutOfRangeException();
-        relations[from, to] = price;
+    public void SetRelationShip(int from,int to,float price) {
+        if (!OnRange(from)||!OnRange(to)) Debug.Log("index sobrepasado");
+        relations[from][to] = price;
     }
 
-    public float GetRelationShip(int from, int to)
-    {
-        if (!OnRange(from)) throw new IndexOutOfRangeException();
-        if(!OnRange(to))throw new IndexOutOfRangeException();
-        return relations[from, to];
+    public float[] GetRelationShip(int from, int to) {
+        if (!OnRange(from)||!OnRange(to)) throw new IndexOutOfRangeException();
+     
+        return relations[from];
     }
-    private bool PositiveVerification(int pos)
-    {
-        return pos >= 0;
+    public float[] GetRelations(int from) {
+      
+     
+        return relations[from];
     }
-
-    private bool OnRange(int pos)
-    {
-        return PositiveVerification(pos) && pos < Nodes.Length;
+    private bool OnRange(int pos) {
+        return pos >= 0 && pos < Nodes.Length;
     }
-
+    /**
+     * @brief sets all nodes with a specified value 
+     */
     public void startAllWith(float value)
     {
-        for (int i = 0; i < relations.Length; i++)
-        {
-            for (int j = 0; j < relations.Length; j++)
-            {
-                relations[i, j] = value;
+        
+        for (var i = 0; i < Nodes.Length-1; i++) {
+            relations[i] = new float[maxNodeRelations];
+            
+            for (var j = 0; j < maxNodeRelations; j++) {
+                relations[i][j] = value;
             }
+
         }
     }
     

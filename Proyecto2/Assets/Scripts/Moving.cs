@@ -14,7 +14,7 @@ public class Moving : MonoBehaviour
 
     void Move(Vector3 dir,Quaternion angle ){
             anim.SetBool("MOVING",true);
-            gameObject.transform.Translate(dir*velocidad*Time.deltaTime);
+            gameObject.transform.Translate(dir * (velocidad * Time.deltaTime));
             body.transform.rotation= angle;
 
     }
