@@ -65,7 +65,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Bomb.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DeleteParticles.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Expansi.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Directions/Directions.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DeleteExplosion.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/JustAProve.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Expansion.cs" />
       </list>
     </option>
   </component>
@@ -115,6 +119,7 @@
       <workItem from="1605923261882" duration="17783000" />
       <workItem from="1605948689811" duration="12978000" />
       <workItem from="1605913419648" duration="5502000" />
+      <workItem from="1605986129325" duration="6777000" />
     </task>
     <servers />
   </component>

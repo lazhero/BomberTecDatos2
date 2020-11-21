@@ -9,12 +9,15 @@ public class DeleteExplosion : MonoBehaviour
     [SerializeField]
     private ParticleSystem particleSystem;
     
+
     // Update is called once per frame
     void Update()
     {
+        
         if (!particleSystem.IsAlive())
         {
             Destroy(gameObject);
+
         }
     }
 }
