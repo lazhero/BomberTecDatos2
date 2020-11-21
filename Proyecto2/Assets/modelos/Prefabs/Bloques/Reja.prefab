@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3214542355516891993}
   - component: {fileID: 9168874076432648693}
   - component: {fileID: -4604012956614145300}
+  - component: {fileID: 7903533359422657218}
   m_Layer: 0
   m_Name: Reja
-  m_TagString: Untagged
+  m_TagString: block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,4 +98,16 @@ MonoBehaviour:
   isDestructible: 1
   dead_Object: {fileID: 1161149107539153205, guid: ec188888d583f0543a20e904e0aba576,
     type: 3}
-  dest: 0
+--- !u!65 &7903533359422657218
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5626566644718773602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.017, y: 0.017, z: 0.017}
+  m_Center: {x: -4.656613e-10, y: -0.0018095232, z: 4.656613e-10}

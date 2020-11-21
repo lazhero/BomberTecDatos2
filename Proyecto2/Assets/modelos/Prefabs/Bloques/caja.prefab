@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 229608943988419733}
   - component: {fileID: 4841095735671599423}
   - component: {fileID: -4424041145221086506}
+  - component: {fileID: 8617450925191544822}
   m_Layer: 0
   m_Name: caja
-  m_TagString: Untagged
+  m_TagString: block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,4 +98,16 @@ MonoBehaviour:
   isDestructible: 1
   dead_Object: {fileID: 8647978030150556167, guid: 41cd0859c53015346bbbc356359adbc8,
     type: 3}
-  dest: 0
+--- !u!65 &8617450925191544822
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8698106173450930643}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.016999999, y: 0.017, z: 0.017}
+  m_Center: {x: 0.000100241974, y: -0.00089975353, z: -0.00065917196}

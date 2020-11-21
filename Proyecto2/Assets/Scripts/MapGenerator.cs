@@ -8,6 +8,9 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private int widthAndHeight = 10;
     [SerializeField] private int length;
     [SerializeField] private float blockSize = 2.1f;
+    [SerializeField] private bool debugMode = false;
+    [SerializeField] private int normalCost = 10;
+
     public DGraph<GameObject> Graph { get; set; }
 
     private int[] UP = {0, -1};
@@ -15,15 +18,12 @@ public class MapGenerator : MonoBehaviour
     private int[] RIGHT = {1, 0};
     private int[] LEFT = {-1, 0};
 
-    public bool DebugMode = false;
 
-    private int normalCost = 10;
 
-    void Start()
-    {
+    void Start() {
         Graph = new DGraph<GameObject>(widthAndHeight * widthAndHeight);
         Graph.startAllWith(10);
-        generateGround();
+        GenerateGround();
 
     }
 
@@ -34,44 +34,42 @@ public class MapGenerator : MonoBehaviour
      * @param2 int
      * @param3 int
      */
-    private void generateBlock(GameObject newObject, int x, int y, int z)
+    private void GenerateBlock(GameObject newObject, int x, int y, int z)
     {
-
-        GameObject newBlock = Instantiate(newObject, gameObject.transform); //Instancio el objeto y le asigno de padre el mapa
-        newBlock.transform.position = new Vector3(x * blockSize, 0, z * blockSize); //establezco a que distancia esta
-        newBlock.gameObject.name = length.ToString(); //le cambio el nombre
-        // ! DebugThing ERASE LATER --------------------------------------------------->
-        if (DebugMode)
-        {
-            newBlock.transform.GetChild(0).gameObject.GetComponent<TextMesh>().text = length.ToString();    
-        }
-        else
-        {
-            newBlock.transform.GetChild(0).gameObject.SetActive(false);
-            
-        }
-        //! --------------------------------------------------->
+        // Instancio el objeto y le asigno de padre el mapa
+        var newBlock = Instantiate(newObject, gameObject.transform); 
+        //establezco a que distancia esta
+        newBlock.transform.position = new Vector3(x * blockSize, 0, z * blockSize); 
+        //le cambio el nombre
+        newBlock.gameObject.name = length.ToString(); 
+        
+        
         Graph.setNodeData(length, newBlock);
-
+        //Uno el nodo con sus nodos circundantes
         linkWithBlock(UP, 0);
         linkWithBlock(DOWN, 1);
         linkWithBlock(LEFT, 2);
         linkWithBlock(RIGHT, 3);
 
-        //!Debug.Log("arriba de " + length + "esta " + whoIs(UP));
-        //!Debug.Log("debajo de " + length + "esta " + whoIs(DOWN));
-        Debug.Log("derecha de " + length + "esta " + whoIs(RIGHT));
-        Debug.Log("izquierda de " +length +"esta "+ whoIs(LEFT));
      
-        
+        // ! DebugThing ERASE LATER --------------------------------------------------->
+        if (debugMode)
+            newBlock.transform.GetChild(0).gameObject.GetComponent<TextMesh>().text = length.ToString();    
+        else
+            newBlock.transform.GetChild(0).gameObject.SetActive(false);
+            
+        //! ---------------------------------------------------------------------------->
     }
+    
     /**
-     * @brief associate block with the GRAPH and asociate it with is neighboors 
+     * @brief associate block with the GRAPH and asociate it with is neighboors
+     * @param1 int[]
+     * @param2 int 
      */
     private void linkWithBlock(int[] dir,int pos) {
-        if (whoIs(dir) != null && dir !=null)
+        if (WhoIs(dir) != -1 && dir !=null)
             
-            Graph.SetRelationShip(length, pos, whoIs(dir));
+            Graph.SetRelationShip(length, pos, WhoIs(dir));
      
         
     }
@@ -80,16 +78,16 @@ public class MapGenerator : MonoBehaviour
      * @brief generate the indestructible world ground with walls for each "x" line generates a block for each "z" value
      * @Author Adrian Gonzalez
      */
-    private void generateGround(){
+    private void GenerateGround(){
          for (var z=0;z<widthAndHeight;z++){
              
-                for (int x= 0; x<widthAndHeight;x++){
+                for (var x= 0; x<widthAndHeight;x++){
 
                     if(x==0 || x== widthAndHeight-1 || z==0 || z==widthAndHeight-1)
-                        generateBlock(wallBlock,-x,0,z);
+                        GenerateBlock(wallBlock,-x,0,z);
                     
                     else
-                        generateBlock(groundBlock,-x,0,z);
+                        GenerateBlock(groundBlock,-x,0,z);
                     
                     length++;
 
@@ -104,23 +102,18 @@ public class MapGenerator : MonoBehaviour
      * @param1 Vector2 up, down, left or right 
      * @param2 float the current blockNumber who is asking
      * @return nullable int  it means that it can also return null
+     * @return -1 if the direction is not posible
      */
-    private int whoIs(int[] direction) { //  (-1,0)
+    private int WhoIs(int[] direction) { //  (-1,0)
     
-        if (!validateDirection(direction, length))
-        {
+        if (!ValidateDirection(direction, length))
             return -1;
-        }
      
-            return Convert.ToInt32( length + direction[0] + direction[1] * widthAndHeight );
-        
-                
-        
-
-        
-
+        return Convert.ToInt32( length + direction[0] + direction[1] * widthAndHeight );
         
     }
+    
+    
     /**
      * @brief validates certain direction from given block number, THIS IS ONLY FOR MAP GENERATION
      * you dont need to know how it works
@@ -128,7 +121,7 @@ public class MapGenerator : MonoBehaviour
      * @param2 float the current blockNumber who is asking
      * @return bool
      */
-    private bool validateDirection(int[] direction, int blockNumber) {
+    private bool ValidateDirection(int[] direction, int blockNumber) {
         
         //si estoy en un borde izquierdo y me preguntan por su izquierdo
         if (blockNumber % widthAndHeight == 0  && direction[0] < 0 )

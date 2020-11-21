@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Random = UnityEngine.Random;
+﻿using UnityEngine;
 
 public class Block : MonoBehaviour
 {
@@ -20,11 +16,10 @@ public class Block : MonoBehaviour
     }
 
     /**
-     * @brief destroy the block and generates debris
-     * 
+     * @brief destroy the block and instantiate debris
+     * @author Adrian Gonzalez
      */
-    private void DestroyMe()
-    {
+    private void DestroyMe() {
         if (!isDestructible || isDestroy) return;
         
         isDestroy = true;

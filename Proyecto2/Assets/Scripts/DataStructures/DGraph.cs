@@ -29,7 +29,6 @@ public class DGraph<T>
     }
 
     public void SetRelationShip(int from,int to,float price) {
-        if (!OnRange(from)||!OnRange(to)) Debug.Log("index sobrepasado");
         relations[from][to] = price;
     }
 
@@ -44,7 +43,7 @@ public class DGraph<T>
         return relations[from];
     }
     private bool OnRange(int pos) {
-        return pos >= 0 && pos < Nodes.Length;
+        return pos >= 0 && pos < relations.Length;
     }
     /**
      * @brief sets all nodes with a specified value 
@@ -52,7 +51,7 @@ public class DGraph<T>
     public void startAllWith(float value)
     {
         
-        for (var i = 0; i < Nodes.Length-1; i++) {
+        for (var i = 0; i < Nodes.Length; i++) {
             relations[i] = new float[maxNodeRelations];
             
             for (var j = 0; j < maxNodeRelations; j++) {
