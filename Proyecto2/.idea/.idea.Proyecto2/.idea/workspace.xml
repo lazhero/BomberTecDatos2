@@ -20,9 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a67ccf67-13f3-452f-9263-1d758021505b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Proyecto2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Proyecto2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Proyecto2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Proyecto2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Block.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,8 +50,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Moving.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DataStructures/DGraph.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PositionDettection.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DestroyAfter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Block.cs" />
       </list>
     </option>
@@ -99,7 +99,7 @@
       <workItem from="1605901736814" duration="2119000" />
       <workItem from="1605913419648" duration="2793000" />
       <workItem from="1605923261882" duration="17783000" />
-      <workItem from="1605948689811" duration="10088000" />
+      <workItem from="1605948689811" duration="10762000" />
     </task>
     <servers />
   </component>

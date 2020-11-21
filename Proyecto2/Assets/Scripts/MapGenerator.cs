@@ -15,6 +15,8 @@ public class MapGenerator : MonoBehaviour
     private int[] RIGHT = {1, 0};
     private int[] LEFT = {-1, 0};
 
+    public bool DebugMode = false;
+
     private int normalCost = 10;
 
     void Start()
@@ -39,7 +41,15 @@ public class MapGenerator : MonoBehaviour
         newBlock.transform.position = new Vector3(x * blockSize, 0, z * blockSize); //establezco a que distancia esta
         newBlock.gameObject.name = length.ToString(); //le cambio el nombre
         // ! DebugThing ERASE LATER --------------------------------------------------->
-        newBlock.transform.GetChild(0).gameObject.GetComponent<TextMesh>().text = length.ToString();
+        if (DebugMode)
+        {
+            newBlock.transform.GetChild(0).gameObject.GetComponent<TextMesh>().text = length.ToString();    
+        }
+        else
+        {
+            newBlock.transform.GetChild(0).gameObject.SetActive(false);
+            
+        }
         //! --------------------------------------------------->
         Graph.setNodeData(length, newBlock);
 

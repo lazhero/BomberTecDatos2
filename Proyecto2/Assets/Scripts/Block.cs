@@ -9,27 +9,26 @@ public class Block : MonoBehaviour
     [SerializeField]
     private bool isDestructible=false;
     [SerializeField] private GameObject dead_Object;
-    
     private bool isDestroy=false;
-    
-    public bool dest=false;
 
 
-
-    private void Update() {
-        if(dest)
-            DestroyMe();
-    }
-    
+    /**
+     * @brief destroy the block 
+     */
     void Destr() {
         Destroy(gameObject);
     }
 
-    private int force = 12;
+    /**
+     * @brief destroy the block and generates debris
+     * 
+     */
     private void DestroyMe()
     {
         if (!isDestructible || isDestroy) return;
+        
         isDestroy = true;
+        
         var producto= Instantiate(dead_Object);
         producto.transform.position = transform.position;
                     
