@@ -43,15 +43,25 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+<<<<<<< HEAD
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Map.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GenerateBombs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bomb.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DataStructures/DGraph.cs" root0="FORCE_HIGHLIGHTING" />
+=======
+>>>>>>> BombsBehavior
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyAfter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DataStructures/DGraph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Block.cs" root0="FORCE_HIGHLIGHTING" />
+<<<<<<< HEAD
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GroundBlock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PositionDettection.cs" root0="FORCE_HIGHLIGHTING" />
+=======
+>>>>>>> BombsBehavior
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Moving.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PositionDettection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CrossExp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -61,15 +71,31 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/mapGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PositionDettection.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DestroyAfter.cs" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Assets/Scripts/Block.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Bomb.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Moving.cs" />
+=======
+>>>>>>> BombsBehavior
         <option value="$PROJECT_DIR$/Assets/Scripts/DataStructures/DGraph.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GenerateBombs.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Assets/Scripts/Ground_Block.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GroundBlock.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Map.cs" />
+=======
+        <option value="$PROJECT_DIR$/Assets/Scripts/DeleteParticles.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Expansi.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Directions/Directions.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DeleteExplosion.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/JustAProve.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Block.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GenerateBombs.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bomb.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CrossExp.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Expansion.cs" />
+>>>>>>> BombsBehavior
       </list>
     </option>
   </component>
@@ -94,16 +120,22 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="21764">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="21764" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -117,7 +149,13 @@
       <workItem from="1605901736814" duration="2119000" />
       <workItem from="1605913419648" duration="2793000" />
       <workItem from="1605923261882" duration="17783000" />
+<<<<<<< HEAD
       <workItem from="1605948689811" duration="23337000" />
+=======
+      <workItem from="1605948689811" duration="12978000" />
+      <workItem from="1605913419648" duration="5502000" />
+      <workItem from="1605986129325" duration="6777000" />
+>>>>>>> BombsBehavior
     </task>
     <servers />
   </component>

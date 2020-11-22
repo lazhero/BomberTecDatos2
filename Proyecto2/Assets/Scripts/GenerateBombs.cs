@@ -5,7 +5,6 @@ using UnityEngine;
 public class GenerateBombs : MonoBehaviour
 {
     public GameObject bomba;
-    public Vector3 pos;
     
     void Update()
     {
