@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GenerateBombs : MonoBehaviour
 {
     public GameObject bomba;
-    
+    public Vector3 pos;
     void Update()
     {
         if(Input.GetKeyDown("space")){
@@ -14,10 +15,11 @@ public class GenerateBombs : MonoBehaviour
         } 
     }
 
-
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag.CompareTo("ground")==0)
-            pos = other.gameObject.transform.position + new Vector3(0, 1, 0);
+            pos = other.gameObject.transform.position + new Vector3(0, 1.5f, 0);
     }
+
+   
 }

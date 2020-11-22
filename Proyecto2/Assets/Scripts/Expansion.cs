@@ -12,47 +12,41 @@ public class Expansion : MonoBehaviour
 {
 
 
-    private float cubeSize;
+    private float cubeSize=2.1f;
     private bool finishedCondition;
     
     public Vector3 direction { set; get; }
-    public int squares { set; get; }
+    public int squares { set; get; } = 4;
     public bool untilTheWall { set; get; }
+    [SerializeField] private GameObject explosion;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        cubeSize = gameObject.transform.localScale.x;
-        direction = direction * cubeSize;
-        finishedCondition = false;
-    }
 
-    public void initMovement()
-    {
-        ExpansionVector();
-    }
-    
-    void ExpansionVector()
-     { 
-         if (finishedCondition) return; 
-         if (squares > 0 || untilTheWall)
-         {
-            gameObject.transform.position += direction/2;
-            gameObject.transform.localScale+=new Vector3(Math.Abs(direction.x),Math.Abs(direction.y),Math.Abs(direction.z));
+    private void Update()
+    {   
+        if(squares>0 && !finishedCondition)
+        {
             squares--;
-            Invoke("ExpansionVector",10*Time.deltaTime);
-         }
+            transform.Translate(Vector3.forward + Vector3.forward * (cubeSize * Time.deltaTime));
+            Instantiate(explosion).transform.position = transform.position;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
-     }
+ 
     
 
   
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.CompareTo("block")!=0) return;
+        Instantiate(explosion).transform.position = transform.position;
         Block block = other.GetComponent<Block>();
-        if (block.isDestructible) block.DestroyMe();
-        else finishedCondition = true;
+        if (block.isDestructible)
+            block.DestroyMe();
+        finishedCondition = true;
     }
 
   

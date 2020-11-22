@@ -12,7 +12,7 @@ public class Map : MonoBehaviour
     [SerializeField] private float blockSize = 2.1f;
     [SerializeField] private bool debugMode;
     [SerializeField] private int normalCost = 10;
-    [SerializeField] private GameObject blocks;
+    [SerializeField] private GameObject[] blocks;
 
     private DGraph<GameObject> Graph { get; set; }
 
@@ -89,7 +89,7 @@ public class Map : MonoBehaviour
             if (Random.Range(0, 100) < 50) {
                 var blokInfo = node.GetComponent<GroundBlock>();
                 if (!blokInfo.SpawnZone) {
-                    var newBlock = Instantiate(blocks, node.transform, true);
+                    var newBlock = Instantiate(blocks[Random.Range(0,3)], node.transform, true);
                     newBlock.transform.position = node.transform.position + new Vector3(0, 1, 0);
                     referenceList.Add(newBlock);
                     blokInfo.HasBlock = true;

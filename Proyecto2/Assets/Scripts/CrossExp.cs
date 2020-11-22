@@ -23,7 +23,7 @@ public class CrossExp : MonoBehaviour
         expansion.direction = direction;
         expansion.squares = len;
         expansion.untilTheWall = false;
-        expansion.initMovement();
+        
     }
     
 }

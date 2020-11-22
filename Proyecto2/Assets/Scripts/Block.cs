@@ -20,7 +20,7 @@ public class Block : MonoBehaviour
     /// <summary>
     /// destroy the block and instantiate debris
     /// </summary>
-    private void DestroyMe() {
+    public void DestroyMe() {
         if (!isDestructible || isDestroy) return;
         
         isDestroy = true;
