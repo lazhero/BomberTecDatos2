@@ -14,8 +14,8 @@ public class Bomb : MonoBehaviour
     public void Explote(){
         GameObject exp=Instantiate(explosion);
         exp.transform.position= transform.position;
-        beforeDying.transform.position=gameObject.transform.position;
-        Instantiate(beforeDying);
+        //beforeDying.transform.position=gameObject.transform.position;
+       // Instantiate(beforeDying);
         Destroy(gameObject);
 
     }
