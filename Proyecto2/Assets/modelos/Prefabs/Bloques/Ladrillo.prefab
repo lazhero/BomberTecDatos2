@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8314312605132502764}
   - component: {fileID: 1057583042227745688}
   - component: {fileID: -5110804571075195338}
+  - component: {fileID: 4351347782714098141}
   m_Layer: 0
   m_Name: Ladrillo
   m_TagString: Untagged
@@ -111,6 +112,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.017000003, y: 0.017, z: 0.017}
   m_Center: {x: 9.313226e-10, y: -0.0007307688, z: 4.656613e-10}
+--- !u!114 &4351347782714098141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434912323303426917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25341ab5e476464290c10802ba6393c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnZone: 0
+  HasBlock: 0
 --- !u!1 &2901117241981994822
 GameObject:
   m_ObjectHideFlags: 0

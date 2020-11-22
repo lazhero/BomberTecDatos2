@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DGraph<T> 
 {
-    private T[] Nodes;
+    public T[] Nodes{ set; get; }
     public float[][] relations{ set; get; }
     private int maxNodeRelations { set; get; } = 4;
     /**

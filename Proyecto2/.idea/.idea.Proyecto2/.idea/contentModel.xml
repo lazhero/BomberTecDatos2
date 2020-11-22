@@ -15,7 +15,8 @@
           </e>
           <e p="DestroyAfter.cs" t="Include" />
           <e p="GenerateBombs.cs" t="Include" />
-          <e p="mapGenerator.cs" t="Include" />
+          <e p="GroundBlock.cs" t="Include" />
+          <e p="Map.cs" t="Include" />
           <e p="Moving.cs" t="Include" />
           <e p="PositionDettection.cs" t="Include" />
         </e>

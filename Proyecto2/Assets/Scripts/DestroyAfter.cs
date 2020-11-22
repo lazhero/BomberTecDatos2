@@ -11,7 +11,9 @@ public class DestroyAfter : MonoBehaviour
         Invoke("Destr",Time);
     }
 
-    
+    /// <summary>
+    ///  Destroy GameObject
+    /// </summary>
     void Destr()
     {
         Destroy(gameObject);

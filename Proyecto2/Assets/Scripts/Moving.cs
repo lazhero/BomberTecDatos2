@@ -18,12 +18,20 @@ public class Moving : MonoBehaviour
             body.transform.rotation= angle;
 
     }
-    void Update(){   
+    /// <summary>
+    /// Dettects if the player has pressed one key
+    /// </summary>
+    void KeyPulsation()
+    {
         if     (Input.GetKey("w"))Move(-Vector3.forward,Quaternion.Euler(0, 180,0));
         else if(Input.GetKey("s"))Move(Vector3.forward,Quaternion.Euler (0,  0, 0));
         else if(Input.GetKey("d"))Move(-Vector3.right,Quaternion.Euler  (0, -90,0));
         else if(Input.GetKey("a"))Move(Vector3.right,Quaternion.Euler   (0,  90,0));
         else anim.SetBool("MOVING",false);
+    }
     
+    void Update(){   
+
+        KeyPulsation();
     }
 }

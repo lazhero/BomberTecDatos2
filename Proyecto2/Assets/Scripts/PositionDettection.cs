@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class PositionDettection : MonoBehaviour
 {
-    private MapGenerator Map;
+    private Map Map;
     private void Start()
     {
-        Map = gameObject.transform.parent.gameObject.GetComponent<MapGenerator>();
+        Map = gameObject.transform.parent.gameObject.GetComponent<Map>();
     }
 
     private void OnCollisionEnter(Collision other) {

@@ -20,19 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a67ccf67-13f3-452f-9263-1d758021505b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Proyecto2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Proyecto2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Proyecto2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Proyecto2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Block.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bomb.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bomb.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataStructures/DGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DataStructures/DGraph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/modelos/Prefabs/Bloques/ADEST.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/modelos/Prefabs/Bloques/ADEST.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DestroyAfter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DestroyAfter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GenerateBombs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GenerateBombs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Moving.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Moving.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PositionDettection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PositionDettection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/mapGenerator.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/modelos/Prefabs/Bloques/Ladrillo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/modelos/Prefabs/Bloques/Ladrillo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/modelos/Prefabs/Bloques/Reja.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/modelos/Prefabs/Bloques/Reja.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/modelos/Prefabs/Bloques/arbusto.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/modelos/Prefabs/Bloques/arbusto.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/modelos/Prefabs/Bloques/caja.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/modelos/Prefabs/Bloques/caja.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/modelos/Prefabs/Bloques/pilar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/modelos/Prefabs/Bloques/pilar.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/modelos/Prefabs/Exp1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/modelos/Prefabs/Exp1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,10 +43,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Map.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GenerateBombs.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bomb.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DataStructures/DGraph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyAfter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Block.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GroundBlock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PositionDettection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Moving.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -55,14 +58,18 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/DataStructures/OutOfIndex.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DataStructures/DirectedGraph.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Map.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/mapGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Moving.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PositionDettection.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DestroyAfter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Block.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bomb.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Moving.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DataStructures/DGraph.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GenerateBombs.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ground_Block.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GroundBlock.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Map.cs" />
       </list>
     </option>
   </component>
@@ -110,7 +117,7 @@
       <workItem from="1605901736814" duration="2119000" />
       <workItem from="1605913419648" duration="2793000" />
       <workItem from="1605923261882" duration="17783000" />
-      <workItem from="1605948689811" duration="12978000" />
+      <workItem from="1605948689811" duration="23337000" />
     </task>
     <servers />
   </component>
@@ -216,10 +223,10 @@
           <line>31</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/DataStructures/DGraph.cs" initialLine="31">
             <startOffsets>
-              <option value="739" />
+              <option value="750" />
             </startOffsets>
             <endOffsets>
-              <option value="767" />
+              <option value="778" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />

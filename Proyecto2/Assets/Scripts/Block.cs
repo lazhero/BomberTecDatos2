@@ -8,17 +8,16 @@ public class Block : MonoBehaviour
     private bool isDestroy=false;
 
 
-    /**
-     * @brief destroy the block 
-     */
+    /// <summary>
+    /// destroy the block 
+    /// </summary>
     void Destr() {
         Destroy(gameObject);
     }
 
-    /**
-     * @brief destroy the block and instantiate debris
-     * @author Adrian Gonzalez
-     */
+    /// <summary>
+    /// destroy the block and instantiate debris
+    /// </summary>
     private void DestroyMe() {
         if (!isDestructible || isDestroy) return;
         
