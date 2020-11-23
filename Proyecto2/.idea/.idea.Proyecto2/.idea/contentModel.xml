@@ -14,16 +14,13 @@
             <e p="DGraph.cs" t="Include" />
             <e p="LinkedList.cs" t="Include" />
           </e>
-          <e p="DeleteExplosion.cs" t="Include" />
           <e p="DestroyAfter.cs" t="Include" />
           <e p="Directions" t="Include">
             <e p="Directions.cs" t="Include" />
           </e>
           <e p="Expansion.cs" t="Include" />
           <e p="GenerateBombs.cs" t="Include" />
-          <e p="GlobalVars.cs" t="Include" />
           <e p="GroundBlock.cs" t="Include" />
-          <e p="JustAProve.cs" t="Include" />
           <e p="Map.cs" t="Include" />
           <e p="Moving.cs" t="Include" />
         </e>
