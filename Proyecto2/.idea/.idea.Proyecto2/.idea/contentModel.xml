@@ -21,6 +21,7 @@
           </e>
           <e p="Expansion.cs" t="Include" />
           <e p="GenerateBombs.cs" t="Include" />
+          <e p="GlobalVars.cs" t="Include" />
           <e p="GroundBlock.cs" t="Include" />
           <e p="JustAProve.cs" t="Include" />
           <e p="Map.cs" t="Include" />
