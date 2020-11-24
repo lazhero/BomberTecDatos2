@@ -84,7 +84,10 @@ namespace DataStructures
             return current;
         }
 
-
+        public void Clear()
+        {
+            this.Head = null;
+        }
         public class Node<TR> {
         
     
