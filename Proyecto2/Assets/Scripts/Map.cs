@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Linq;
-using DataStructures;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-public class Map : MonoBehaviour
-{
+public class Map : MonoBehaviour {
     [SerializeField] private GameObject indestructibleBlockPrefab;
     [SerializeField] private GameObject[] blocksPrefab;
     [SerializeField] private GameObject groundBlock;
     [SerializeField] private GameObject wallBlock;
+    [SerializeField] private GameObject cameraObj;
     [SerializeField] private int widthAndHeight = 10;
     [SerializeField] private float blockSize = 2.1f;
     [SerializeField] private bool debugMode;
@@ -18,35 +16,33 @@ public class Map : MonoBehaviour
 
     private DGraph<GameObject> Graph { get; set; }
 
-    private static int[] UP = {0, -1};
-    private static int[] DOWN = {0, 1};
+    private static int[] UP    = {0, -1};
+    private static int[] DOWN  = {0, 1};
     private static int[] RIGHT = {1, 0};
-    private static int[] LEFT = {-1, 0};
+    private static int[] LEFT  = {-1, 0};
 
     private int length;
     private int walkableBlocks = 12;
     private int[] forgivenPositions;
     private int[] visitedNodes;
+    
+        
 
-
-    void Start()
-    {
+    void Start() {
         //instancio el grafo y le asigno la cantidad de casillas que va a tener
         //luego inicializo este para que todos empiecen con un valor especifico
         // se determinan las esquinas
         //posteriormente genero el suelo
         //luego genero los demas bloques
 
+
         Graph = new DGraph<GameObject>(widthAndHeight * widthAndHeight);
         Graph.startAllWith(10);
         DetermineForgivenPositions();
         GenerateGround();
         GenerateInteractuableBlocks();
-
+        cameraObj.transform.position = DeterminesCameraPosition();
     }
-
-
-
 
 
 
@@ -102,7 +98,7 @@ public class Map : MonoBehaviour
             var groundBlockInfo = node.GetComponent<GroundBlock>();
 
 
-            if (Random.Range(0, 100) < 65)
+            if (Random.Range(0, 100) < 70)
             {
                 newBlock = Instantiate(blocksPrefab[Random.Range(0, 3)], node.transform, true);
                 walkableBlocks++;
@@ -114,7 +110,7 @@ public class Map : MonoBehaviour
                 newBlock.transform.GetChild(0).gameObject.SetActive(false);
             }
 
-            
+
             groundBlockInfo.Reset();
 
             newBlock.transform.position = node.transform.position + new Vector3(0, 1, 0);
@@ -122,16 +118,16 @@ public class Map : MonoBehaviour
             groundBlockInfo.blockObject = newBlock;
 
 
-        }    
+        }
 
-       Debug.Log("cantidad de bloques caminables : " + walkableBlocks);
+        /*
+        Debug.Log("cantidad de bloques caminables : " + walkableBlocks);
         Debug.Log(message: "cantidad de bloques NOcaminables : " +(int) (Math.Pow(widthAndHeight - 2, 2) - walkableBlocks));
         Debug.Log("tiene areas cerradas : " + !BackTracking());
-
-        if(BackTracking()) return;
-        Debug.Log("generando mapa otra vez");
+        */
+        if (BackTracking()) return;
         walkableBlocks = 12;
-        Invoke(nameof(GenerateInteractuableBlocks),3);
+        Invoke(nameof(GenerateInteractuableBlocks), 0.1f);
 
 
     }
@@ -173,8 +169,7 @@ public class Map : MonoBehaviour
     /// this calculates who is up, down , left, or right depending on a Vector2 (x,y) return -1 if the direction is not possible
     /// (1,0) is right (0,1) is up
     /// </summary>
-    private int WhoIs(int[] direction)
-    {
+    private int WhoIs(int[] direction) {
         return WhoIs(length, direction);
     }
 
@@ -182,18 +177,17 @@ public class Map : MonoBehaviour
     /// this calculates who is up, down , left, or right depending on a Vector2 (x,y) return -1 if the direction is not possible
     /// (1,0) is right (0,1) is up
     /// </summary>
-    private int WhoIs(int BlockNumber, int[] direction)
-    {
+    private int WhoIs(int blockNumber, int[] direction) {
+        if (!ValidateDirection(direction, blockNumber)) return -1;
 
-        if (!ValidateDirection(direction, BlockNumber)) return -1;
-
-        return Convert.ToInt32(BlockNumber + direction[0] + direction[1] * widthAndHeight);
+        return Convert.ToInt32(blockNumber + direction[0] + direction[1] * widthAndHeight);
 
     }
 
-    private int DettectWalkable(int BlockNumber, int[] direction) {
-        var response=WhoIs(BlockNumber,direction);
-        
+    private int DetectWalkable(int blockNumber, int[] direction)
+    {
+        var response = WhoIs(blockNumber, direction);
+
         if (IsSide(response)) return -1;
 
 
@@ -205,7 +199,8 @@ public class Map : MonoBehaviour
     /// validates certain direction from given block number, THIS IS ONLY FOR MAP GENERATION
     /// you dont need to know how it works
     /// </summary>
-    private bool ValidateDirection(int[] direction, int blockNumber) {
+    private bool ValidateDirection(int[] direction, int blockNumber)
+    {
 
         //si estoy en un borde izquierdo y me preguntan por su izquierdo
         //si estoy en un borde derecho y me preguntan por su derecho        
@@ -224,17 +219,45 @@ public class Map : MonoBehaviour
 
     }
 
-
-    
-    private bool BackTracking() {
-        visitedNodes = new int[walkableBlocks];  //espero visitar todos los nodos caminables
-        var contador = BackTrackingAux(forgivenPositions[0], 0);
-        Debug.Log("Casillas exploradas : "+contador);
-        return  contador== walkableBlocks ;
-    }
-    
-    private int BackTrackingAux(int BlockNumber, int cont)
+    /// <summary>
+    /// Determines center and height that camera must be
+    /// </summary>
+    /// <returns></returns>
+    private Vector3 DeterminesCameraPosition()
     {
+        var totalX = 0f;
+        var totalZ = 0f;
+        foreach (var blokc in Graph.Nodes)
+        {
+            totalX += blokc.transform.position.x;
+            totalZ += blokc.transform.position.z;
+        }
+
+        var len = Graph.Nodes.Length;
+        var centerX = totalX / len;
+        var centerZ = totalZ / len;
+        var height = widthAndHeight * 1.5f;
+        return new Vector3(centerX , height,centerZ*2);
+    }
+
+    /// <summary>
+    /// Explores all the map looking for closed areas, if they are, returns false, compare if the visited nodes match with walkable blocks number
+    /// </summary>
+    /// <returns>bool</returns>
+    private bool BackTracking() {
+        
+        visitedNodes = new int[walkableBlocks]; //espero visitar todos los nodos caminables
+        var contador = BackTrackingAux(forgivenPositions[0], 0);
+        return contador == walkableBlocks;
+    }
+
+    /// <summary>
+    /// Explores all nodes recursively , ask if it is a walkable one, if true, the counter increases
+    /// </summary>
+    /// <param name="BlockNumber"></param>
+    /// <param name="cont"></param>
+    /// <returns> int how many nodes it visited</returns>
+    private int BackTrackingAux(int BlockNumber, int cont) {
 
         if (IsSide(BlockNumber)) return cont;
         var blockInfo= Graph.getNode(BlockNumber).GetComponent<GroundBlock>();
@@ -246,15 +269,15 @@ public class Map : MonoBehaviour
         visitedNodes[cont] = BlockNumber;
         cont++;
 
-        var BlockUp    = DettectWalkable(BlockNumber, UP);
-        var BlockDown  = DettectWalkable(BlockNumber, DOWN);
-        var BlockLeft  = DettectWalkable(BlockNumber, LEFT);
-        var BlockRight = DettectWalkable(BlockNumber, RIGHT);
+        var blockUp    = DetectWalkable(BlockNumber, UP);
+        var blockDown  = DetectWalkable(BlockNumber, DOWN);
+        var blockLeft  = DetectWalkable(BlockNumber, LEFT);
+        var blockRight = DetectWalkable(BlockNumber, RIGHT);
             
-        if (BlockUp    > 0)    cont = BackTrackingAux(BlockUp   , cont);
-        if (BlockDown  > 0)    cont = BackTrackingAux(BlockDown , cont);
-        if (BlockLeft  > 0)    cont = BackTrackingAux(BlockLeft , cont);
-        if (BlockRight > 0)    cont = BackTrackingAux(BlockRight, cont);
+        if (blockUp    > 0)    cont = BackTrackingAux(blockUp   , cont);
+        if (blockDown  > 0)    cont = BackTrackingAux(blockDown , cont);
+        if (blockLeft  > 0)    cont = BackTrackingAux(blockLeft , cont);
+        if (blockRight > 0)    cont = BackTrackingAux(blockRight, cont);
 
 
 

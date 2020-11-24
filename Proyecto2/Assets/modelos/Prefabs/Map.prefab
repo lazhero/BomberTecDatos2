@@ -57,3 +57,5 @@ MonoBehaviour:
   blockSize: 1.9
   debugMode: 0
   normalCost: 10
+  camera: {fileID: 0}
+  height: 0
