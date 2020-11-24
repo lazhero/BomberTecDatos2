@@ -32,7 +32,7 @@ public class Map : MonoBehaviour
         Graph.startAllWith(10);
         
         GenerateGround();
-        GenerateInteractuableBlocks();
+       // GenerateInteractuableBlocks();
         
     }
 
