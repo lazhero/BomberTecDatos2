@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1756847025045234986}
   - component: {fileID: 1756847025045234984}
   - component: {fileID: 670176532049723850}
+  - component: {fileID: 1804497948407311856}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -60,8 +61,27 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3976517, y: 2.2468622, z: 1.037765}
-  m_Center: {x: 0.074187994, y: -0.6234311, z: 0.4734857}
+  m_Size: {x: 1.3976517, y: 2.2468622, z: 0.7970915}
+  m_Center: {x: 0.074187994, y: -0.6234311, z: 0.07284784}
+--- !u!114 &1804497948407311856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756847025045234989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c94f0b218164e6dbeb1503989647ba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 0.5
+  currentBlock: {fileID: 0}
+  bomba: {fileID: 6055081531133671717, guid: c68b45bfa2083864fa57543c37d77d01, type: 3}
+  MyMap: {fileID: 0}
+  currentDir: {x: 0, y: 0, z: 0}
+  currentRot: {x: 0, y: 0, z: 0, w: 0}
+  currentObjetive: 0
 --- !u!1 &3518296077902071542
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +272,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6570842457304896318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.65}
+  m_LocalPosition: {x: 0, y: 0, z: 0.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5050289809760551833}
@@ -294,8 +314,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8583009, y: 0.7166922, z: 0.43445683}
-  m_Center: {x: 0.07084954, y: -1.6395966, z: -0.2266283}
+  m_Size: {x: 0.85785675, y: 0.8613348, z: 0.46317768}
+  m_Center: {x: 0.07991028, y: -1.5672753, z: -0.18456888}
 --- !u!114 &4624288781392934080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomba: {fileID: 6055081531133671717, guid: c68b45bfa2083864fa57543c37d77d01, type: 3}
-  pos: {x: 0, y: 0, z: 0}
+  cont: {fileID: 0}
 --- !u!54 &5077896736081343511
 Rigidbody:
   m_ObjectHideFlags: 0

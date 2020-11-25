@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4229722434491082357}
   m_Layer: 0
   m_Name: Map
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,9 +53,9 @@ MonoBehaviour:
     type: 3}
   wallBlock: {fileID: 5316421468368695437, guid: 63c554f25c740a0489330cc9b8b5a098,
     type: 3}
+  cameraObj: {fileID: 0}
   widthAndHeight: 10
   blockSize: 1.9
   debugMode: 0
   normalCost: 10
-  camera: {fileID: 0}
-  height: 0
+  generateMap: 1

@@ -13,14 +13,14 @@ public class Map : MonoBehaviour {
     [SerializeField] private float blockSize = 2.1f;
     [SerializeField] private bool debugMode;
     [SerializeField] private int normalCost = 10;
-
+    [SerializeField] private bool generateMap = true;
     private DGraph<GameObject> Graph { get; set; }
 
     private static int[] UP    = {0, -1};
     private static int[] DOWN  = {0, 1};
     private static int[] RIGHT = {1, 0};
     private static int[] LEFT  = {-1, 0};
-
+    
     private int length;
     private int walkableBlocks = 12;
     private int[] forgivenPositions;
@@ -40,7 +40,7 @@ public class Map : MonoBehaviour {
         Graph.startAllWith(10);
         DetermineForgivenPositions();
         GenerateGround();
-        GenerateInteractuableBlocks();
+        if(generateMap) GenerateInteractuableBlocks();
         cameraObj.transform.position = DeterminesCameraPosition();
     }
 
@@ -184,13 +184,12 @@ public class Map : MonoBehaviour {
 
     }
 
-    private int DetectWalkable(int blockNumber, int[] direction)
+    public int DetectWalkable(int blockNumber, int[] direction)
     {
         var response = WhoIs(blockNumber, direction);
 
         if (IsSide(response)) return -1;
-
-
+        
         return response;
 
     }
