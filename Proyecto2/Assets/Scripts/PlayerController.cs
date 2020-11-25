@@ -11,6 +11,8 @@ public class PlayerController:Controller
         else if(Input.GetKey("d"))Move(-Vector3.right,Quaternion.Euler  (0, -90,0));
         else if(Input.GetKey("a"))Move(Vector3.right,Quaternion.Euler   (0,  90,0));
         else setMoving(false);
+        if (Input.GetKeyDown("space")) GenerateBomb();
+        
     }
     
     void Update(){   

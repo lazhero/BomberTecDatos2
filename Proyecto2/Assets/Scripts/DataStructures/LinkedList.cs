@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace DataStructures
 {
@@ -56,7 +57,25 @@ namespace DataStructures
             Len--;
 
         }
+        public void Remove(T value){
+            var current = this.Head;
+            var removeInd=0;
+            for (var i = 0; i < Len; i++)
+            {
+                
+                if (Comparer<T>.Default.Compare(value, current.Data) == 0)
+                {
+                        Remove(removeInd);
+                }
 
+                else
+                {
+                    removeInd++;
+                    current = current.Next;
+                }
+            }    
+
+        }
         public T Get(int index)
         {
 
