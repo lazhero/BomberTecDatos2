@@ -1,12 +1,11 @@
-﻿using System;
-using UnityEngine;
-
+﻿﻿
+using System;
 
 public class DGraph<T> 
 {
     public T[] Nodes{ set; get; }
     public float[][] relations{ set; get; }
-    private int maxNodeRelations { set; get; } = 4;
+    private int nodesNumber;
     /**
      * @brief Constructor
      * @param int cuantity of nodes
@@ -15,6 +14,8 @@ public class DGraph<T>
         
         Nodes = new T[nodesNumber];
         relations=new float[nodesNumber][];
+        this.nodesNumber = nodesNumber;
+        startAllWith(Int32.MaxValue);
 
     }
 
@@ -32,15 +33,20 @@ public class DGraph<T>
         relations[from][to] = price;
     }
 
-    public float[] GetRelationShip(int from, int to) {
+    public float GetRelationShip(int from, int to) {
         if (!OnRange(from)||!OnRange(to)) throw new IndexOutOfRangeException();
      
-        return relations[from];
+        return relations[from][to];
     }
     public float[] GetRelations(int from) {
       
      
         return relations[from];
+    }
+
+    public float[][] GetAllRelations()
+    {
+        return relations;
     }
     private bool OnRange(int pos) {
         return pos >= 0 && pos < relations.Length;
@@ -52,13 +58,14 @@ public class DGraph<T>
     {
         
         for (var i = 0; i < Nodes.Length; i++) {
-            relations[i] = new float[maxNodeRelations];
+            relations[i] = new float[nodesNumber];
             
-            for (var j = 0; j < maxNodeRelations; j++) {
+            for (var j = 0; j < nodesNumber; j++) {
                 relations[i][j] = value;
             }
 
         }
     }
+    
     
 }
