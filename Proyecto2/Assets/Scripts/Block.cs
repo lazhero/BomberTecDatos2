@@ -3,6 +3,8 @@
 public class Block : MonoBehaviour
 {
 
+    public GameObject ham;
+
     [SerializeField]
     public bool isDestructible;
     
@@ -28,7 +30,10 @@ public class Block : MonoBehaviour
         producto.transform.position = transform.position;
                     
         Invoke("Destr",0.1f);
-
+        
+        GameObject myHam = Instantiate(ham);
+        ham.transform.position = producto.transform.position + new Vector3(0, 1.5f, 0);
+        
     }
 
 }

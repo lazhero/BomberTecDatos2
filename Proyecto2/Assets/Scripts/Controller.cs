@@ -12,6 +12,8 @@ public abstract class Controller : MonoBehaviour
     public GameObject bomba;
     public Map MyMap;
 
+    public GameObject ham;
+
     protected void Start()
     {
         MyMap = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
@@ -33,6 +35,12 @@ public abstract class Controller : MonoBehaviour
             GameObject bombita = Instantiate(bomba);
             bombita.transform.position = currentBlock.transform.position + new Vector3(0, 1.5f, 0);
         
+    }
+
+    protected void GenerateHam()
+    {
+        GameObject myHam = Instantiate(ham);
+        ham.transform.position = currentBlock.transform.position + new Vector3(0, 1.5f, 0);
     }
 
 }
