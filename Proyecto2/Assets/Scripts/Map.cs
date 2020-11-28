@@ -2,6 +2,8 @@
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using AStar;
+using System.Collections.Generic;
 
 public class Map : MonoBehaviour {
     [SerializeField] private GameObject indestructibleBlockPrefab;
@@ -37,11 +39,52 @@ public class Map : MonoBehaviour {
 
 
         Graph = new DGraph<GameObject>(widthAndHeight * widthAndHeight);
-        Graph.startAllWith(10);
         DetermineForgivenPositions();
         GenerateGround();
-        if(generateMap) GenerateInteractuableBlocks();
+       if(generateMap) GenerateInteractuableBlocks();
+       linkGraph();
         cameraObj.transform.position = DeterminesCameraPosition();
+        justAPrint();
+    }
+
+    void justAPrint()
+    {
+        
+        //Debug.Log("Voy a entrar a ver las relaciones");
+        float[] relations = Graph.GetRelations(65);
+        for (int i = 0; i < relations.Length; i++)
+        {
+            if (relations[i] < Int32.MaxValue)
+            {
+                //Debug.Log(i);
+            }
+        }
+    }
+
+    void linkGraph()
+    {
+        for (int i = 0; i < widthAndHeight*widthAndHeight; i++)
+        {
+            if (i + widthAndHeight < widthAndHeight*widthAndHeight)
+            {
+                Graph.SetRelationShip(i,i+widthAndHeight,10);
+            }
+
+            if (i - widthAndHeight >= 0)
+            {
+                Graph.SetRelationShip(i,i-widthAndHeight,10);
+            }
+
+            if ((int)(i / widthAndHeight) ==(int) ((i + 1) / widthAndHeight))
+            {
+                Graph.SetRelationShip(i,i+1,10);
+            }
+
+            if ((int)(i % widthAndHeight) == (int)((i - 1) % widthAndHeight))
+            {
+                Graph.SetRelationShip(i,i-1,10);
+            }
+        }
     }
 
 
@@ -63,12 +106,7 @@ public class Map : MonoBehaviour {
 
 
         Graph.setNodeData(length, newBlock);
-        LinkWithBlock(UP, 0);
-        LinkWithBlock(DOWN, 1);
-        LinkWithBlock(LEFT, 2);
-        LinkWithBlock(RIGHT, 3);
-
-
+        
         // ! DebugThing ERASE LATER --------------------------------------------------->
         if (debugMode)
             newBlock.transform.GetChild(0).gameObject.GetComponent<TextMesh>().text = length.ToString();
@@ -160,8 +198,7 @@ public class Map : MonoBehaviour {
     {
 
         if (WhoIs(dir) != -1 && dir != null)
-
-            Graph.SetRelationShip(length, pos, WhoIs(dir));
+            Graph.SetRelationShip(length,WhoIs(dir) ,100 );
     }
 
 
@@ -342,5 +379,30 @@ public class Map : MonoBehaviour {
         forgivenPositions[10] = n2-2*n -2 ;
         forgivenPositions[11] = n2-n -   3;
     }
+
+    public GameObject[] getRoute(int start, int end)
+    {
+      //  Debug.Log("Pos he llegado");
+       // Debug.Log("El row number es "+widthAndHeight);
+       AStarResponse response= AStar.AStar<GameObject>.getRoute(Graph, start, end, widthAndHeight);
+       Stack<int> positions = response.route;
+      // Debug.Log("El len del stack es "+positions.Count);
+       positions.Pop();
+       GameObject[] squaresArray=new GameObject[positions.Count];
+       int i = 0;
+       int pos;
+       
+       while (positions.Count > 0)
+       {
+           pos = positions.Pop();
+           //Debug.Log("La posicion a visitar es "+pos);
+           squaresArray[i] = Graph.getNode(pos);
+           i++;
+       }
+
+       return squaresArray;
+
+    }
+    
 
 }
