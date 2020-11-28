@@ -22,16 +22,15 @@ public abstract class Controller : MonoBehaviour
     protected void Move(Vector3 dir, Quaternion angle)
     {
         anim.SetBool("MOVING", true);
-        gameObject.transform.Translate(dir * (velocidad * Time.deltaTime));
-        body.transform.rotation = angle;
+        gameObject.transform.Translate(dir * (velocidad * Time.deltaTime),Space.World);
+     //   body.transform.rotation = angle;
 
     }
 
     protected void GenerateBomb()
     {
-            
-            GameObject bombita = Instantiate(bomba);
-            bombita.transform.position = currentBlock.transform.position + new Vector3(0, 1.5f, 0);
+        GameObject bombita = Instantiate(bomba);
+        bombita.transform.position = currentBlock.transform.position + new Vector3(0, 1.5f, 0);
         
     }
 
