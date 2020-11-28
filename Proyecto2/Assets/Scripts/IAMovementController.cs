@@ -32,7 +32,6 @@ public class IAMovementController:Controller
         private void AddMovement(int endpos)
         {
                 int currentPosition=Int32.Parse(currentBlock.name);
-                Debug.Log("The current position es "+currentPosition);
                 GameObject[] objects = MyMap.getRoute(currentPosition, endpos);
                 for (int i = 0; i < objects.Length; i++)
                 {
@@ -44,7 +43,7 @@ public class IAMovementController:Controller
         private void Update()
         {
                 moving();
-               if (Input.GetKey(KeyCode.K))
+               if (Input.GetKeyDown(KeyCode.K))
                { 
                        teinvocosatanas();
                        
@@ -59,6 +58,7 @@ public class IAMovementController:Controller
                         Vector3 goal = directions.Peek().transform.position;
                         Vector3 currentPosition = gameObject.transform.position;
                         goal.y = currentPosition.y;
+
                        // Debug.Log("El vector goal es "+goal);
                        // Debug.Log("El vector current es "+currentPosition);
                         if (Vector3.Distance(currentPosition, goal) < 2.0) 
@@ -67,8 +67,14 @@ public class IAMovementController:Controller
                         }
                         else
                         {
-                                gameObject.transform.position = Vector3.MoveTowards(goal, currentPosition, velocidad);
+                                Move(Vector3.Normalize(goal - currentPosition));
+                                gameObject.transform.position += Vector3.Normalize(goal - currentPosition)*Time.deltaTime;
+                                //gameObject.transform.position = Vector3.MoveTowards(goal, currentPosition, velocidad);
                         }
+                }
+                else
+                {
+                        anim.SetBool("MOVING",false);
                 }
                 
         }

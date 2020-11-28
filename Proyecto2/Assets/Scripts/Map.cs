@@ -41,7 +41,7 @@ public class Map : MonoBehaviour {
         Graph = new DGraph<GameObject>(widthAndHeight * widthAndHeight);
         DetermineForgivenPositions();
         GenerateGround();
-       // if(generateMap) GenerateInteractuableBlocks();
+       if(generateMap) GenerateInteractuableBlocks();
        linkGraph();
         cameraObj.transform.position = DeterminesCameraPosition();
         justAPrint();
@@ -50,13 +50,13 @@ public class Map : MonoBehaviour {
     void justAPrint()
     {
         
-        Debug.Log("Voy a entrar a ver las relaciones");
+        //Debug.Log("Voy a entrar a ver las relaciones");
         float[] relations = Graph.GetRelations(65);
         for (int i = 0; i < relations.Length; i++)
         {
             if (relations[i] < Int32.MaxValue)
             {
-                Debug.Log(i);
+                //Debug.Log(i);
             }
         }
     }
@@ -395,7 +395,7 @@ public class Map : MonoBehaviour {
        while (positions.Count > 0)
        {
            pos = positions.Pop();
-           Debug.Log("La posicion a visitar es "+pos);
+           //Debug.Log("La posicion a visitar es "+pos);
            squaresArray[i] = Graph.getNode(pos);
            i++;
        }
