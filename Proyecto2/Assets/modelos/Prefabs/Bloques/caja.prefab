@@ -95,6 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a08e0fe7a4d4a4c99355a5e8d77317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  consumable: {fileID: 7687783748659496466, guid: 5da4f0b49f8085c0fa57c1feee6d100b,
+    type: 3}
   isDestructible: 1
   dead_Object: {fileID: 8647978030150556167, guid: 41cd0859c53015346bbbc356359adbc8,
     type: 3}
