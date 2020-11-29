@@ -21,19 +21,26 @@ public abstract class Controller : MonoBehaviour
         anim = body.GetComponent<Animator>();
     }
 
-    protected void Move(Vector3 dir, Quaternion angle)
+    protected void Move(Vector3 dir)
     {
+
+        var x = dir[0]*90 + ((int) (1 - dir[2]) / 2) * 180;
+        Debug.Log("_______");
+        Debug.Log(dir);
+        Debug.Log(x);
+        Debug.Log("_______");
+        var angle = Quaternion.Euler(0,x , 0);
+        
         anim.SetBool("MOVING", true);
-        gameObject.transform.Translate(dir * (velocidad * Time.deltaTime));
+        gameObject.transform.Translate(dir * (velocidad * Time.deltaTime),Space.World);
         body.transform.rotation = angle;
 
     }
 
     protected void GenerateBomb()
     {
-            
-            GameObject bombita = Instantiate(bomba);
-            bombita.transform.position = currentBlock.transform.position + new Vector3(0, 1.5f, 0);
+        GameObject bombita = Instantiate(bomba);
+        bombita.transform.position = currentBlock.transform.position + new Vector3(0, 1.5f, 0);
         
     }
 
