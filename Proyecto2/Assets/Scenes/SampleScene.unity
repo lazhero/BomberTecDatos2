@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641252, b: 0.574817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -298,6 +298,7 @@ MonoBehaviour:
   currentBlock: {fileID: 0}
   bomba: {fileID: 6055081531133671717, guid: c68b45bfa2083864fa57543c37d77d01, type: 3}
   MyMap: {fileID: 0}
+  ham: {fileID: 1103729609193184, guid: b5633769281ca0940b368cbed17b7ec0, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

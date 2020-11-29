@@ -13,6 +13,8 @@ public class PlayerController:Controller
         else setMoving(false);
         if (Input.GetKeyDown("space")) GenerateBomb();
         
+        if (Input.GetKey("h")) GenerateHam();
+        
     }
     
     void Update(){   
