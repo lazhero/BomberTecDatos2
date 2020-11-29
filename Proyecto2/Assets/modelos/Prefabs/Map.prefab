@@ -59,3 +59,4 @@ MonoBehaviour:
   debugMode: 0
   normalCost: 10
   generateMap: 1
+  ham: {fileID: 1103729609193184, guid: b5633769281ca0940b368cbed17b7ec0, type: 3}

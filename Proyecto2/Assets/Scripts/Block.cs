@@ -25,6 +25,9 @@ public class Block : MonoBehaviour
     public void DestroyMe() {
         if (!isDestructible || isDestroy) return;
         
+
+        
+        
         isDestroy = true;
         var producto= Instantiate(dead_Object);
         producto.transform.position = transform.position;
@@ -32,8 +35,8 @@ public class Block : MonoBehaviour
         Invoke("Destr",0.1f);
         
         GameObject myHam = Instantiate(ham);
-        ham.transform.position = producto.transform.position + new Vector3(0, 1.5f, 0);
-        
+        ham.transform.position = gameObject.transform.position + new Vector3(0, 1.5f, 0);
+        Debug.Log("Ham created");
     }
 
 }
