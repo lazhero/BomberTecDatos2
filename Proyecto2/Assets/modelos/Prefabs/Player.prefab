@@ -255,6 +255,7 @@ MonoBehaviour:
   currentBlock: {fileID: 0}
   bomba: {fileID: 6055081531133671717, guid: c68b45bfa2083864fa57543c37d77d01, type: 3}
   MyMap: {fileID: 0}
+  ham: {fileID: 0}
 --- !u!1 &5409885986347618230
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,7 +591,7 @@ GameObject:
   - component: {fileID: 4352194388896552494}
   - component: {fileID: 3964570045886698777}
   - component: {fileID: 5409215414312581841}
-  - component: {fileID: 8019132309591987560}
+  - component: {fileID: 9124077149156381332}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -650,7 +651,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.2638874, z: 1.0326462}
   m_Center: {x: 0, y: -0.6319437, z: -0.1791048}
---- !u!114 &8019132309591987560
+--- !u!114 &9124077149156381332
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

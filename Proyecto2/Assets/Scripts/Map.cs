@@ -4,6 +4,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using AStar;
 using System.Collections.Generic;
+using SquaredMapTools;
 
 public class Map : MonoBehaviour {
     [SerializeField] private GameObject indestructibleBlockPrefab;
@@ -82,6 +83,7 @@ public class Map : MonoBehaviour {
         Graph.SetRelationShip(start,end,price);
     }
 
+   
 
     /// <summary>
     ///  Instantiate one Block of newObject prefab Specified, with x,y,z coordinates and associate it with the graph
@@ -251,6 +253,11 @@ public class Map : MonoBehaviour {
 
        return squaresArray;
 
+    }
+
+    public void BlockDestroyed(int node)
+    {
+        setRelations(node,normalCost,true);
     }
     
 
