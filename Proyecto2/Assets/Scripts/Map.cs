@@ -27,7 +27,7 @@ public class Map : MonoBehaviour {
     private int walkableBlocks = 12;
     private int[] forgivenPositions;
     private int[] visitedNodes;
-    
+
         
 
     void Start() {

@@ -3,7 +3,7 @@
 public class Block : MonoBehaviour
 {
 
-    public GameObject ham;
+    public GameObject consumable;
 
     [SerializeField]
     public bool isDestructible;
@@ -25,15 +25,18 @@ public class Block : MonoBehaviour
     public void DestroyMe() {
         if (!isDestructible || isDestroy) return;
         
+
+        
+        
         isDestroy = true;
         var producto= Instantiate(dead_Object);
         producto.transform.position = transform.position;
                     
         Invoke("Destr",0.1f);
         
-        GameObject myHam = Instantiate(ham);
-        ham.transform.position = producto.transform.position + new Vector3(0, 1.5f, 0);
-        
+        GameObject myConsumable = Instantiate(consumable);
+        consumable.transform.position = gameObject.transform.position + new Vector3(0, 1.5f, 0);
+        Debug.Log("Consumable created");
     }
 
 }

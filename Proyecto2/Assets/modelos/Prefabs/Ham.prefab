@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 4554513892849508}
   - component: {fileID: 33103959567057624}
   - component: {fileID: 23370536939774252}
+  - component: {fileID: 1467791798034034207}
   - component: {fileID: 114042813152422014}
+  - component: {fileID: -1070749374522983441}
   m_Layer: 0
   m_Name: Ham
   m_TagString: Untagged
@@ -27,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103729609193184}
   m_LocalRotation: {x: -0.18301314, y: -0.6830158, z: 0.18301141, w: -0.6830098}
-  m_LocalPosition: {x: -8.4727545, y: 3.6106339, z: 10.143595}
+  m_LocalPosition: {x: -11.4, y: 2.5, z: 7.6}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4418294654674036}
@@ -86,7 +88,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &114042813152422014
+--- !u!114 &1467791798034034207
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,9 +97,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 1103729609193184}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb665e6b457dde54ca57ab8ace9c2a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthRestoration: 1
+  baseballBat: 0
+  shield: 0
+--- !u!114 &114042813152422014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103729609193184}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3abfc7198c85ce649bd21dd41e50b870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &-1070749374522983441
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103729609193184}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.044380438, y: 0.03244918, z: 0.22628468}
+  m_Center: {x: -0.00008741959, y: 0.0015709982, z: 9.8724307e-11}
 --- !u!1 &1183062911300714
 GameObject:
   m_ObjectHideFlags: 0
