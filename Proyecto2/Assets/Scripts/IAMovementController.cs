@@ -32,7 +32,7 @@ public class IAMovementController:Controller
         private void AddMovement(int endpos)
         {
                 int currentPosition=Int32.Parse(currentBlock.name);
-                GameObject[] objects = MyMap.getRoute(currentPosition, endpos);
+                GameObject[] objects = MyMap.GetRoute(currentPosition, endpos);
                 for (int i = 0; i < objects.Length; i++)
                 {
                         directions.Enqueue(objects[i]);
