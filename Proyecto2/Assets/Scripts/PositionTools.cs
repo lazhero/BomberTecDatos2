@@ -51,7 +51,7 @@ public class PositionTools
     /// </summary>
     public  int[] DetermineForgivenPositions(int n) {
         var n2 = n * n;
-        ForgivenPositions = new int[12];
+        ForgivenPositions = new int[28];
              
         ForgivenPositions[0] = n + 1;
         ForgivenPositions[1] = n + 2;
@@ -68,6 +68,30 @@ public class PositionTools
         ForgivenPositions[9] = n2- n -2 ;
         ForgivenPositions[10] = n2-2*n -2 ;
         ForgivenPositions[11] = n2-n -   3;
+
+        var c = n / 2 + n;
+        ForgivenPositions[12] = c + 1;
+        ForgivenPositions[13] = c - 1;
+        ForgivenPositions[14] = c + n;
+        ForgivenPositions[15] = c;
+
+        c = (n2 - 1) - WidthAndHeight/2 - n;
+        ForgivenPositions[16] = c-n;
+        ForgivenPositions[17] = c-1;
+        ForgivenPositions[18] = c+1;
+        ForgivenPositions[19] = c;
+        
+        c = n2 /2 - WidthAndHeight/2 + 1;
+        ForgivenPositions[20] = c-n;
+        ForgivenPositions[21] = c+n;
+        ForgivenPositions[22] = c+1;
+        ForgivenPositions[23] = c;
+      
+        c = c+WidthAndHeight-3;
+        ForgivenPositions[24] = c-n;
+        ForgivenPositions[25] = c+n;
+        ForgivenPositions[26] = c-1;
+        ForgivenPositions[27] = c;
 
         return ForgivenPositions;
     }
