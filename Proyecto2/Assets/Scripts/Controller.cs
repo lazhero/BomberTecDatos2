@@ -12,7 +12,7 @@ public abstract class Controller : MonoBehaviour
     public GameObject bomba;
     public Map MyMap;
 
-    public GameObject ham;
+    //public GameObject ham;
 
     protected void Start()
     {
@@ -44,10 +44,10 @@ public abstract class Controller : MonoBehaviour
         
     }
 
-    protected void GenerateHam()
+    /*protected void GenerateHam()
     {
         GameObject myHam = Instantiate(ham);
         ham.transform.position = currentBlock.transform.position + new Vector3(0, 1.5f, 0);
-    }
+    }*/
 
 }
