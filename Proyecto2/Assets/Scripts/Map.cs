@@ -4,6 +4,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using AStar;
 using System.Collections.Generic;
+using SquaredMapTools;
 
 public class Map : MonoBehaviour {
     [SerializeField] private GameObject indestructibleBlockPrefab;
@@ -63,29 +64,31 @@ public class Map : MonoBehaviour {
 
     void linkGraph()
     {
+        
         for (int i = 0; i < widthAndHeight*widthAndHeight; i++)
         {
-            if (i + widthAndHeight < widthAndHeight*widthAndHeight)
-            {
-                Graph.SetRelationShip(i,i+widthAndHeight,10);
-            }
-
-            if (i - widthAndHeight >= 0)
-            {
-                Graph.SetRelationShip(i,i-widthAndHeight,10);
-            }
-
-            if ((int)(i / widthAndHeight) ==(int) ((i + 1) / widthAndHeight))
-            {
-                Graph.SetRelationShip(i,i+1,10);
-            }
-
-            if ((int)(i % widthAndHeight) == (int)((i - 1) % widthAndHeight))
-            {
-                Graph.SetRelationShip(i,i-1,10);
-            }
+            setRelations(i,normalCost,false);
         }
     }
+
+    private void setRelations(int node, int price,bool reverse)
+    {
+        Stack<int> relatedNodes;
+        relatedNodes = PositionTools.getRelatedPositions(node, widthAndHeight);
+        while (relatedNodes.Count > 0)
+        {
+            if(!reverse) setRelation(node,relatedNodes.Pop(),price);
+            else setRelation(relatedNodes.Pop(),node,price);
+        }
+
+    }
+
+    private void setRelation(int start, int end,float price)
+    {
+        Graph.SetRelationShip(start,end,price);
+    }
+
+   
 
 
 
@@ -402,6 +405,11 @@ public class Map : MonoBehaviour {
 
        return squaresArray;
 
+    }
+
+    public void BlockDestroyed(int node)
+    {
+        setRelations(node,normalCost,true);
     }
     
 

@@ -35,12 +35,15 @@
             <e p="Directions.cs" t="Include" />
           </e>
           <e p="Expansion.cs" t="Include" />
-          <e p="GenerateBombs.cs" t="Include" />
           <e p="GroundBlock.cs" t="Include" />
           <e p="IAMovementController.cs" t="Include" />
           <e p="Map.cs" t="Include" />
           <e p="Moving.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
+          <e p="PositionDetection.cs" t="Include" />
+          <e p="SquaredMapTools" t="Include">
+            <e p="PositionTools.cs" t="Include" />
+          </e>
           <e p="Stats.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
@@ -75,10 +78,10 @@
           </e>
         </e>
       </e>
-      <e p="Proyecto2.sln" t="IncludeFlat" />
-      <e p="Temp/bin" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
+      <e p="Proyecto2.sln" t="IncludeFlat" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
   </component>
 </project>

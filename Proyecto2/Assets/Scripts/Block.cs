@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Block : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class Block : MonoBehaviour
     /// </summary>
     void Destr() {
         Destroy(gameObject);
+       // Debug.Log("Mi padre es "+gameObject.transform.parent.name);
+        int myPos=Int32.Parse(gameObject.transform.parent.name);
+        
+        transform.parent.gameObject.transform.parent.SendMessage("BlockDestroyed",myPos);
     }
 
     /// <summary>

@@ -33,8 +33,10 @@ public class IAMovementController:Controller
         {
                 int currentPosition=Int32.Parse(currentBlock.name);
                 GameObject[] objects = MyMap.getRoute(currentPosition, endpos);
+                Debug.Log("The route is ");
                 for (int i = 0; i < objects.Length; i++)
                 {
+                        Debug.Log(objects[i].name);
                         directions.Enqueue(objects[i]);
                 }
 
@@ -61,7 +63,7 @@ public class IAMovementController:Controller
 
                        // Debug.Log("El vector goal es "+goal);
                        // Debug.Log("El vector current es "+currentPosition);
-                        if (Vector3.Distance(currentPosition, goal) < 2.0) 
+                        if (Vector3.Distance(currentPosition, goal) <0.1 ) 
                         {
                                 directions.Dequeue();
                         }
