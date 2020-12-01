@@ -11,6 +11,7 @@
             <e p="Documentation.txt" t="Include" />
           </e>
         </e>
+        <e p="Player.cs" t="Include" />
         <e p="RPG Food &amp; Drinks Pack" t="Include">
           <e p="Assets" t="Include">
             <e p="Scripts" t="Include">

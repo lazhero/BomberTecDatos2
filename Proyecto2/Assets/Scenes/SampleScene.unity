@@ -680,6 +680,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1163823214}
     m_Modifications:
+    - target: {fileID: 1054120004119841767, guid: 8d48236cd571fa9c8a46c4435d19a62e,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 48
+      objectReference: {fileID: 0}
     - target: {fileID: 1054120005497499797, guid: 8d48236cd571fa9c8a46c4435d19a62e,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -797,6 +802,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d48236cd571fa9c8a46c4435d19a62e, type: 3}
+--- !u!224 &1054120005413086751 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1054120004119841767, guid: 8d48236cd571fa9c8a46c4435d19a62e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1054120005413086750}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3964570047443648919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -804,6 +815,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3327271381446994589, guid: 7c9f9a975dc64034eb738a9d9671062e,
+        type: 3}
+      propertyPath: heartUI
+      value: 
+      objectReference: {fileID: 1054120005413086751}
+    - target: {fileID: -3327271381446994589, guid: 7c9f9a975dc64034eb738a9d9671062e,
+        type: 3}
+      propertyPath: totalHealth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2046874437177611960, guid: 7c9f9a975dc64034eb738a9d9671062e,
         type: 3}
       propertyPath: m_Enabled
