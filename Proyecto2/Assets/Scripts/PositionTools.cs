@@ -189,7 +189,7 @@ public class PositionTools
     /// <param name="blockNumberAux"></param>
     /// <param name="forgivenPositions"></param>
     /// <returns></returns>
-    public static bool IsCorner(object blockNumberAux, int[] forgivenPositions){
+    public static bool IsAForgivenOne(object blockNumberAux, int[] forgivenPositions){
         int blockNumber;
 
         if (blockNumberAux is string)
