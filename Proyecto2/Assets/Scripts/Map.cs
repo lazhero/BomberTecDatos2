@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 using AStar;
 using System.Collections.Generic;
 using SquaredMapTools;
+using UnityEngine.UIElements;
 
 public class Map : MonoBehaviour {
     [SerializeField] private GameObject indestructibleBlockPrefab;
@@ -16,8 +17,10 @@ public class Map : MonoBehaviour {
     [SerializeField] private float blockSize = 2.1f;
     [SerializeField] private bool debugMode;
     [SerializeField] private bool generateMap = true;
-    private DGraph<GameObject> Graph { get; set; }
+    public DGraph<GameObject> Graph { get; set; }
     private int normalCost = 10;
+    private int blockedCost = 10000;
+    private int closedCost=Int32.MaxValue;
 
     
     private int length;
@@ -39,37 +42,34 @@ public class Map : MonoBehaviour {
         forgivenPositions= op. DetermineForgivenPositions(widthAndHeight);
         GenerateGround();
         if(generateMap) GenerateInteractuableBlocks();
-        LinkGraph();
+        //LinkGraph();
         cameraObj.transform.position = op.DeterminesCameraPosition(Graph.Nodes);
         justAPrint();
     }
 
     void justAPrint()
     {
-        //Debug.Log("Voy a entrar a ver las relaciones");
-        var relations = Graph.GetRelations(65);
-        foreach (var t in relations)
-        {
-            if (t < Int32.MaxValue)
-            {
-                //Debug.Log(i);
-            }
-        }
+        Debug.Log("Voy a entrar a ver las relaciones");
+        var relations = Graph.GetRelations(27);
+       
     }
 
     void LinkGraph()
     {
-        
+       // GameObject[] nodes = Graph.Nodes;
+       // GameObject Node;
         for (int i = 0; i < widthAndHeight*widthAndHeight; i++)
         {
-            setRelations(i,normalCost,false);
+            setRelations(i,normalCost,true);
+            
         }
     }
 
     private void setRelations(int node, int price,bool reverse)
     {
+   
         Stack<int> relatedNodes;
-        relatedNodes = PositionTools.getRelatedPositions(node, widthAndHeight);
+        relatedNodes = SquaredMapTools.PositionTools.getRelatedPositions(node, widthAndHeight);
         while (relatedNodes.Count > 0)
         {
             if(!reverse) setRelation(node,relatedNodes.Pop(),price);
@@ -119,36 +119,36 @@ public class Map : MonoBehaviour {
     {
 
         //Lista para el caso que deba borrarlos porque generaron zonas cerradas
-
+        int i;
         foreach (var node in Graph.Nodes)
         {
-
+            i=Int32.Parse(node.name);
+            Debug.Log("Voy por el numero del "+node.name);
             if (op.IsSide(node.name) || op.IsCorner(node.name)) continue;
-
-
             GameObject newBlock;
             var groundBlockInfo = node.GetComponent<GroundBlock>();
 
 
             if (Random.Range(0, 100) < 70)
             {
+                setRelations(i,blockedCost,true);
                 newBlock = Instantiate(blocksPrefab[Random.Range(0, 3)], node.transform, true);
                 walkableBlocks++;
             }
             else
             {
+                setRelations(i, closedCost, true);
                 newBlock = Instantiate(indestructibleBlockPrefab, node.transform, true);
                 //! debug thing
                 newBlock.transform.GetChild(0).gameObject.SetActive(false);
             }
-
+            
 
             groundBlockInfo.Reset();
 
             newBlock.transform.position = node.transform.position + new Vector3(0, 1, 0);
             groundBlockInfo.block = newBlock.GetComponent<Block>();
             groundBlockInfo.blockObject = newBlock;
-
 
         }
 
@@ -257,8 +257,11 @@ public class Map : MonoBehaviour {
 
     public void BlockDestroyed(int node)
     {
+        Debug.Log("The node im trying to change is ");
+        Debug.Log(node);
         setRelations(node,normalCost,true);
     }
+    
     
 
 }

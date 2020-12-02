@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class Block : MonoBehaviour
 {
@@ -12,15 +14,14 @@ public class Block : MonoBehaviour
     [SerializeField] private GameObject dead_Object;
     private bool isDestroy=false;
 
+   
 
     /// <summary>
     /// destroy the block 
     /// </summary>
     void Destr() {
         Destroy(gameObject);
-       // Debug.Log("Mi padre es "+gameObject.transform.parent.name);
         int myPos=Int32.Parse(gameObject.transform.parent.name);
-        
         transform.parent.gameObject.transform.parent.SendMessage("BlockDestroyed",myPos);
     }
 
@@ -40,5 +41,7 @@ public class Block : MonoBehaviour
         ham.transform.position = producto.transform.position + new Vector3(0, 1.5f, 0);
         
     }
+    
+    
 
 }
