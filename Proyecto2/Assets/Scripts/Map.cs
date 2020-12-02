@@ -42,7 +42,7 @@ public class Map : MonoBehaviour {
         forgivenPositions= PositionTools. DetermineForgivenPositions(widthAndHeight);
         GenerateGround();
         if(generateMap) GenerateInteractuableBlocks();
-        LinkGraph();
+       // LinkGraph();
         cameraObj.transform.position = PositionTools.DeterminesCameraPosition(Graph.Nodes);
         justAPrint();
 
@@ -127,7 +127,12 @@ public class Map : MonoBehaviour {
         {
             i=Int32.Parse(node.name);
             Debug.Log("Voy por el numero del "+node.name);
-            if (PositionTools.IsSide(node.name,widthAndHeight) || PositionTools.IsAForgivenOne(node.name,forgivenPositions)) continue;
+            if (PositionTools.IsSide(node.name,widthAndHeight)) continue;
+            if (PositionTools.IsAForgivenOne(node.name, forgivenPositions))
+            {
+                setRelations(i,normalCost,true);
+                continue;
+            }
             GameObject newBlock;
             var groundBlockInfo = node.GetComponent<GroundBlock>();
 
@@ -249,8 +254,6 @@ public class Map : MonoBehaviour {
 
     public void BlockDestroyed(int node)
     {
-        Debug.Log("The node im trying to change is ");
-        Debug.Log(node);
         setRelations(node,normalCost,true);
     }
     

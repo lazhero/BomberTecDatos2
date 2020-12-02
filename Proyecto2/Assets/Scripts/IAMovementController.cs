@@ -63,7 +63,7 @@ public class IAMovementController:Controller
 
                        // Debug.Log("El vector goal es "+goal);
                        // Debug.Log("El vector current es "+currentPosition);
-                        if (Vector3.Distance(currentPosition, goal) < 2.0) 
+                        if (Vector3.Distance(currentPosition, goal) < 0.1) 
                         {
                                 directions.Dequeue();
                         }
