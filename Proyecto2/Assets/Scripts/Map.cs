@@ -23,7 +23,7 @@ public class Map : MonoBehaviour {
     private int walkableBlocks = 12;
     private int[] forgivenPositions;
     private int[] visitedNodes;
-    private  PositionTools op;
+
         
 
     void Start() {
@@ -34,13 +34,16 @@ public class Map : MonoBehaviour {
         //luego genero los demas bloques
 
         Graph = new DGraph<GameObject>(widthAndHeight * widthAndHeight);
-        op= new PositionTools(widthAndHeight);
-        forgivenPositions= op. DetermineForgivenPositions(widthAndHeight);
+       
+        forgivenPositions= PositionTools. DetermineForgivenPositions(widthAndHeight);
         GenerateGround();
         if(generateMap) GenerateInteractuableBlocks();
         LinkGraph();
-        cameraObj.transform.position = op.DeterminesCameraPosition(Graph.Nodes);
+        cameraObj.transform.position = PositionTools.DeterminesCameraPosition(Graph.Nodes);
         justAPrint();
+
+
+        Debug.Log(PositionTools.IsSide(11, widthAndHeight));
     }
 
     void justAPrint()
@@ -68,7 +71,7 @@ public class Map : MonoBehaviour {
     private void setRelations(int node, int price,bool reverse)
     {
         Stack<int> relatedNodes;
-        relatedNodes = PositionTools.getRelatedPositions(node, widthAndHeight);
+        relatedNodes = PositionTools.GetRelatedPositions(node, widthAndHeight);
         while (relatedNodes.Count > 0)
         {
             if(!reverse) setRelation(node,relatedNodes.Pop(),price);
@@ -121,7 +124,7 @@ public class Map : MonoBehaviour {
         foreach (var node in Graph.Nodes)
         {
 
-            if (op.IsSide(node.name) || op.IsCorner(node.name)) continue;
+            if (PositionTools.IsSide(node.name,widthAndHeight) || PositionTools.IsCorner(node.name,forgivenPositions)) continue;
 
 
             GameObject newBlock;
@@ -150,11 +153,6 @@ public class Map : MonoBehaviour {
 
         }
 
-        /*
-        Debug.Log("cantidad de bloques caminables : " + walkableBlocks);
-        Debug.Log(message: "cantidad de bloques NOcaminables : " +(int) (Math.Pow(widthAndHeight - 2, 2) - walkableBlocks));
-        Debug.Log("tiene areas cerradas : " + !BackTracking());
-        */
         if (BackTracking()) return;
         walkableBlocks = 12;
         Invoke(nameof(GenerateInteractuableBlocks), 0.1f);
@@ -202,7 +200,7 @@ public class Map : MonoBehaviour {
     /// <returns> int how many nodes it visited</returns>
     private int BackTrackingAux(int blockNumber, int cont) {
 
-        if (op.IsSide(blockNumber)) return cont;
+        if (PositionTools.IsSide(blockNumber,widthAndHeight)) return cont;
         var blockInfo= Graph.getNode(blockNumber).GetComponent<GroundBlock>();
 
         if (visitedNodes.Contains(blockNumber)) return cont;
@@ -212,10 +210,10 @@ public class Map : MonoBehaviour {
         visitedNodes[cont] = blockNumber;
         cont++;
 
-        var blockUp    = op.DetectWalkable(blockNumber, op.Up);
-        var blockDown  = op.DetectWalkable(blockNumber, op.Down);
-        var blockLeft  = op.DetectWalkable(blockNumber, op.Left);
-        var blockRight = op.DetectWalkable(blockNumber, op.Right);
+        var blockUp    = PositionTools.DetectWalkable(blockNumber, PositionTools.Up,widthAndHeight);
+        var blockDown  = PositionTools.DetectWalkable(blockNumber, PositionTools.Down,widthAndHeight);
+        var blockLeft  = PositionTools.DetectWalkable(blockNumber, PositionTools.Left,widthAndHeight);
+        var blockRight = PositionTools.DetectWalkable(blockNumber, PositionTools.Right,widthAndHeight);
             
         if (blockUp    > 0)    cont = BackTrackingAux(blockUp   , cont);
         if (blockDown  > 0)    cont = BackTrackingAux(blockDown , cont);

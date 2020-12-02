@@ -5,20 +5,15 @@ using UnityEngine;
 
 public class PositionTools
 {
-    private int WidthAndHeight { set; get; } 
-    private int[] ForgivenPositions { set; get; }
+  
 
-    public  int[] Up { get; }  = {0, -1};
-    public  int[] Down{ get; }  = {0, 1};
-    public  int[] Right{ get; } = {1, 0};
-    public  int[] Left { get; } = {-1, 0};
+    public static int[] Up { get; }  = {0, -1};
+    public static int[] Down{ get; }  = {0, 1};
+    public static int[] Right{ get; } = {1, 0};
+    public static int[] Left { get; } = {-1, 0};
 
-    public PositionTools(int n)
-    {
-        WidthAndHeight = n;
-    }
-    
-    public static Stack<int> getRelatedPositions(int node,int widthAndHeight)
+ 
+    public static Stack<int> GetRelatedPositions(int node,int widthAndHeight)
     {
         Stack<int> stack = new Stack<int>();
         if (node + widthAndHeight < widthAndHeight*widthAndHeight)
@@ -49,27 +44,27 @@ public class PositionTools
     /// <summary>
     /// Determines the forgiven Positions for n*n matrix
     /// </summary>
-    public  int[] DetermineForgivenPositions(int n) {
+    public static int[] DetermineForgivenPositions(int n) {
         var n2 = n * n;
-        ForgivenPositions = new int[12];
+        var forgivenPositions = new int[12];
              
-        ForgivenPositions[0] = n + 1;
-        ForgivenPositions[1] = n + 2;
-        ForgivenPositions[2] = 2*n + 1;
+        forgivenPositions[0] = n + 1;
+        forgivenPositions[1] = n + 2;
+        forgivenPositions[2] = 2*n + 1;
         
-        ForgivenPositions[3] = 2*n  -2;
-        ForgivenPositions[4] = 2*n  -3;
-        ForgivenPositions[5] = 3*n +-2;
+        forgivenPositions[3] = 2*n  -2;
+        forgivenPositions[4] = 2*n  -3;
+        forgivenPositions[5] = 3*n +-2;
         
-        ForgivenPositions[6] = n2-2*n + 1;
-        ForgivenPositions[7] = n2-2*n + 2;
-        ForgivenPositions[8] = n2-3*n + 1;
+        forgivenPositions[6] = n2-2*n + 1;
+        forgivenPositions[7] = n2-2*n + 2;
+        forgivenPositions[8] = n2-3*n + 1;
         
-        ForgivenPositions[9] = n2- n -2 ;
-        ForgivenPositions[10] = n2-2*n -2 ;
-        ForgivenPositions[11] = n2-n -   3;
+        forgivenPositions[9] = n2- n -2 ;
+        forgivenPositions[10] = n2-2*n -2 ;
+        forgivenPositions[11] = n2-n -   3;
 
-        return ForgivenPositions;
+        return forgivenPositions;
     }
         
         
@@ -77,7 +72,7 @@ public class PositionTools
     /// Determines center and height that camera must be
     /// </summary>
     /// <returns></returns>
-    public Vector3 DeterminesCameraPosition( GameObject[] nodes)
+    public static Vector3 DeterminesCameraPosition( GameObject[] nodes)
     {
         var totalX = 0f;
         var totalZ = 0f;
@@ -99,25 +94,25 @@ public class PositionTools
     /// this calculates who is up, down , left, or right depending on a Vector2 (x,y) return -1 if the direction is not possible
     /// (1,0) is right (0,1) is up
     /// </summary>
-    public int WhoIs(int[] direction, int length) {
-        return WhoIs(length, direction);
+    public static int WhoIs(int[] direction, int length,int WidthAndHeight) {
+        return WhoIs(length, direction,WidthAndHeight);
     }
 
     /// <summary>
     /// this calculates who is up, down , left, or right depending on a Vector2 (x,y) return -1 if the direction is not possible
     /// (1,0) is right (0,1) is up
     /// </summary>
-    private  int WhoIs(int blockNumber, int[] direction) {
-        if (!ValidateDirection(direction, blockNumber )) return -1;
+    private static  int WhoIs(int blockNumber, int[] direction, int widthAndHeight) {
+        if (!ValidateDirection(direction, blockNumber, widthAndHeight )) return -1;
 
-        return Convert.ToInt32(blockNumber + direction[0] + direction[1] * WidthAndHeight);
+        return Convert.ToInt32(blockNumber + direction[0] + direction[1] * widthAndHeight);
 
     }
-    public int DetectWalkable(int blockNumber, int[] direction)
+    public static int DetectWalkable(int blockNumber, int[] direction,int widthAndHeight)
     {
-        var response = WhoIs(blockNumber, direction);
+        var response = WhoIs(blockNumber, direction,widthAndHeight);
 
-        if (IsSide(response)) return -1;
+        if (IsSide(response,widthAndHeight)) return -1;
         
         return response;
 
@@ -127,7 +122,7 @@ public class PositionTools
     /// validates certain direction from given block number, THIS IS ONLY FOR MAP GENERATION
     /// you dont need to know how it works
     /// </summary>
-    private bool ValidateDirection(int[] direction, int blockNumber)
+    private static bool ValidateDirection(int[] direction, int blockNumber, int widthAndHeight)
     {
 
         //si estoy en un borde izquierdo y me preguntan por su izquierdo
@@ -135,24 +130,25 @@ public class PositionTools
         //si estoy en el borde superior y me preguntan por el de arriba
         //si estoy en el borde inferior y me preguntan por el de abajo
 
-        if (blockNumber % WidthAndHeight == 0 && direction[0] < 0) return false;
+        if (blockNumber % widthAndHeight == 0 && direction[0] < 0) return false;
 
-        if ((blockNumber + 1) % WidthAndHeight == 0 && direction[0] > 0) return false;
+        if ((blockNumber + 1) % widthAndHeight == 0 && direction[0] > 0) return false;
 
-        if (blockNumber - WidthAndHeight < 0 && direction[1] < 0) return false;
+        if (blockNumber - widthAndHeight < 0 && direction[1] < 0) return false;
 
-        if (blockNumber + WidthAndHeight > WidthAndHeight * WidthAndHeight && direction[1] > 0) return false;
+        if (blockNumber + widthAndHeight > widthAndHeight * widthAndHeight && direction[1] > 0) return false;
 
         return true;
 
     }
-        
+
     /// <summary>
     /// Determines if the given block is a side of the map, it also verifies that the given parameter is a int
     /// </summary>
     /// <param name="blockNumberAux"></param>
+    /// <param name="widthAndHeight"></param>
     /// <returns> bool</returns>
-    public bool IsSide(object blockNumberAux) {
+    public static bool IsSide(object blockNumberAux, int widthAndHeight) {
         int blockNumber;
 
         if (blockNumberAux is string)
@@ -160,49 +156,24 @@ public class PositionTools
         else
             blockNumber = (int) blockNumberAux;
 
-        return blockNumber % WidthAndHeight == 0 || (blockNumber + 1) % WidthAndHeight == 0 ||
-               blockNumber - WidthAndHeight < 0 || blockNumber + WidthAndHeight > WidthAndHeight * WidthAndHeight;
+        return blockNumber % widthAndHeight == 0 || (blockNumber + 1) % widthAndHeight == 0 ||blockNumber - widthAndHeight < 0 || blockNumber + widthAndHeight > widthAndHeight * widthAndHeight;
     }
 
     /// <summary>
     ///  Returns if a specified block is a corner can accept int or string 
     /// </summary>
     /// <param name="blockNumberAux"></param>
+    /// <param name="forgivenPositions"></param>
     /// <returns></returns>
-    public bool IsCorner(object blockNumberAux){
+    public static bool IsCorner(object blockNumberAux, int[] forgivenPositions){
         int blockNumber;
 
         if (blockNumberAux is string)
             blockNumber = Convert.ToInt32(blockNumberAux);
         else
             blockNumber = (int) blockNumberAux;
-        return ForgivenPositions.Contains(blockNumber);
+        return forgivenPositions.Contains(blockNumber);
     }
     
-    public void LinkGraph(DGraph<GameObject > Graph,int widthAndHeight)
-    {
-        for (var i = 0; i < widthAndHeight*widthAndHeight; i++)
-        {
-            if (i + widthAndHeight < widthAndHeight*widthAndHeight)
-            {
-                Graph.SetRelationShip(i,i+widthAndHeight,10);
-            }
-
-            if (i - widthAndHeight >= 0)
-            {
-                Graph.SetRelationShip(i,i-widthAndHeight,10);
-            }
-
-            if ((int)(i / widthAndHeight) ==(int) ((i + 1) / widthAndHeight))
-            {
-                Graph.SetRelationShip(i,i+1,10);
-            }
-
-            if ((int)(i % widthAndHeight) == (int)((i - 1) % widthAndHeight))
-            {
-                Graph.SetRelationShip(i,i-1,10);
-            }
-        }
-    }
-    
+  
 }

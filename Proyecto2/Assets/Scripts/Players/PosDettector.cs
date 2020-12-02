@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GenerateBombs : MonoBehaviour
+public class PosDettector : MonoBehaviour
 {
     public GameObject bomba;
     public Controller cont;
