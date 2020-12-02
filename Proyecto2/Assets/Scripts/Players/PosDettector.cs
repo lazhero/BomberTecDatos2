@@ -10,13 +10,11 @@ public class PosDettector : MonoBehaviour
     public Queue<GameObject> collisions;
     private void Start() {
         cont = transform.parent.GetComponent<Controller>();
-       /// collisions= new Queue<GameObject>();
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("enter");
         if (other.gameObject.tag.CompareTo("ground") != 0) return;
         // if (cont.currentBlock ==null)
        // {
