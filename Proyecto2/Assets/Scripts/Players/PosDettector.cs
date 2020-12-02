@@ -3,20 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GenerateBombs : MonoBehaviour
+public class PosDettector : MonoBehaviour
 {
     public GameObject bomba;
     public Controller cont;
     public Queue<GameObject> collisions;
     private void Start() {
         cont = transform.parent.GetComponent<Controller>();
-       /// collisions= new Queue<GameObject>();
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("enter");
         if (other.gameObject.tag.CompareTo("ground") != 0) return;
         // if (cont.currentBlock ==null)
        // {

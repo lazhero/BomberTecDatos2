@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +12,7 @@ public class PlayerController:Controller
         else if(Input.GetKey("a"))Move(Vector3.right) ;
         else setMoving(false);
         if (Input.GetKeyDown("space")) GenerateBomb();
+        
     }
     
     void Update(){   

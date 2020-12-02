@@ -1,4 +1,4 @@
-﻿
+﻿﻿
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,17 +29,19 @@ public class IAMovementController:Controller
                 
         }
 
-        private void AddMovement(int endpos)
+        public void AddMovement(int endpos)
         {
-                int currentPosition=Int32.Parse(currentBlock.name);
-                GameObject[] objects = MyMap.getRoute(currentPosition, endpos);
-                for (int i = 0; i < objects.Length; i++)
+                var currentPosition=Int32.Parse(currentBlock.name);
+                GameObject[] objects = MyMap.GetRoute(currentPosition, endpos);
+                foreach (var t in objects)
                 {
-                        directions.Enqueue(objects[i]);
+                        directions.Enqueue(t);
                 }
 
         }
 
+
+        
         private void Update()
         {
                 moving();
