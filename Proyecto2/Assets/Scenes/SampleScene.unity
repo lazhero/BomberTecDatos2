@@ -282,6 +282,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!224 &801569424 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1054120004333817055, guid: 8d48236cd571fa9c8a46c4435d19a62e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1054120005413086750}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,6 +496,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8a81646c2fef5a24d99ff656abbeb46b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 111b6efb5a3134a47bd4e9ddf2b55003, type: 3}
+--- !u!224 &1452688683 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1054120005497499797, guid: 8d48236cd571fa9c8a46c4435d19a62e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1054120005413086750}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1504912254 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4229722434491082356, guid: eb99f3c19a2f9554e8d61302509c3c91,
@@ -607,6 +619,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!224 &1941224597 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1054120004756169091, guid: 8d48236cd571fa9c8a46c4435d19a62e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1054120005413086750}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2112369256
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,6 +702,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054120005497499796, guid: 8d48236cd571fa9c8a46c4435d19a62e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Undefined
       objectReference: {fileID: 0}
     - target: {fileID: 1054120005497499797, guid: 8d48236cd571fa9c8a46c4435d19a62e,
         type: 3}
@@ -817,9 +840,29 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3327271381446994589, guid: 7c9f9a975dc64034eb738a9d9671062e,
         type: 3}
+      propertyPath: bombUI
+      value: 
+      objectReference: {fileID: 1452688683}
+    - target: {fileID: -3327271381446994589, guid: 7c9f9a975dc64034eb738a9d9671062e,
+        type: 3}
+      propertyPath: shoeUI
+      value: 
+      objectReference: {fileID: 801569424}
+    - target: {fileID: -3327271381446994589, guid: 7c9f9a975dc64034eb738a9d9671062e,
+        type: 3}
       propertyPath: heartUI
       value: 
       objectReference: {fileID: 1054120005413086751}
+    - target: {fileID: -3327271381446994589, guid: 7c9f9a975dc64034eb738a9d9671062e,
+        type: 3}
+      propertyPath: shieldUI
+      value: 
+      objectReference: {fileID: 1941224597}
+    - target: {fileID: -3327271381446994589, guid: 7c9f9a975dc64034eb738a9d9671062e,
+        type: 3}
+      propertyPath: totalShoe
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: -3327271381446994589, guid: 7c9f9a975dc64034eb738a9d9671062e,
         type: 3}
       propertyPath: totalHealth

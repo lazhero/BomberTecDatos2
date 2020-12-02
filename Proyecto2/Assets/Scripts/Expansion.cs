@@ -10,10 +10,10 @@ using Vector3 = UnityEngine.Vector3;
 
 public class Expansion : MonoBehaviour
 {
-
-
     private float cubeSize=2.1f;
     private bool finishedCondition;
+    
+    public int damage = 1;
     
     public Vector3 direction { set; get; }
     public int squares { set; get; } = 4;
@@ -41,6 +41,11 @@ public class Expansion : MonoBehaviour
   
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Player"))
+        {
+            other.SendMessage("removeHealth",damage);
+            Debug.Log("Dano al jugador");
+        }
         if (other.gameObject.tag.CompareTo("block")!=0) return;
         Instantiate(explosion).transform.position = transform.position;
         Block block = other.GetComponent<Block>();

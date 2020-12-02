@@ -6,6 +6,12 @@ TagManager:
   tags:
   - block
   - ground
+  - Map
+  - Ham
+  - Shield
+  - Undefined
+  - Shoe
+  - Bomb
   layers:
   - Default
   - TransparentFX
