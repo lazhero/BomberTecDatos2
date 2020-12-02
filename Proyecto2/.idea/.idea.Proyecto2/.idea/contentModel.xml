@@ -6,33 +6,47 @@
     <e p="C:\Users\Adrián González\Desktop\BomberTecDatos2\Proyecto2" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="RPG Food &amp; Drinks Pack" t="Include">
+          <e p="Assets" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Consumer.cs" t="Include" />
+              <e p="Rotator.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="AStar" t="Include">
             <e p="AStar.cs" t="Include" />
             <e p="AStarResponse.cs" t="Include" />
           </e>
+          <e p="Consumable.cs" t="Include" />
+          <e p="Controller.cs" t="Include" />
           <e p="DataStructures" t="Include">
             <e p="ArrayTools.cs" t="Include" />
             <e p="DGraph.cs" t="Include" />
             <e p="LinkedList.cs" t="Include" />
           </e>
+          <e p="IAMovementController.cs" t="Include" />
           <e p="Map.cs" t="Include" />
-          <e p="Objects" t="Include">
+          <e p="PlayerController.cs" t="Include" />
+          <e p="Players" t="Include">
+            <e p="CharacterGenerator.cs" t="Include" />
+            <e p="IAProbability.cs" t="Include" />
+            <e p="PosDettector.cs" t="Include" />
+          </e>
+          <e p="PositionDetection.cs" t="Include" />
+          <e p="PositionTools.cs" t="Include" />
+          <e p="SquaredMapTools" t="Include">
+            <e p="PositionTools.cs" t="Include" />
+          </e>
+          <e p="Stats.cs" t="Include" />
+          <e p="Things" t="Include">
             <e p="Block.cs" t="Include" />
             <e p="Bomb.cs" t="Include" />
             <e p="DestroyAfter.cs" t="Include" />
             <e p="Expansion.cs" t="Include" />
             <e p="GroundBlock.cs" t="Include" />
           </e>
-          <e p="Players" t="Include">
-            <e p="CharacterGenerator.cs" t="Include" />
-            <e p="Controller.cs" t="Include" />
-            <e p="IAMovementController.cs" t="Include" />
-            <e p="IAProbability.cs" t="Include" />
-            <e p="PlayerController.cs" t="Include" />
-            <e p="PosDettector.cs" t="Include" />
-          </e>
-          <e p="PositionTools.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">

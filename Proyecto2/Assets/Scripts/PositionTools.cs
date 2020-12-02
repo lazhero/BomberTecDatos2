@@ -46,28 +46,52 @@ public class PositionTools
     /// </summary>
     public static int[] DetermineForgivenPositions(int n) {
         var n2 = n * n;
-        var forgivenPositions = new int[12];
-             
-        forgivenPositions[0] = n + 1;
-        forgivenPositions[1] = n + 2;
-        forgivenPositions[2] = 2*n + 1;
-        
-        forgivenPositions[3] = 2*n  -2;
-        forgivenPositions[4] = 2*n  -3;
-        forgivenPositions[5] = 3*n +-2;
-        
-        forgivenPositions[6] = n2-2*n + 1;
-        forgivenPositions[7] = n2-2*n + 2;
-        forgivenPositions[8] = n2-3*n + 1;
-        
-        forgivenPositions[9] = n2- n -2 ;
-        forgivenPositions[10] = n2-2*n -2 ;
-        forgivenPositions[11] = n2-n -   3;
+        var ForgivenPositions = new int[28];
 
-        return forgivenPositions;
-    }
+        ForgivenPositions[0] = n + 1;
+        ForgivenPositions[1] = n + 2;
+        ForgivenPositions[2] = 2*n + 1;
+
+        ForgivenPositions[3] = 2*n  -2;
+        ForgivenPositions[4] = 2*n  -3;
+        ForgivenPositions[5] = 3*n +-2;
+
+        ForgivenPositions[6] = n2-2*n + 1;
+        ForgivenPositions[7] = n2-2*n + 2;
+        ForgivenPositions[8] = n2-3*n + 1;
+
+        ForgivenPositions[9] = n2- n -2 ;
+        ForgivenPositions[10] = n2-2*n -2 ;
+        ForgivenPositions[11] = n2-n -   3;
+
+        var c = n / 2 + n;
+        ForgivenPositions[12] = c + 1;
+        ForgivenPositions[13] = c - 1;
+        ForgivenPositions[14] = c + n;
+        ForgivenPositions[15] = c;
+
+        c = (n2 - 1) - n/2 - n;
+        ForgivenPositions[16] = c-n;
+        ForgivenPositions[17] = c-1;
+        ForgivenPositions[18] = c+1;
+        ForgivenPositions[19] = c;
+
+        c = n2 /2 - n/2 + 1;
+        ForgivenPositions[20] = c-n;
+        ForgivenPositions[21] = c+n;
+        ForgivenPositions[22] = c+1;
+        ForgivenPositions[23] = c;
+
+        c = c+n-3;
+        ForgivenPositions[24] = c-n;
+        ForgivenPositions[25] = c+n;
+        ForgivenPositions[26] = c-1;
+        ForgivenPositions[27] = c;
+
+        return ForgivenPositions;
         
-        
+            
+        }
     /// <summary>
     /// Determines center and height that camera must be
     /// </summary>
@@ -165,7 +189,7 @@ public class PositionTools
     /// <param name="blockNumberAux"></param>
     /// <param name="forgivenPositions"></param>
     /// <returns></returns>
-    public static bool IsCorner(object blockNumberAux, int[] forgivenPositions){
+    public static bool IsAForgivenOne(object blockNumberAux, int[] forgivenPositions){
         int blockNumber;
 
         if (blockNumberAux is string)
