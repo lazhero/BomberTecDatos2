@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Consumable : MonoBehaviour
 {
-    public int healthRestoration = 0;
-    public int baseballBat = 0;
-    public int shield = 0;
+    public int healthRestoration = 1;
+    public int shoe = 1;
+    public int bomb = 1;
+    public int shield = 1;
 
     private Collider _collider;
 
@@ -20,9 +21,37 @@ public class Consumable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Adding Consumable");
-            _collider.enabled = false;
-            Destroy(gameObject);
+            if (this.tag== "Ham")
+            {
+                other.SendMessage("AddHealth",healthRestoration);
+                _collider.enabled = false;
+                Destroy(gameObject);
+                return;
+            }
+        
+            if (this.tag == "Shield")
+            {
+                other.SendMessage("AddShield",shield);
+                _collider.enabled = false;
+                Destroy(gameObject);
+                return;
+            }
+            
+            if (this.tag == "Shoe")
+            {
+                other.SendMessage("AddShoe",shoe);
+                _collider.enabled = false;
+                Destroy(gameObject);
+                return;
+            }
+            
+            if (this.tag == "Bomb")
+            {
+                other.SendMessage("AddBomb",bomb);
+                _collider.enabled = false;
+                Destroy(gameObject);
+                return;
+            }
         }
     }
 }

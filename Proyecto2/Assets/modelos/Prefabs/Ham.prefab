@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1070749374522983441}
   m_Layer: 0
   m_Name: Ham
-  m_TagString: Untagged
+  m_TagString: Ham
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103729609193184}
   m_LocalRotation: {x: -0.18301314, y: -0.6830158, z: 0.18301141, w: -0.6830098}
-  m_LocalPosition: {x: -3.8, y: 2.5, z: 7.6}
+  m_LocalPosition: {x: -7.6, y: 2.5, z: 15.2}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4418294654674036}
@@ -101,7 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthRestoration: 1
-  baseballBat: 0
+  shoe: 1
+  bomb: 1
   shield: 0
 --- !u!114 &114042813152422014
 MonoBehaviour:

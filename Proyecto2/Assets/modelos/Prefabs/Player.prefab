@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 3964570047580243072}
   - component: {fileID: 2749898909282852962}
   - component: {fileID: 2046874437177611960}
+  - component: {fileID: -3327271381446994589}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -255,6 +256,19 @@ MonoBehaviour:
   currentBlock: {fileID: 0}
   bomba: {fileID: 6055081531133671717, guid: c68b45bfa2083864fa57543c37d77d01, type: 3}
   MyMap: {fileID: 0}
+--- !u!114 &-3327271381446994589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3964570047580243077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab4e00e6bcc3ffbe9b22a1676ba1a8ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalHealth: 3
 --- !u!1 &5409885986347618230
 GameObject:
   m_ObjectHideFlags: 0
