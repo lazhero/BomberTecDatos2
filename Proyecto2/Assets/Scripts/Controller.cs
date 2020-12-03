@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,10 +23,7 @@ public abstract class Controller : MonoBehaviour
     {
 
         var x = dir[0]*90 + ((int) (1 - dir[2]) / 2) * 180;
-        Debug.Log("_______");
-        Debug.Log(dir);
-        Debug.Log(x);
-        Debug.Log("_______");
+
         var angle = Quaternion.Euler(0,x , 0);
         
         anim.SetBool("MOVING", true);
@@ -43,3 +40,4 @@ public abstract class Controller : MonoBehaviour
     }
 
 }
+

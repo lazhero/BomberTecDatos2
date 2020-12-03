@@ -26,6 +26,72 @@ TextureImporter:
   - first:
       213: 2206715901813946466
     second: _mages_7
+  - first:
+      213: -7060289427709197919
+    second: _mages_8
+  - first:
+      213: 3387721540274932142
+    second: _mages_9
+  - first:
+      213: 8247696875728255890
+    second: _mages_10
+  - first:
+      213: 6751972065902433089
+    second: _mages_11
+  - first:
+      213: 4192638809153691662
+    second: _mages_12
+  - first:
+      213: 4157050319863041352
+    second: _mages_13
+  - first:
+      213: 158526701340710203
+    second: _mages_14
+  - first:
+      213: 1825078563010480392
+    second: _mages_15
+  - first:
+      213: 6662489509192285973
+    second: _mages_16
+  - first:
+      213: 7111019678449775781
+    second: _mages_17
+  - first:
+      213: 8704720789359359126
+    second: _mages_18
+  - first:
+      213: -2005393672126669751
+    second: _mages_19
+  - first:
+      213: -9022231044146931728
+    second: _mages_20
+  - first:
+      213: -7793857925596110861
+    second: _mages_21
+  - first:
+      213: 6818492475072409715
+    second: _mages_22
+  - first:
+      213: 573310176793206963
+    second: _mages_23
+  - first:
+      213: -7266789133136291206
+    second: _mages_24
+  - first:
+      213: 3764534133468426398
+    second: _mages_25
+  - first:
+      213: -1468020253155638779
+    second: _mages_26
+  - first:
+      213: -9134428638445476355
+    second: _mages_27
+  - first:
+      213: 8313151244340357641
+    second: _mages_28
+  - first:
+      213: 1982941911648795164
+    second: _mages_29
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -110,66 +176,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Lumin
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -188,10 +194,10 @@ TextureImporter:
       name: _mages_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
-        width: 128
-        height: 128
+        x: 8
+        y: 284
+        width: 112
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,10 +215,10 @@ TextureImporter:
       name: _mages_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
-        width: 128
-        height: 128
+        x: 304
+        y: 300
+        width: 36
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,10 +236,10 @@ TextureImporter:
       name: _mages_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 160
         y: 256
-        width: 128
-        height: 128
+        width: 64
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,10 +257,10 @@ TextureImporter:
       name: _mages_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 128
-        height: 128
+        x: 40
+        y: 168
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,10 +278,10 @@ TextureImporter:
       name: _mages_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
+        x: 168
+        y: 172
+        width: 44
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,10 +299,10 @@ TextureImporter:
       name: _mages_5
       rect:
         serializedVersion: 2
-        x: 256
-        y: 128
-        width: 128
-        height: 128
+        x: 296
+        y: 172
+        width: 48
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -314,10 +320,10 @@ TextureImporter:
       name: _mages_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
+        x: 32
+        y: 40
+        width: 64
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -335,10 +341,10 @@ TextureImporter:
       name: _mages_7
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
+        x: 168
+        y: 32
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -355,7 +361,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 56ba12b6552ddf84980d13e26096f5a3
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

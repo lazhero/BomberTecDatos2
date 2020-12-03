@@ -95,7 +95,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a08e0fe7a4d4a4c99355a5e8d77317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ham: {fileID: 1103729609193184, guid: b5633769281ca0940b368cbed17b7ec0, type: 3}
+  consumables:
+  - {fileID: 620543216833392198, guid: e1786c40ed346c645b5ac69d12b414d3, type: 3}
+  - {fileID: 4447693058155321728, guid: b35ee69d6362a8d4abe91d42c2959eaa, type: 3}
+  - {fileID: 6919455128984306489, guid: d5460f0ad751ee74cbf82ff92f9b0f69, type: 3}
+  - {fileID: 2079159040360272883, guid: 5d6a120ef3e62c84f866d77f9804c853, type: 3}
+  - {fileID: 967622473775620606, guid: 0782b98bb6091c34db9b00a50303b7e7, type: 3}
+  - {fileID: 6766404395314388412, guid: 321ec6631b32f4f41ad30534e4553960, type: 3}
   isDestructible: 1
   dead_Object: {fileID: 6484363400848037439, guid: 340587a3472123042a5921842545fcee,
     type: 3}

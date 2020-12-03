@@ -42,12 +42,11 @@ public class Map : MonoBehaviour {
         forgivenPositions= PositionTools. DetermineForgivenPositions(widthAndHeight);
         GenerateGround();
         if(generateMap) GenerateInteractuableBlocks();
-        LinkGraph();
+        //LinkGraph();
         cameraObj.transform.position = PositionTools.DeterminesCameraPosition(Graph.Nodes);
         justAPrint();
 
 
-        Debug.Log(PositionTools.IsSide(11, widthAndHeight));
     }
 
     void justAPrint()
@@ -126,8 +125,15 @@ public class Map : MonoBehaviour {
         foreach (var node in Graph.Nodes)
         {
             i=Int32.Parse(node.name);
-            Debug.Log("Voy por el numero del "+node.name);
-            if (PositionTools.IsSide(node.name,widthAndHeight) || PositionTools.IsAForgivenOne(node.name,forgivenPositions)) continue;
+            
+            //Debug.Log("Voy por el numero del "+node.name);
+            
+            if (PositionTools.IsSide(node.name,widthAndHeight)) continue;
+            if (PositionTools.IsAForgivenOne(node.name, forgivenPositions))
+            {
+                setRelations(i,normalCost,true);
+                continue;
+            }
             GameObject newBlock;
             var groundBlockInfo = node.GetComponent<GroundBlock>();
 
@@ -142,7 +148,6 @@ public class Map : MonoBehaviour {
             {
                 setRelations(i, closedCost, true);
                 newBlock = Instantiate(indestructibleBlockPrefab, node.transform, true);
-                //! debug thing
                 newBlock.transform.GetChild(0).gameObject.SetActive(false);
             }
             
@@ -154,6 +159,12 @@ public class Map : MonoBehaviour {
             groundBlockInfo.blockObject = newBlock;
 
         }
+        Debug.Log("cantidad de bloques caminables : " + walkableBlocks);
+        Debug.Log(message: "cantidad de bloques NOcaminables : " +(int) (Math.Pow(widthAndHeight - 2, 2) - walkableBlocks));
+        Debug.Log("tiene areas cerradas : " + !BackTracking());
+        if(BackTracking()) return;
+        walkableBlocks = 27;
+        Invoke(nameof(GenerateInteractuableBlocks),0.1F);
     }
 
     /// <summary>
@@ -227,7 +238,7 @@ public class Map : MonoBehaviour {
     {
       //  Debug.Log("Pos he llegado");
        // Debug.Log("El row number es "+widthAndHeight);
-       AStarResponse response= AStar.AStar<GameObject>.getRoute(Graph, start, end, widthAndHeight);
+       AStarResponse response= AStar<GameObject>.getRoute(Graph, start, end, widthAndHeight);
        Stack<int> positions = response.route;
       // Debug.Log("El len del stack es "+positions.Count);
        positions.Pop();
@@ -249,8 +260,6 @@ public class Map : MonoBehaviour {
 
     public void BlockDestroyed(int node)
     {
-        Debug.Log("The node im trying to change is ");
-        Debug.Log(node);
         setRelations(node,normalCost,true);
     }
     
