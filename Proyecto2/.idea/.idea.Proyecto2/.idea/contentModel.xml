@@ -37,6 +37,14 @@
           <e p="PlayerController.cs" t="Include" />
           <e p="PlayerHealth.cs" t="Include" />
           <e p="Players" t="Include">
+            <e p="AddProbabilities.cs" t="Include" />
+            <e p="Behaviors" t="Include">
+              <e p="Behavior.cs" t="Include" />
+              <e p="FindEnemy.cs" t="Include" />
+              <e p="FindPowerUp.cs" t="Include" />
+              <e p="Hide.cs" t="Include" />
+              <e p="LeaveBomb.cs" t="Include" />
+            </e>
             <e p="CharacterGenerator.cs" t="Include" />
             <e p="IAProbability.cs" t="Include" />
             <e p="PosDettector.cs" t="Include" />
