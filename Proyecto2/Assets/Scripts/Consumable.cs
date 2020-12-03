@@ -19,39 +19,13 @@ public class Consumable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            if (this.tag== "Ham")
-            {
-                other.SendMessage("AddHealth",healthRestoration);
-                _collider.enabled = false;
-                Destroy(gameObject);
-                return;
-            }
+        if (!other.CompareTag("Player")) return;
+
+        var info = other.gameObject.GetComponent<PlayerHealth>();
         
-            if (this.tag == "Shield")
-            {
-                other.SendMessage("AddShield",shield);
-                _collider.enabled = false;
-                Destroy(gameObject);
-                return;
-            }
-            
-            if (this.tag == "Shoe")
-            {
-                other.SendMessage("AddShoe",shoe);
-                _collider.enabled = false;
-                Destroy(gameObject);
-                return;
-            }
-            
-            if (this.tag == "Bomb")
-            {
-                other.SendMessage("AddBomb",bomb);
-                _collider.enabled = false;
-                Destroy(gameObject);
-                return;
-            }
-        }
+        info.ModifyStats(healthRestoration,shield,bomb,shoe);
+        
+        Destroy(gameObject);
+        
     }
 }
