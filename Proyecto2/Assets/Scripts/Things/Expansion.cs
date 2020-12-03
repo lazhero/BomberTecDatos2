@@ -43,8 +43,9 @@ public class Expansion : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.SendMessage("removeHealth",damage);
-            Debug.Log("Dano al jugador");
+            //other.SendMessage("removeHealth",damage);
+            other.GetComponent<PlayerHealth>().Health -= 1;
+            //Debug.Log("Dano al jugador");
         }
         if (other.gameObject.tag.CompareTo("block")!=0) return;
         Instantiate(explosion).transform.position = transform.position;

@@ -707,7 +707,7 @@ PrefabInstance:
         type: 3}
       propertyPath: shoeUI
       value: 
-      objectReference: {fileID: 801569424}
+      objectReference: {fileID: 0}
     - target: {fileID: -3327271381446994589, guid: 7c9f9a975dc64034eb738a9d9671062e,
         type: 3}
       propertyPath: heartUI

@@ -2,11 +2,12 @@
 using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
+using Random = UnityEngine.Random;
 
 public class Block : MonoBehaviour
 {
 
-    public GameObject consumable;
+    public GameObject[] consumables;
 
     [SerializeField]
     public bool isDestructible;
@@ -34,9 +35,9 @@ public class Block : MonoBehaviour
         var producto= Instantiate(dead_Object);
         producto.transform.position = transform.position;
         Invoke("Destr",0.1f);
-        GameObject myConsumable = Instantiate(consumable);
-        consumable.transform.position = gameObject.transform.position + new Vector3(0, 1.5f, 0);
-        Debug.Log("Consumable created");
+        GameObject myConsumable = Instantiate(consumables[Random.Range(0,consumables.Length)]);
+        myConsumable.transform.position = gameObject.transform.position ;
+        //! Debug.Log("Consumable created");
     }
 
 
