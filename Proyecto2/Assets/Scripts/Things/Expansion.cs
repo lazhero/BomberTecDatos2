@@ -42,12 +42,17 @@ public class Expansion : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {
             //other.SendMessage("removeHealth",damage);
             other.GetComponent<PlayerHealth>().Health -= 1;
             //Debug.Log("Dano al jugador");
-        }
-        if (other.gameObject.tag.CompareTo("block")!=0) return;
+        
+        if(other.CompareTag("Bomb"))
+            
+            other.GetComponent<Bomb>().Explote();
+            
+            
+        if (!other.CompareTag("block")) return;
+        
         Instantiate(explosion).transform.position = transform.position;
         Block block = other.GetComponent<Block>();
         if (block.isDestructible)
