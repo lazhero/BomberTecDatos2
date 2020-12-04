@@ -7,7 +7,7 @@ public abstract class Controller : MonoBehaviour
 {
     protected Animator anim;
     protected GameObject body;
-    public float velocidad = 0.5f;
+    public float velocidad;
     public GameObject currentBlock;
     public GameObject bomba;
     public Map MyMap;
@@ -17,6 +17,7 @@ public abstract class Controller : MonoBehaviour
         MyMap = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
         body = gameObject.transform.GetChild(0).gameObject;
         anim = body.GetComponent<Animator>();
+        velocidad = gameObject.GetComponent<Stats>().speed;
     }
 
     protected void Move(Vector3 dir)

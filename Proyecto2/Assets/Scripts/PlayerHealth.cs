@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     
     public int totalBomb = 1;
     private int _bomb;
+    
 
     private int Bomb
     {
@@ -77,7 +79,8 @@ public class PlayerHealth : MonoBehaviour
         get => _shield;
     }
 
-    public int totalHealth = 3;
+
+    public int totalHealth;
     public int health;
     public int Health
     {
@@ -117,6 +120,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        totalHealth = gameObject.GetComponent<Stats>().life;
         Health = totalHealth;
     }
 
