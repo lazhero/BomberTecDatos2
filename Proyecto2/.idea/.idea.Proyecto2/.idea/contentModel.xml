@@ -20,7 +20,11 @@
             <e p="LinkedList.cs" t="Include" />
           </e>
           <e p="Genetics" t="Include">
+<<<<<<< HEAD
             <e p="ProbabilitiesGenetic.cs" t="Include" />
+=======
+            <e p="Mendel.cs" t="Include" />
+>>>>>>> main
           </e>
           <e p="Map.cs" t="Include" />
           <e p="Players" t="Include">
@@ -52,6 +56,7 @@
             <e p="Expansion.cs" t="Include" />
             <e p="GroundBlock.cs" t="Include" />
             <e p="HudParts.cs" t="Include" />
+            <e p="RotacionCamara.cs" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">

@@ -14,6 +14,7 @@ public abstract class Controller : MonoBehaviour
     public Map MyMap;
     private bool canPutABomb=true;
     private float bombTime;
+    
 
     protected void Start()
     {
