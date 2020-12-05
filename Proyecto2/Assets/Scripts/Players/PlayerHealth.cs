@@ -96,6 +96,7 @@ namespace Players
             ColorUtility.TryParseHtmlString("#2E2E2E", out color);
             face.color = color;
             body.color = color;
+            
         }
         private void becomeDamageAble()
         {

@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using System.Collections.Generic;
+using Players;
 
 namespace SquaredMapTools
 {
