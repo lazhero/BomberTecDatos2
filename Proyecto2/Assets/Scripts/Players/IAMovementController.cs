@@ -38,7 +38,6 @@ public class IAMovementController:Controller
                 {
                         directions.Enqueue(t);
                 }
-
         }
 
 
@@ -49,7 +48,6 @@ public class IAMovementController:Controller
                if (Input.GetKeyDown(KeyCode.K))
                { 
                        teinvocosatanas();
-                       
                }
 
         }

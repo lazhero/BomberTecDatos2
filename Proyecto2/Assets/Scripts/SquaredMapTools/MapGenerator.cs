@@ -2,7 +2,6 @@
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
-using AStar;
 using System.Collections.Generic;
 
 namespace SquaredMapTools
@@ -16,6 +15,7 @@ namespace SquaredMapTools
     [SerializeField] public int widthAndHeight = 10;
     [SerializeField] private bool debugMode;
     [SerializeField] private bool generateMap = true;
+
     public DGraph<GameObject> Graph { get; set; }
     private int normalCost = 10;
     private int blockedCost = Int32.MaxValue;
@@ -34,7 +34,9 @@ namespace SquaredMapTools
         forgivenPositions= PositionTools. DetermineForgivenPositions(widthAndHeight);
         GenerateGround();
         if(generateMap) GenerateInteractuableBlocks();
-
+        CharacterGenerator.GenerateAllPlayers(widthAndHeight,Graph);
+        
+        
         return Graph;
     }
     void justAPrint()
@@ -72,9 +74,7 @@ namespace SquaredMapTools
     {
         Graph.SetRelationShip(start,end,price);
     }
-
    
-
     /// <summary>
     ///  Instantiate one Block of newObject prefab Specified, with x,y,z coordinates and associate it with the graph
     /// </summary>
@@ -107,18 +107,14 @@ namespace SquaredMapTools
     /// </summary>
     private void GenerateInteractuableBlocks()
     {
-
-        //Lista para el caso que deba borrarlos porque generaron zonas cerradas
         int i;
-        foreach (var node in Graph.Nodes)
-        {
+        foreach (var node in Graph.Nodes) {
             i=Int32.Parse(node.name);
-            
-            //Debug.Log("Voy por el numero del "+node.name);
             
             if (PositionTools.IsSide(node.name,widthAndHeight)) continue;
             if (PositionTools.IsAForgivenOne(node.name, forgivenPositions))
             {
+                    
                 setRelations(i,normalCost,true);
                 continue;
             }
@@ -147,9 +143,10 @@ namespace SquaredMapTools
             groundBlockInfo.blockObject = newBlock;
 
         }
-        Debug.Log("cantidad de bloques caminables : " + walkableBlocks);
-        Debug.Log(message: "cantidad de bloques NOcaminables : " +(int) (Math.Pow(widthAndHeight - 2, 2) - walkableBlocks));
-        Debug.Log("tiene areas cerradas : " + !BackTracking());
+        
+        //Debug.Log("cantidad de bloques caminables : " + walkableBlocks);
+        //Debug.Log(message: "cantidad de bloques NOcaminables : " +(int) (Math.Pow(widthAndHeight - 2, 2) - walkableBlocks));
+        //Debug.Log("tiene areas cerradas : " + !BackTracking());
         if(BackTracking()) return;
         walkableBlocks = 28;
         Invoke(nameof(GenerateInteractuableBlocks),0.1F);

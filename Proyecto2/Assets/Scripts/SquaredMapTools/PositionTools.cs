@@ -40,9 +40,21 @@ namespace SquaredMapTools
 
         return stack;
     }
-    
-    
 
+
+    public static int[] DetermineSpawns(int n) {
+        var n2 = n * n;
+        var response = new int[8];
+        response[0] = n + 1;
+        response[1] = 2 * n - 2;
+        response[2] = n2-2*n + 1;
+        response[3] =n2- n -2 ;
+        response[4] = n / 2 + n;
+        response[5] =(n2 - 1) - n/2 - n;
+        response[6] =n2 /2 - n/2 + 1;
+        response[7] = (n2 /2 - n/2 + 1)+n-3;
+        return response;
+    }
     /// <summary>
     /// Determines the forgiven Positions for n*n matrix
     /// </summary>
@@ -94,27 +106,7 @@ namespace SquaredMapTools
         
             
         }
-    /// <summary>
-    /// Determines center and height that camera must be
-    /// </summary>
-    /// <returns></returns>
-    public static Vector3 DeterminesCameraPosition( GameObject[] nodes)
-    {
-        var totalX = 0f;
-        var totalZ = 0f;
-        foreach (var blokc in nodes)
-        {
-            var position = blokc.transform.position;
-            totalX += position.x;
-            totalZ += position.z;
-        }
 
-        var len = nodes.Length;
-        var centerX = totalX / len;
-        var centerZ = totalZ / len;
-        var height = Mathf.Sqrt(len) * 1.5f;
-        return new Vector3(centerX , height,centerZ*2);
-    }
         
     /// <summary>
     /// this calculates who is up, down , left, or right depending on a Vector2 (x,y) return -1 if the direction is not possible

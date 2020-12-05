@@ -17,7 +17,7 @@ public class Map : MonoBehaviour {
         Graph = mg.GenerateNewMap();
         
         widthAndHeight = mg.widthAndHeight;
-        cameraObj.transform.position = PositionTools.DeterminesCameraPosition(Graph.Nodes);
+        cameraObj.transform.position = DeterminesCameraPosition(Graph.Nodes);
 
     }
 
@@ -43,4 +43,28 @@ public class Map : MonoBehaviour {
         return squaresArray;
 
     }
+    
+    /// <summary>
+    /// Determines center and height that camera must be
+    /// </summary>
+    /// <returns></returns>
+    private static Vector3 DeterminesCameraPosition( GameObject[] nodes)
+    {
+        var totalX = 0f;
+        var totalZ = 0f;
+        foreach (var blokc in nodes)
+        {
+            var position = blokc.transform.position;
+            totalX += position.x;
+            totalZ += position.z;
+        }
+
+        var len = nodes.Length;
+        var centerX = totalX / len;
+        var centerZ = totalZ / len;
+        var height = Mathf.Sqrt(len) * 1.8f;
+        return new Vector3(centerX , height,centerZ*2);
+    }
+    
+    
 }

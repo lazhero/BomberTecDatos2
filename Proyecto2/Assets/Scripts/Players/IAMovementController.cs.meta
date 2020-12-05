@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d83ab8315b7642c5b9ab56311262ac6f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - currentBlock: {instanceID: 0}
+  - bomba: {fileID: 6055081531133671717, guid: c68b45bfa2083864fa57543c37d77d01, type: 3}
+  - MyMap: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

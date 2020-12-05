@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 3964570047580243072}
   - component: {fileID: 2749898909282852962}
   - component: {fileID: 5594979319070652284}
+  - component: {fileID: -3327271381446994589}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -253,7 +254,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab4e00e6bcc3ffbe9b22a1676ba1a8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalBomb: 1
+  totalShoe: 3
+  totalShield: 3
   totalHealth: 3
+  health: 3
+  heartUi: {fileID: 0}
+  shieldUi: {fileID: 0}
+  shoeUi: {fileID: 0}
+  bombUi: {fileID: 0}
 --- !u!1 &5409885986347618230
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,11 +653,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8382670168909673110}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.69534945, y: 1.124223, z: 0.3311677}
-  m_Center: {x: 0.04392445, y: -1.5637151, z: -0.18999743}
+  m_Size: {x: 0.8583009, y: 0.7166922, z: 0.43445683}
+  m_Center: {x: 0.07084954, y: -1.6395966, z: -0.2266283}
 --- !u!114 &257743244649540324
 MonoBehaviour:
   m_ObjectHideFlags: 0
