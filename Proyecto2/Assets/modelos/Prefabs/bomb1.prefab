@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1290294529791441137}
   - component: {fileID: 1632328008871886025}
   - component: {fileID: 3328985964388345534}
+  - component: {fileID: 8161455518367883687}
   m_Layer: 0
   m_Name: bomb1
   m_TagString: Bomb
@@ -100,7 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 1020190468417428305, guid: 9557976b709cd6d459f4e8e56d3ee012,
     type: 3}
-  time: 0.1
+  time: 2
+  bc: {fileID: 1632328008871886025}
 --- !u!54 &1290294529791441137
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -115,7 +117,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 14
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &1632328008871886025
 BoxCollider:
@@ -149,6 +151,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &8161455518367883687
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055081531133671717}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.007999999, y: 0.011, z: 0.008}
+  m_Center: {x: 0.0000000011641532, y: 0.00002174615, z: 0}
 --- !u!1 &9127783550724882065
 GameObject:
   m_ObjectHideFlags: 0

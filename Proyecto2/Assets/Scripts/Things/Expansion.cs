@@ -51,7 +51,11 @@ public class Expansion : MonoBehaviour
             
             other.GetComponent<Bomb>().Explote();
             
+        if(other.CompareTag("consumable"))
             
+            
+            other.GetComponent<Consumable>().Disapear();
+
         if (!other.CompareTag("block")) return;
         
         Instantiate(explosion).transform.position = transform.position;

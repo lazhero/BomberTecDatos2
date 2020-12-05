@@ -7,11 +7,9 @@ TagManager:
   - block
   - ground
   - Map
-  - Ham
-  - Shield
   - Undefined
-  - Shoe
   - Bomb
+  - consumable
   layers:
   - Default
   - TransparentFX

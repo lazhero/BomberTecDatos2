@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4229722434491082358}
   - component: {fileID: 4229722434491082357}
+  - component: {fileID: 7897797667288956981}
   m_Layer: 0
   m_Name: Map
   m_TagString: Map
@@ -43,20 +44,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b66eddd541bdba4ba53ea92e3e2c960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraObj: {fileID: 0}
+  mg: {fileID: 0}
+--- !u!114 &7897797667288956981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4229722434491082356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fbc5a1726740b5a0a69075300fc399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   indestructibleBlockPrefab: {fileID: 5316421468368695437, guid: 63c554f25c740a0489330cc9b8b5a098,
     type: 3}
   blocksPrefab:
   - {fileID: 1308472229384879270, guid: 2a6d6d0222ace0440ac5b4c9b9cef817, type: 3}
-  - {fileID: 1434912323303426917, guid: 5c751ca7875d57647bd3d1a54901c74c, type: 3}
+  - {fileID: 8698106173450930643, guid: fbefe985647ad674bace63ca76d24bc3, type: 3}
   - {fileID: 5626566644718773602, guid: acf56c55eef98e2468bd39e715f342d5, type: 3}
   groundBlock: {fileID: 1434912323303426917, guid: 5c751ca7875d57647bd3d1a54901c74c,
     type: 3}
   wallBlock: {fileID: 5316421468368695437, guid: 63c554f25c740a0489330cc9b8b5a098,
     type: 3}
-  cameraObj: {fileID: 0}
   widthAndHeight: 10
-  blockSize: 1.9
   debugMode: 0
-  normalCost: 10
   generateMap: 1
-  ham: {fileID: 1103729609193184, guid: b5633769281ca0940b368cbed17b7ec0, type: 3}

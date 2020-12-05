@@ -28,4 +28,9 @@ public class Consumable : MonoBehaviour
         Destroy(gameObject);
         
     }
+
+    public void Disapear()
+    {
+        Destroy(gameObject);
+    }
 }

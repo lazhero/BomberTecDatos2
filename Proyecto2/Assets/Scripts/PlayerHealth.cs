@@ -96,7 +96,10 @@ public class PlayerHealth : MonoBehaviour
                 health = totalHealth;
 
             if (health <= 0)
+            {
+                death();
                 health = 0;
+            }
 
             heartUi.sizeDelta = new Vector2(_heartSize * health, 14);
 
@@ -114,10 +117,13 @@ public class PlayerHealth : MonoBehaviour
     public RectTransform shieldUi;
     public RectTransform shoeUi;
     public RectTransform bombUi;
+    private Animator Anim;
+    private static readonly int Death = Animator.StringToHash("DEATH");
 
     void Start()
     {
         Health = totalHealth;
+        Anim = GetComponentInChildren<Animator>();
     }
 
     public void ModifyStats(int vida, int escudo, int bombas, int zapato)
@@ -125,7 +131,11 @@ public class PlayerHealth : MonoBehaviour
         Health += vida;
     }
 
+    private void death()
+    {
+        Anim.SetBool(Death,true);
 
+    }
     private void becomeDamageAble()
     {
         canReciveDamage = true;
