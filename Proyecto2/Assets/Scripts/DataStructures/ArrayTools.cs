@@ -1,4 +1,5 @@
-﻿namespace DataStructures
+﻿using System.Collections.Generic;
+namespace DataStructures
 {
     public class ArrayTools<T>
     {
@@ -11,5 +12,16 @@
                 array[i] = data;
             }
         }
+
+        public static T[] getArrayFromStack(Stack<T> stack)
+        {
+            T[] array=new T[stack.Count];
+            for (int i = 0; i < stack.Count; i++)
+            {
+                array[i] = stack.Pop();
+            }
+            return array;
+        }
     }
+    
 }

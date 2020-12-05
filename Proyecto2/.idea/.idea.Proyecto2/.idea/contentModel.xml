@@ -19,6 +19,9 @@
             <e p="DGraph.cs" t="Include" />
             <e p="LinkedList.cs" t="Include" />
           </e>
+          <e p="Genetics" t="Include">
+            <e p="ProbabilitiesGenetic.cs" t="Include" />
+          </e>
           <e p="Map.cs" t="Include" />
           <e p="Players" t="Include">
             <e p="AddProbabilities.cs" t="Include" />
