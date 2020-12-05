@@ -124,16 +124,16 @@ namespace SquaredMapTools
 
             if (Random.Range(0, 100) < 70)
             {
-                setRelations(i,blockedCost,true);
                 newBlock = Instantiate(blocksPrefab[Random.Range(0, 3)], node.transform, true);
                 walkableBlocks++;
             }
             else
             {
-                setRelations(i, closedCost, true);
+               
                 newBlock = Instantiate(indestructibleBlockPrefab, node.transform, true);
                 newBlock.transform.GetChild(0).gameObject.SetActive(false);
             }
+            setRelations(i, closedCost, true);
             
 
             groundBlockInfo.Reset();
