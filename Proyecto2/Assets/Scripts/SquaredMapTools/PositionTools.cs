@@ -51,8 +51,14 @@ namespace SquaredMapTools
         response[3] =n2- n -2 ;
         response[4] = n / 2 + n;
         response[5] =(n2 - 1) - n/2 - n;
-        response[6] =n2 /2 - n/2 + 1;
-        response[7] = (n2 /2 - n/2 + 1)+n-3;
+        int c;
+        if (n % 2 != 0)
+            c = n2 / 2 - n / 2 + 1;
+        else
+            c = n2 / 2 + 1;
+        
+        response[6] =c;
+        response[7] = c+n-3;
         return response;
     }
     /// <summary>
@@ -90,7 +96,10 @@ namespace SquaredMapTools
         ForgivenPositions[18] = c+1;
         ForgivenPositions[19] = c;
 
-        c = n2 /2 - n/2 + 1;
+        if (n % 2 != 0)
+            c = n2 / 2 - n / 2 + 1;
+        else
+            c = n2 / 2 + 1;
         ForgivenPositions[20] = c-n;
         ForgivenPositions[21] = c+n;
         ForgivenPositions[22] = c+1;

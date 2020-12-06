@@ -1,6 +1,8 @@
-﻿namespace Players
+﻿using Players.Behaviors;
+
+namespace Players
 {
-    public class LeaveBomb:Behavior
+    public class LeaveBomb:AiBehavior
     {
         public override void Act()
         {

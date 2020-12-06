@@ -679,7 +679,7 @@ PrefabInstance:
     - target: {fileID: 7897797667288956981, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}
       propertyPath: debugMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7897797667288956981, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}
@@ -687,6 +687,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3845032672257296282, guid: 597a71e05ac037b4cbe69ecbe5b2ec00,
         type: 3}
+    - target: {fileID: 7897797667288956981, guid: eb99f3c19a2f9554e8d61302509c3c91,
+        type: 3}
+      propertyPath: widthAndHeight
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}
       propertyPath: bomba
@@ -699,6 +704,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7744953525996461752, guid: 8d48236cd571fa9c8a46c4435d19a62e,
         type: 3}
+    - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
+        type: 3}
+      propertyPath: maxPlayers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}
       propertyPath: enemyColour
@@ -714,6 +724,58 @@ PrefabInstance:
       propertyPath: playerPrefab
       value: 
       objectReference: {fileID: 3845032672257296282, guid: 597a71e05ac037b4cbe69ecbe5b2ec00,
+        type: 3}
+    - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
+        type: 3}
+      propertyPath: AiBehaviors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
+        type: 3}
+      propertyPath: AiBehaviors.Array.data[0]
+      value: 
+      objectReference: {fileID: 3688625191752810610, guid: f264553353ee0c44eb9913d75c083c54,
+        type: 3}
+    - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
+        type: 3}
+      propertyPath: AiBehaviors.Array.data[1]
+      value: 
+      objectReference: {fileID: 579866046551627578, guid: f264553353ee0c44eb9913d75c083c54,
+        type: 3}
+    - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
+        type: 3}
+      propertyPath: AiBehaviors.Array.data[2]
+      value: 
+      objectReference: {fileID: 4084658643080992842, guid: f264553353ee0c44eb9913d75c083c54,
+        type: 3}
+    - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
+        type: 3}
+      propertyPath: AiBehaviors.Array.data[3]
+      value: 
+      objectReference: {fileID: -4849436769445156937, guid: f264553353ee0c44eb9913d75c083c54,
+        type: 3}
+    - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
+        type: 3}
+      propertyPath: AiBehaviorslist.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
+        type: 3}
+      propertyPath: AiBehaviorslist.Array.data[0]
+      value: 
+      objectReference: {fileID: 3688625191752810610, guid: f264553353ee0c44eb9913d75c083c54,
+        type: 3}
+    - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
+        type: 3}
+      propertyPath: AiBehaviorslist.Array.data[1]
+      value: 
+      objectReference: {fileID: 579866046551627578, guid: f264553353ee0c44eb9913d75c083c54,
+        type: 3}
+    - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
+        type: 3}
+      propertyPath: AiBehaviorslist.Array.data[2]
+      value: 
+      objectReference: {fileID: 4084658643080992842, guid: f264553353ee0c44eb9913d75c083c54,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb99f3c19a2f9554e8d61302509c3c91, type: 3}

@@ -1,4 +1,6 @@
-﻿using SquaredMapTools;
+﻿using System;
+using Players.Behaviors;
+using SquaredMapTools;
 using UnityEngine;
 using Genetics;
 using Random = UnityEngine.Random;
@@ -7,9 +9,10 @@ namespace Players
 {
     public class CharacterGenerator : MonoBehaviour
     {
-
+        [SerializeField] public  AiBehavior[] AiBehaviors;
         [SerializeField] private  GameObject playerPrefab;
         [SerializeField] private int humanPlayers;
+        [SerializeField] private int maxPlayers;
         [SerializeField] private GameObject bomba;
         [SerializeField] private GameObject PlayerHud;
     
@@ -19,8 +22,8 @@ namespace Players
         private static GameObject Static_Player;
         private static Mendel geneticFather;
         private static int Static_HumansCuantity;
-
-
+        private static  AiBehavior[] aibehaviors;
+        private static int maximum;
     
         private void Awake()
         {
@@ -30,7 +33,8 @@ namespace Players
             Static_HumansCuantity = humanPlayers;
             Static_GeneralCanva = GameObject.FindGameObjectWithTag("Canva");
             geneticFather       = GameObject.FindGameObjectWithTag("Mendel").GetComponent<Mendel>();
-
+            aibehaviors           = AiBehaviors;
+            maximum = maxPlayers;
         }
 
 
@@ -77,10 +81,13 @@ namespace Players
             else
             {
                 player.AddComponent<IAMovementController>();
-                player.AddComponent<AddProbabilities>();
-                
+                foreach (Component VARIABLE in aibehaviors)
+                {
+                    UnityEditorInternal.ComponentUtility.CopyComponent(VARIABLE);
+                    UnityEditorInternal.ComponentUtility.PasteComponentAsNew(player);
+                }
+                player.AddComponent<IAProbability>().setBehaviorsNumber(aibehaviors.Length);
             }
-                
             
             
             player.transform.position = trans.transform.position+ new Vector3(0,3,0);
@@ -104,9 +111,10 @@ namespace Players
             
             geneticFather.Being = new GameObject[spawns.Length];
             
-            foreach (var nodeName in spawns )
+            for (var i=0; i< spawns.Length&& i<maximum;i++ )
             {
-                GeneratePlayer(Static_HumansCuantity>0, nodes.getNode(nodeName));
+             
+                GeneratePlayer(Static_HumansCuantity>0, nodes.getNode(spawns[i]));
                 Static_HumansCuantity--;
             }
         }

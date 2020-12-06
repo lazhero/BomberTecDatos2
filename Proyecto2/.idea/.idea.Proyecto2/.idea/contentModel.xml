@@ -18,6 +18,7 @@
             <e p="ArrayTools.cs" t="Include" />
             <e p="DGraph.cs" t="Include" />
             <e p="LinkedList.cs" t="Include" />
+            <e p="Sorter.cs" t="Include" />
           </e>
           <e p="Genetics" t="Include">
             <e p="Mendel.cs" t="Include" />
@@ -25,9 +26,8 @@
           </e>
           <e p="Map.cs" t="Include" />
           <e p="Players" t="Include">
-            <e p="AddProbabilities.cs" t="Include" />
             <e p="Behaviors" t="Include">
-              <e p="Behavior.cs" t="Include" />
+              <e p="AIBehavior.cs" t="Include" />
               <e p="FindEnemy.cs" t="Include" />
               <e p="FindPowerUp.cs" t="Include" />
               <e p="Hide.cs" t="Include" />
@@ -41,12 +41,10 @@
             <e p="PlayerHealth.cs" t="Include" />
             <e p="PosDettector.cs" t="Include" />
           </e>
-          <e p="PositionDetection.cs" t="Include" />
           <e p="SquaredMapTools" t="Include">
             <e p="MapGenerator.cs" t="Include" />
             <e p="PositionTools.cs" t="Include" />
           </e>
-          <e p="Stats.cs" t="Include" />
           <e p="Things" t="Include">
             <e p="Block.cs" t="Include" />
             <e p="DestroyAfter.cs" t="Include" />

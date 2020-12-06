@@ -1,6 +1,6 @@
-﻿namespace Players
+﻿namespace Players.Behaviors
 {
-    public class FindPowerUp: Behavior
+    public class FindPowerUp: AiBehavior
     {
  
         public override void Act()

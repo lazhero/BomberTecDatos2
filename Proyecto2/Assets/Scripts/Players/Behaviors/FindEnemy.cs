@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-
-namespace Players
+﻿namespace Players.Behaviors
 {
-    public class FindEnemy:Behavior
+    public class FindEnemy:AiBehavior
     {
         public override void Act()
         {

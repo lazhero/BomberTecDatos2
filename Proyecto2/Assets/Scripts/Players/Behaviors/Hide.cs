@@ -1,6 +1,6 @@
-﻿namespace Players
+﻿namespace Players.Behaviors
 {
-    public class Hide:Behavior
+    public class Hide:AiBehavior
     {
         public override void Act()
         {
