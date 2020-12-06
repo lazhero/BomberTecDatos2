@@ -20,11 +20,8 @@
             <e p="LinkedList.cs" t="Include" />
           </e>
           <e p="Genetics" t="Include">
-<<<<<<< HEAD
-            <e p="ProbabilitiesGenetic.cs" t="Include" />
-=======
             <e p="Mendel.cs" t="Include" />
->>>>>>> main
+            <e p="ProbabilitiesGenetic.cs" t="Include" />
           </e>
           <e p="Map.cs" t="Include" />
           <e p="Players" t="Include">

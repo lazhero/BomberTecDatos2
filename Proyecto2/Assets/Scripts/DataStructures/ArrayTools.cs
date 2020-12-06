@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
+
 namespace DataStructures
 {
     public class ArrayTools<T>
@@ -21,6 +23,21 @@ namespace DataStructures
                 array[i] = stack.Pop();
             }
             return array;
+        }
+
+        public static void Mix(T[] vector)
+        {
+            int randomPositionA;
+            int randomPositionB;
+            T backup;
+            for (int i = 0; i < vector.Length; i++)
+            {
+                randomPositionA = Random.Range(0, vector.Length + 1);
+                randomPositionB=Random.Range(0, vector.Length + 1);
+                backup = vector[randomPositionA];
+                vector[randomPositionA] = vector[randomPositionB];
+                vector[randomPositionB] = backup;
+            }
         }
     }
     

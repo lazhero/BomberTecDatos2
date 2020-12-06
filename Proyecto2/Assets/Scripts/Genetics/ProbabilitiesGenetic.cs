@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using DataStructures;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Genetics
@@ -110,6 +111,32 @@ namespace Genetics
             Mutate(newPopulation);
             return newPopulation;
         }
-        
+
+        public static float[][] generateInitialPopulation(int Number,int attributesNumber)
+        {
+            float[][] population = new float[Number][];
+            for (int i = 0; i < Number; i++)
+            {
+                population[i] = generateBeing(attributesNumber);
+            }
+
+            return population;
+        }
+
+        public static float[] generateBeing(int attributesNumber)
+        {
+            float left = maxValue;
+            float selected;
+            float[] genome = new float[attributesNumber];
+            for (int i = 0; i < attributesNumber; i++)
+            {
+                selected = Random.Range(0, left+1);
+                left -= selected;
+                genome[i] = selected;
+            }
+            ArrayTools<float>.Mix(genome);
+            return genome;
+
+        }
     }
 }

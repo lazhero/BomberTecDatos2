@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Mendel : MonoBehaviour
 {
-    public GameObject[] Beans { set; get; }
+    public GameObject[] Being { set; get; }
 
     public void AddNewBean(GameObject player)
     {
-        for (int iterator = 0; iterator < Beans.Length; iterator++)
+        for (int iterator = 0; iterator < Being.Length; iterator++)
         {
-            if (Beans[iterator] == null)
+            if (Being[iterator] == null)
             {
-                Beans[iterator] = player;
+                Being[iterator] = player;
             }
         }
     }

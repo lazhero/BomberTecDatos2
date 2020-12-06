@@ -1,5 +1,6 @@
 ﻿using SquaredMapTools;
 using UnityEngine;
+using Genetics;
 using Random = UnityEngine.Random;
 
 namespace Players
@@ -74,7 +75,13 @@ namespace Players
             if(humanController) 
                 player.AddComponent<PlayerController>();
             else
+            {
                 player.AddComponent<IAMovementController>();
+                player.AddComponent<AddProbabilities>();
+                
+            }
+                
+            
             
             player.transform.position = trans.transform.position+ new Vector3(0,3,0);
             DefineDefaultSettings(player,humanController);
@@ -95,7 +102,7 @@ namespace Players
             
             int[] spawns = PositionTools.DetermineSpawns(n);
             
-            geneticFather.Beans = new GameObject[spawns.Length];
+            geneticFather.Being = new GameObject[spawns.Length];
             
             foreach (var nodeName in spawns )
             {
