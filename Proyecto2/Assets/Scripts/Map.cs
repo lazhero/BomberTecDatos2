@@ -19,10 +19,8 @@ public class Map : MonoBehaviour {
     [SerializeField] private bool generateMap = true;
     public DGraph<GameObject> Graph { get; set; }
     private int normalCost = 10;
-    private int blockedCost = 10000;
-    private int closedCost=Int32.MaxValue;
-
-    
+    private int blockedCost = Int32.MaxValue;
+    private int closedCost = Int32.MaxValue;
     private int length;
     private int walkableBlocks = 12;
     private int[] forgivenPositions;

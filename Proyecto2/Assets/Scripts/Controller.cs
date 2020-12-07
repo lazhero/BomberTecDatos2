@@ -33,7 +33,7 @@ public abstract class Controller : MonoBehaviour
 
     }
 
-    protected void GenerateBomb()
+    public void GenerateBomb()
     {
         GameObject bombita = Instantiate(bomba);
         bombita.transform.position = currentBlock.transform.position + new Vector3(0, 1.5f, 0);
