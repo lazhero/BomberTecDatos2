@@ -21,6 +21,7 @@ namespace Genetics
 
         public static float[][] GetSuccess(float[][] population, float[] success)
         {
+            
             Stack<float[]> sucessFullPopulation =new Stack<float[]>();
             for (int i = 0; i < success.Length; i++)
             {
