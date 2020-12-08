@@ -28,14 +28,14 @@ namespace SquaredMapTools
             stack.Push(node-widthAndHeight);
         }
 
-        if ((int)(node / widthAndHeight) ==(int) ((node + 1) / widthAndHeight))
-        {
-            stack.Push(node+1);
-        }
-
-        if ((int)(node % widthAndHeight) == (int)((node - 1) % widthAndHeight))
+        if (node-1 % widthAndHeight != 0)
         {
             stack.Push(node-1);
+        }
+
+        if ((node+1) % widthAndHeight != 0)
+        {
+            stack.Push(node+1);
         }
 
         return stack;
@@ -49,7 +49,7 @@ namespace SquaredMapTools
     /// <returns></returns>
     public static bool areInLine(int n, int pos1, int pos2)
     {
-        return pos1 % n == pos2 % n && Mathf.Abs(pos1 - pos2) < n;
+        return pos1 % n == pos2 % n || Mathf.Abs(pos1 - pos2) < n;
     }
     public static int[] DetermineSpawns(int n) {
         var n2 = n * n;

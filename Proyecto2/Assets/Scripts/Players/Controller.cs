@@ -17,7 +17,8 @@ public abstract class Controller : MonoBehaviour
     private float _bombTime;
     private PlayerHealth _stats;
     private static readonly int Moving = Animator.StringToHash("MOVING");
-
+    [SerializeField]
+    private bool DebugMode=true;
     //?--------------------------------->
     //!--------------------------------->
     //?--------------------------------->
@@ -57,7 +58,7 @@ public abstract class Controller : MonoBehaviour
     /// </summary>
     public void GenerateBomb()
     {
-        if(_canPutABomb)
+        if(_canPutABomb || DebugMode)
         {
             GameObject bombita = Instantiate(bomba);
             bombita.transform.position = currentBlock.transform.position + new Vector3(0, 1.5f, 0);

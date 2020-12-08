@@ -8,7 +8,9 @@ public class Map : MonoBehaviour {
     
     private DGraph<GameObject> Graph { get; set; }
     public int WidthAndHeight { get; set; } = 10;
-    public Dictionary<string, DataStructures.LinkedList<int>> Things { get; set; }  
+    public Dictionary<string, List<int>> Things { get; set; }
+
+    public List<int> DEBUG;
 
     [SerializeField] private  GameObject cameraObj;
     [SerializeField] private MapGenerator mg;
@@ -22,7 +24,7 @@ public class Map : MonoBehaviour {
         Graph = mg.GenerateNewMap();
         WidthAndHeight = mg.widthAndHeight;
         cameraObj.transform.position = DeterminesCameraPosition(Graph.Nodes);
-        Things= new Dictionary<string, DataStructures.LinkedList<int>>();
+        Things= new Dictionary<string, List<int>>();
 
     }
 
@@ -123,14 +125,16 @@ public class Map : MonoBehaviour {
     /// 
     public void ThingChange(message posAndState)
     {
+        
         if (!Things.ContainsKey(posAndState.type))
         {
-            Things.Add(posAndState.type,new DataStructures.LinkedList<int>());
+            Things.Add(posAndState.type,new List<int>());
         }
         
         if(posAndState.isActive)
         {
                Things[posAndState.type].Add(posAndState.value);
+               DEBUG = Things["Bomb"];
         }
         else
         {
@@ -153,6 +157,8 @@ public class Map : MonoBehaviour {
 
     public bool canWalkHere(int blockNumber)
     {
-        return Graph.getNode(blockNumber).GetComponent<GroundBlock>().block == null;
+        Debug.Log("me preguntaron por: " +blockNumber);
+        var inf = Graph.getNode(blockNumber).GetComponent<GroundBlock>();
+        return inf.blockObject ==null && !inf.isWall ;
     }
 }
