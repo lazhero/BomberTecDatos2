@@ -18,7 +18,7 @@ namespace SquaredMapTools
     [SerializeField] private bool generateMap = true;
 
     public DGraph<GameObject> Graph { get; set; }
-    private int normalCost = 10;
+    public static int normalCost { get; set; } = 10;
     private int blockedCost = Int32.MaxValue;
     private int closedCost = Int32.MaxValue;
     private int length;
@@ -35,9 +35,8 @@ namespace SquaredMapTools
         forgivenPositions= PositionTools. DetermineForgivenPositions(widthAndHeight);
         GenerateGround();
         if(generateMap) GenerateInteractuableBlocks();
+        else LinkGraph();
         CharacterGenerator.GenerateAllPlayers(widthAndHeight,Graph);
-        
-        
         return Graph;
     }
     void justAPrint()
@@ -222,10 +221,7 @@ namespace SquaredMapTools
     
 
 
-    public void BlockDestroyed(int node)
-    {
-        setRelations(node,normalCost,true);
-    }
+
     
     }
 }

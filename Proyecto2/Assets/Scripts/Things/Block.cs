@@ -21,9 +21,10 @@ public class Block : MonoBehaviour
     /// destroy the block 
     /// </summary>
     void Destr() {
-        Destroy(gameObject);
         int myPos=Int32.Parse(gameObject.transform.parent.name);
         transform.parent.gameObject.transform.parent.SendMessage("BlockDestroyed",myPos);
+        Destroy(gameObject);
+
     }
 
     /// <summary>
@@ -31,13 +32,15 @@ public class Block : MonoBehaviour
     /// </summary>
     public void DestroyMe() {
         if (!isDestructible || isDestroy) return;
-        isDestroy = true;
-        var producto= Instantiate(dead_Object);
+        
+        GameObject producto= Instantiate(dead_Object);
         producto.transform.position = transform.position;
+        
+        isDestroy = true;
         Invoke("Destr",0.1f);
+        
         GameObject myConsumable = Instantiate(consumables[Random.Range(0,consumables.Length)]);
         myConsumable.transform.position = gameObject.transform.position ;
-        //! Debug.Log("Consumable created");
     }
 
 

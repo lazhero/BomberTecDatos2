@@ -17,16 +17,16 @@ public class Expansion : MonoBehaviour
     public int damage = 1;
     
     public Vector3 direction { set; get; }
-    public int squares { set; get; } = 4;
+    public int ratio { set; get; } = 4;
     public bool untilTheWall { set; get; }
     [SerializeField] private GameObject explosion;
 
 
     private void Update()
     {   
-        if(squares>0 && !finishedCondition)
+        if(ratio>0 && !finishedCondition)
         {
-            squares--;
+            ratio--;
             transform.Translate(Vector3.forward + Vector3.forward * (cubeSize * Time.deltaTime));
             Instantiate(explosion).transform.position = transform.position;
         }

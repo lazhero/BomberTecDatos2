@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 public class PlayerController:Controller
 {
@@ -22,6 +20,6 @@ public class PlayerController:Controller
 
     public void setMoving(bool value)
     {
-        anim.SetBool("MOVING",value);
+        Anim.SetBool("MOVING",value);
     }
 }

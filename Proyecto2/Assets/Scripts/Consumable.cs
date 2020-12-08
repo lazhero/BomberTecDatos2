@@ -16,6 +16,8 @@ public class Consumable : MonoBehaviour
     private void Awake()
     {
         _collider = GetComponent<Collider>();
+        _collider.enabled = false;
+        Invoke("activateCollider",0.5f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,6 +32,10 @@ public class Consumable : MonoBehaviour
         
     }
 
+    public void activateCollider()
+    {
+        _collider.enabled = true;
+    }
     public void Disapear()
     {
         Destroy(gameObject);

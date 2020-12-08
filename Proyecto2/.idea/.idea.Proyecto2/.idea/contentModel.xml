@@ -48,9 +48,11 @@
           <e p="Things" t="Include">
             <e p="Block.cs" t="Include" />
             <e p="DestroyAfter.cs" t="Include" />
+            <e p="Estela.cs" t="Include" />
             <e p="Expansion.cs" t="Include" />
             <e p="GroundBlock.cs" t="Include" />
             <e p="HudParts.cs" t="Include" />
+            <e p="message.cs" t="Include" />
             <e p="RotacionCamara.cs" t="Include" />
           </e>
         </e>

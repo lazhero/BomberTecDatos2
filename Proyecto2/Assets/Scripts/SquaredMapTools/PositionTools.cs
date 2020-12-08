@@ -40,8 +40,17 @@ namespace SquaredMapTools
 
         return stack;
     }
-
-
+    /// <summary>
+    /// returns if two nodes are in line
+    /// </summary>
+    /// <param name="n"></param>
+    /// <param name="pos1"></param>
+    /// <param name="pos2"></param>
+    /// <returns></returns>
+    public static bool areInLine(int n, int pos1, int pos2)
+    {
+        return pos1 % n == pos2 % n && Mathf.Abs(pos1 - pos2) < n;
+    }
     public static int[] DetermineSpawns(int n) {
         var n2 = n * n;
         var response = new int[8];

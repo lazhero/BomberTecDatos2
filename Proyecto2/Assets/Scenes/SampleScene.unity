@@ -683,6 +683,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7897797667288956981, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}
+      propertyPath: generateMap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7897797667288956981, guid: eb99f3c19a2f9554e8d61302509c3c91,
+        type: 3}
       propertyPath: playerPrefab
       value: 
       objectReference: {fileID: 3845032672257296282, guid: 597a71e05ac037b4cbe69ecbe5b2ec00,
@@ -707,7 +712,7 @@ PrefabInstance:
     - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}
       propertyPath: maxPlayers
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}

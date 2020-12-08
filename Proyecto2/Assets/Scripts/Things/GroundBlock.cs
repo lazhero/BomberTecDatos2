@@ -8,7 +8,6 @@ public class GroundBlock : MonoBehaviour
 
     public Block block;
     public GameObject blockObject;
-  
 
     public void Reset()
     {    
