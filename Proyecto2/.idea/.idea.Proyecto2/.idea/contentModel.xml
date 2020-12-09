@@ -28,8 +28,7 @@
           <e p="Players" t="Include">
             <e p="Behaviors" t="Include">
               <e p="AIBehavior.cs" t="Include" />
-              <e p="FindEnemy.cs" t="Include" />
-              <e p="FindPowerUp.cs" t="Include" />
+              <e p="Follow.cs" t="Include" />
               <e p="Hide.cs" t="Include" />
               <e p="LeaveBomb.cs" t="Include" />
             </e>
@@ -48,9 +47,11 @@
           <e p="Things" t="Include">
             <e p="Block.cs" t="Include" />
             <e p="DestroyAfter.cs" t="Include" />
+            <e p="Estela.cs" t="Include" />
             <e p="Expansion.cs" t="Include" />
             <e p="GroundBlock.cs" t="Include" />
             <e p="HudParts.cs" t="Include" />
+            <e p="message.cs" t="Include" />
             <e p="RotacionCamara.cs" t="Include" />
           </e>
         </e>

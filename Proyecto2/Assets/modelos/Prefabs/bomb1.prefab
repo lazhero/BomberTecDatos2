@@ -101,7 +101,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 1020190468417428305, guid: 9557976b709cd6d459f4e8e56d3ee012,
     type: 3}
+  map: {fileID: 0}
+  pos: 0
   time: 2
+  radio: 2
   bc: {fileID: 1632328008871886025}
 --- !u!54 &1290294529791441137
 Rigidbody:

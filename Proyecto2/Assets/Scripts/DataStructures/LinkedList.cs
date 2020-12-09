@@ -16,8 +16,24 @@ namespace DataStructures
         }
 
       
+        public T this[int index]
+        {
+            get => Get(index);
+            set { GetNode(index).Data = value; }
+        }
 
-    
+        public bool Contains(T value)
+        {
+            var current = this.Head;
+
+            for (int i = 0; i < Len; i++)
+            {
+
+                if (current.Data.Equals(value)) return true;
+                current = current.Next;
+            }
+            return false;
+        }
         public void Add( T value){
         
             var current = this.Head;
@@ -91,13 +107,27 @@ namespace DataStructures
 
             return current.Data;
         }
+        public Node<T> GetNode(int index)
+        {
 
+            if (index >= this.Len)
+                index = this.Len - 1;
+
+            var current = this.Head;
+
+            for (int i = 0; i < index; i++)
+            {
+                current = current.Next;
+            }
+
+            return current;
+        }
         public Node<T> Get(T value) {
             var current = this.Head;
 
             for (int i = 0; i < Len; i++) {
 
-               // if (current.Compare(value) > 0) {break;}
+                if (current.Data.Equals(value)) {break;}
                 current = current.Next;
             }
             return current;

@@ -223,8 +223,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3976517, y: 2.2468622, z: 1.037765}
-  m_Center: {x: 0.074187994, y: -0.6234311, z: 0.4734857}
+  m_Size: {x: 1.3976517, y: 2.2468622, z: 0.7453985}
+  m_Center: {x: 0.074187994, y: -0.6234311, z: -0.045592785}
 --- !u!114 &6020081157150938748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,15 +237,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab4e00e6bcc3ffbe9b22a1676ba1a8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalBomb: 1
+  explosionRatio: {fileID: 0}
+  evasion: {fileID: 0}
+  face: {fileID: 0}
+  body: {fileID: 0}
   totalShoe: 3
-  totalShield: 3
   totalHealth: 3
   health: 3
   heartUi: {fileID: 0}
-  shieldUi: {fileID: 0}
   shoeUi: {fileID: 0}
-  bombUi: {fileID: 0}
 --- !u!1 &5281439233995394217
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +597,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8506611122543636873}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.65}
+  m_LocalPosition: {x: 0, y: 0, z: 0.173}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7722516723506782510}
@@ -639,8 +639,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8583009, y: 0.7166922, z: 0.43445683}
-  m_Center: {x: 0.07084954, y: -1.6395966, z: -0.2266283}
+  m_Size: {x: 0.6875901, y: 0.7166922, z: 0.43445683}
+  m_Center: {x: 0.06780362, y: -1.6395966, z: -0.2266283}
 --- !u!114 &129205507642747387
 MonoBehaviour:
   m_ObjectHideFlags: 0

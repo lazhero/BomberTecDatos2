@@ -1,6 +1,7 @@
 ﻿using DataStructures;
 using Players.Behaviors;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using Random = UnityEngine.Random;
 
 public class IAProbability : MonoBehaviour
@@ -15,9 +16,17 @@ public class IAProbability : MonoBehaviour
     {
         movement = gameObject.GetComponent<IAMovementController>();
         behaviors = GetComponents<AiBehavior>();
-        InvokeRepeating("RandomWithoutProbs", 1, time * Time.deltaTime);
+        //InvokeRepeating("RandomWithoutProbs", 1, time * Time.deltaTime);
     }
 
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T)) 
+            RandomWithoutProbs();
+    }
+    
+    
     public void setBehaviorsNumber(int number)
     {
         probabilities = new float[number];
@@ -78,9 +87,7 @@ public class IAProbability : MonoBehaviour
         }
         
     }
-    
-    void Update()
-    {
-        
-    }
 }
+
+    
+ 
