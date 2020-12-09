@@ -110,5 +110,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthRestoration: 0
   shoe: 0
-  bomb: 0
+  bomb: 1
   shield: 0

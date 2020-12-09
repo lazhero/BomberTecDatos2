@@ -1,55 +1,75 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Players;
 using UnityEngine;
 
 public abstract class Controller : MonoBehaviour
 {
-    protected Animator anim;
-    protected GameObject body;
+    protected Animator Anim;
+    private GameObject _body;
     public float velocidad = 5f;
     public GameObject currentBlock;
     [SerializeField]
     public GameObject bomba;
-    public Map MyMap;
-    private bool canPutABomb=true;
-    private float bombTime;
+    public Map myMap;
+    private bool _canPutABomb=true;
+    private float _bombTime;
+    private PlayerHealth _stats;
+    private static readonly int Moving = Animator.StringToHash("MOVING");
+    [SerializeField]
+    private bool DebugMode=true;
+    //?--------------------------------->
+    //!--------------------------------->
+    //?--------------------------------->
     
-
     protected void Start()
     {
-        MyMap = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
-        body = gameObject.transform.GetChild(0).gameObject;
-        anim = body.GetComponent<Animator>();
-        bombTime = bomba.GetComponent<Bomb>().time;
+        myMap = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
+        _body = gameObject.transform.GetChild(0).gameObject;
+        Anim = _body.GetComponent<Animator>();
+        _bombTime = bomba.GetComponent<Bomb>().time;
+        _stats = GetComponent<PlayerHealth>();
 
     }
-
+    /// <summary>
+    /// moves the player
+    /// </summary>
+    /// <param name="dir"></param>
     protected void Move(Vector3 dir)
     {
-
         var x = dir[0]*90 + ((int) (1 - dir[2]) / 2) * 180;
-
         var angle = Quaternion.Euler(0,x , 0);
         
-        anim.SetBool("MOVING", true);
+        Anim.SetBool(Moving, true);
         gameObject.transform.Translate(dir * (velocidad * Time.deltaTime),Space.World);
-        body.transform.rotation = angle;
+        _body.transform.rotation = angle;
 
     }
-
-    private void canPutAgain()
+    /// <summary>
+    /// enables capabilty to put bombs
+    /// </summary>
+    private void CanPutAgain()
     {
-        canPutABomb = true;
+        _canPutABomb = true;
     }
+    /// <summary>
+    /// Generates bombs
+    /// </summary>
     public void GenerateBomb()
     {
-        if(canPutABomb)
+        if(_canPutABomb || DebugMode)
         {
             GameObject bombita = Instantiate(bomba);
             bombita.transform.position = currentBlock.transform.position + new Vector3(0, 1.5f, 0);
-            canPutABomb = false;
-            Invoke("canPutAgain",bombTime);
+            _canPutABomb = false;
+            
+            Bomb info=bombita.GetComponent<Bomb>();
+            info.map = myMap;
+            info.pos = Convert.ToInt32(currentBlock.name);
+            info.radio = _stats.BombRatio;
+            
+            Invoke("CanPutAgain",_bombTime);
 
         }
     
