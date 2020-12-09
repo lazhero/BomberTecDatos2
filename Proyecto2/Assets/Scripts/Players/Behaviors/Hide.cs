@@ -5,13 +5,16 @@ using UnityEngine;
 
 namespace Players.Behaviors
 {
-    public class Hide:AiBehavior
+    public class Hide : AiBehavior
     {
 
-        private List<int  > bombPositions;
-        private List<int  > BombRatios;
+        private List<int> bombPositions;
+        private List<int> BombRatios;
         private List<int[]> solutions;
+        private List<int> explored;
 
+
+        private int limit=100; 
         public override void Act()
         {
             
@@ -21,11 +24,13 @@ namespace Players.Behaviors
             
             int currentPos    = Convert.ToInt32(controller.currentBlock.name);
             List<int> killers = CalculatePossibleKillers(currentPos,bombPositions,BombRatios);
-            
-            
-            if (killers.Count <= 0) return ;
-            Backtracking( currentPos);
-            Debug.Log("el mejor punto para huir es : "+ ClosestSafePoint() );
+
+            limit = 100;
+            if (killers.Count > 0)
+            {
+                Backtracking(currentPos);
+                controller.AddMovement(ClosestSafePoint());
+            }
         }
 
         
@@ -35,6 +40,7 @@ namespace Players.Behaviors
             int closestPoint =-1;
             for (int i = 0; i < solutions.Count; i++)
             {
+
                 int[] temporalVariable= solutions[i];
                 if (temporalVariable[1] < closestDist)
                 {
@@ -76,6 +82,7 @@ namespace Players.Behaviors
         private void Backtracking( int currentPos)
         {
             solutions = new List<int[]>();
+            explored  = new List<int>();
             AuxBacktracking(currentPos,0);
 
         }
@@ -83,20 +90,31 @@ namespace Players.Behaviors
 
         private void AuxBacktracking(int current,int cost)
         {
+            if(limit<=0) return;
+
+            limit--;
             
-            if(solutions.Count>4) return;
             int[] possibleSolutions = myMap.TangetPositions(current).ToArray();        //a cuales puedo viajar
-            
+
+            explored.Add(current);
+
             foreach (int block in possibleSolutions)                                   //explore cada uno de esos bloques
             {
-                if (myMap.canWalkHere(block) && !bombPositions.Contains(block)) { // si no puedo caminar sobre el ignorelo
+                if (myMap.canWalkHere(block) && !bombPositions.Contains(block) &&!explored.Contains(block)) { // si no puedo caminar sobre el ignorelo
+
+               
+                   if(CalculatePossibleKillers(block,bombPositions,BombRatios).Count==0)           // me matarian si me pongo aqui?
+                   {
+                       solutions.Add(new[] {block, cost});
+                   }                     
                     
-                    if(CalculatePossibleKillers(block,bombPositions,BombRatios).Count==0)           // me matarian si me pongo aqui?
-                        solutions.Add( new []{block,cost});                                //si no me matan  devuelvalo como una opcion
-                    
-                    else                                                                   //definitivamente si me quedo aqui estare muerto
-                        AuxBacktracking(block,cost+1);                          //intento con otro    
+                   else                                                                   //definitivamente si me quedo aqui estare muerto
+                   {
+                       AuxBacktracking(block, cost + 1);
+                   }                          //intento con otro
+
                 }
+
             }
         }
     }

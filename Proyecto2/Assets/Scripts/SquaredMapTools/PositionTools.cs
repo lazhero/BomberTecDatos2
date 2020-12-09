@@ -49,7 +49,7 @@ namespace SquaredMapTools
     /// <returns></returns>
     public static bool areInLine(int n, int pos1, int pos2)
     {
-        return pos1 % n == pos2 % n || Mathf.Abs(pos1 - pos2) < n;
+        return pos1 % n == pos2 % n || ((int) pos1 / n) == ((int)pos2 / n);
     }
     public static int[] DetermineSpawns(int n) {
         var n2 = n * n;

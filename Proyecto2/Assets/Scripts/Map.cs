@@ -157,7 +157,6 @@ public class Map : MonoBehaviour {
 
     public bool canWalkHere(int blockNumber)
     {
-        Debug.Log("me preguntaron por: " +blockNumber);
         var inf = Graph.getNode(blockNumber).GetComponent<GroundBlock>();
         return inf.blockObject ==null && !inf.isWall ;
     }
