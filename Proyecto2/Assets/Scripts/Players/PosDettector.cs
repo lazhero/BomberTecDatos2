@@ -15,17 +15,20 @@ public class PosDettector : MonoBehaviour
     }
 
 
+
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.CompareTo("ground") != 0) return;
 
-        var pastBlock = cont.currentBlock;
-        if (pastBlock != null)
-            cont.myMap.ThingChange(new message("itemOrPlayer",Convert.ToInt32(cont.currentBlock.name), message.Erase));
-        
-        cont.currentBlock = other.gameObject;
-        cont.myMap.ThingChange(new message("itemOrPlayer",Convert.ToInt32(cont.currentBlock.name), message.Write));
+            var pastBlock = cont.currentBlock;
+            if (pastBlock != null)
+                cont.myMap.ThingChange(new message("itemOrPlayer", Convert.ToInt32(cont.currentBlock.name),
+                    message.Erase));
 
+            cont.currentBlock = other.gameObject;
+            cont.myMap.ThingChange(new message("itemOrPlayer", Convert.ToInt32(cont.currentBlock.name), message.Write));
+        
            
     }
     

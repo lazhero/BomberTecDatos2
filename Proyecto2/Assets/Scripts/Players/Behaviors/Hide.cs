@@ -19,6 +19,7 @@ namespace Players.Behaviors
         {
             
             //Primero calcula quien lo mata, luego explora las distintas soluciones, luego encuentra la mas cercana
+            if(!myMap.Things.ContainsKey("Bomb")) return;
             bombPositions = myMap.Things["Bomb"];
             BombRatios    = myMap.Things["Ratio"];
             

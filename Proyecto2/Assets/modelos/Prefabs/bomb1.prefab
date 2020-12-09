@@ -103,7 +103,7 @@ MonoBehaviour:
     type: 3}
   map: {fileID: 0}
   pos: 0
-  time: 7
+  time: 2
   radio: 2
   bc: {fileID: 1632328008871886025}
 --- !u!54 &1290294529791441137

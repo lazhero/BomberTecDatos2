@@ -11,7 +11,7 @@ using Vector3 = UnityEngine.Vector3;
 
 public class Expansion : MonoBehaviour
 {
-    private float cubeSize=2.1f;
+    private float cubeSize=1.8f;
     private bool finishedCondition;
     
     public int damage = 1;

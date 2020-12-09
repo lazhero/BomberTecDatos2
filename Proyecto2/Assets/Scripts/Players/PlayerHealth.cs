@@ -50,27 +50,27 @@ namespace Players
         {
             set
             {
-                if (value < 0)
+         
+                if(health > value&& _canReceiveDamage)
                 {
-                    _canReceiveDamage = false;
-                    Invoke("becomeDamageAble",1f*Time.deltaTime);
-                }
-
-                if (_canReceiveDamage)
-                {
-
                     health = value;
-                    if (health > totalHealth)
-                        health = totalHealth;
-
-                    if (health <= 0)
-                    {
-                        death();
-                        health = 0;
-                    }
-
-                    heartUi.sizeDelta = new Vector2(_heartSize * health, 14);
+                    _canReceiveDamage = false;
+                    Invoke("BecomeDamageAble", 2f * Time.deltaTime);
                 }
+                
+            
+                if(health < value)
+                    health = value;
+                if (health > totalHealth)
+                    health = totalHealth;
+
+                if (health <= 0)
+                {
+                    death();
+                    health = 0;
+                }
+
+                heartUi.sizeDelta = new Vector2(_heartSize * health, 14);
 
 
             }

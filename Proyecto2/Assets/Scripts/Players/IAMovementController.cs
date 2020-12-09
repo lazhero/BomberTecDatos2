@@ -55,7 +55,7 @@ public class IAMovementController:Controller
                         Vector3 currentPosition = gameObject.transform.position;
                         goal.y = currentPosition.y;
 
-                        if (Vector3.Distance(currentPosition, goal) < 0.1) 
+                        if (Vector3.Distance(currentPosition, goal) < 0.05) 
                                 directions.Dequeue();
                         else
                                 Move(Vector3.Normalize(goal - currentPosition));

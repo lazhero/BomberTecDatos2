@@ -23,7 +23,7 @@ public class IAProbability : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.T)) 
-            GetComponent<Follow>().Act();
+            RandomWithoutProbs();
     }
     
     
