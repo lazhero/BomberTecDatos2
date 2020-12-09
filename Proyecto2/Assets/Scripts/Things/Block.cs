@@ -39,7 +39,7 @@ public class Block : MonoBehaviour
         isDestroy = true;
         Invoke("Destr",0.1f);
         
-        GameObject myConsumable = Instantiate(consumables[Random.Range(0,consumables.Length)]);
+        GameObject myConsumable = Instantiate(consumables[Random.Range(0,consumables.Length)], transform.parent, true);
         myConsumable.transform.position = gameObject.transform.position ;
     }
 

@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 9099751680514427265}
   - component: {fileID: 3688625191752810610}
   - component: {fileID: 579866046551627578}
-  - component: {fileID: 4084658643080992842}
-  - component: {fileID: -4849436769445156937}
+  - component: {fileID: 3349440075242651747}
   m_Layer: 0
   m_Name: IA_COMPONENTS
   m_TagString: Untagged
@@ -46,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849193b11c3b4d60abf8f0b37d8b0ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myMap: {fileID: 0}
 --- !u!114 &579866046551627578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,19 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 284cbeb966be4f2398cbd9803b5889be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4084658643080992842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6915973164748203142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 114d8573176f4a2d919117bfbcb4ff9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-4849436769445156937
+  myMap: {fileID: 0}
+--- !u!114 &3349440075242651747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,3 +71,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad5b720a79f74b408551c9edbe681d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myMap: {fileID: 0}

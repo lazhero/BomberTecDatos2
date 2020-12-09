@@ -15,8 +15,8 @@ public class Bomb : MonoBehaviour
         Invoke("Explote",time);
         bc.enabled = false;
         
-        map.ThingChange(new message("Bomb",pos, true));
-        map.ThingChange(new message("Ratio",radio, true));
+        map.ThingChange(new message("Bomb",pos, message.Write));
+        map.ThingChange(new message("Ratio",radio, message.Write));
 
         
     }
@@ -29,8 +29,8 @@ public class Bomb : MonoBehaviour
         exp.transform.position= transform.position;
         exp.GetComponent<Estela>().Ratio = radio  ;
         
-        map.ThingChange(new message("Bomb",pos, false));
-        map.ThingChange(new message("Ratio",radio, false));
+        map.ThingChange(new message("Bomb",pos, message.Erase));
+        map.ThingChange(new message("Ratio",radio, message.Erase));
 
         Destroy(gameObject);
 

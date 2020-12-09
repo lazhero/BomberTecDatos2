@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Things;
 using UnityEngine;
 
 public class PosDettector : MonoBehaviour
@@ -10,26 +11,22 @@ public class PosDettector : MonoBehaviour
     public Queue<GameObject> collisions;
     private void Start() {
         cont = transform.parent.GetComponent<Controller>();
+
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.CompareTo("ground") != 0) return;
-        // if (cont.currentBlock ==null)
-       // {
-            //var o = transform.parent.gameObject;
-            //var position = other.transform.position;
-            
-            //o.transform.position = new Vector3(position.x, o.transform.position.y, position.z);
 
-            cont.currentBlock = other.gameObject;
+        var pastBlock = cont.currentBlock;
+        if (pastBlock != null)
+            cont.myMap.ThingChange(new message("itemOrPlayer",Convert.ToInt32(cont.currentBlock.name), message.Erase));
         
+        cont.currentBlock = other.gameObject;
+        cont.myMap.ThingChange(new message("itemOrPlayer",Convert.ToInt32(cont.currentBlock.name), message.Write));
 
-            //  }
-
-            // if (!collisions.Contains(other.gameObject))
-            // collisions.Enqueue(other.gameObject);
+           
     }
     
    

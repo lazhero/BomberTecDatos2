@@ -10,7 +10,6 @@ public class Map : MonoBehaviour {
     public int WidthAndHeight { get; set; } = 10;
     public Dictionary<string, List<int>> Things { get; set; }
 
-    public List<int> DEBUG;
 
     [SerializeField] private  GameObject cameraObj;
     [SerializeField] private MapGenerator mg;
@@ -131,14 +130,22 @@ public class Map : MonoBehaviour {
             Things.Add(posAndState.type,new List<int>());
         }
         
-        if(posAndState.isActive)
+        if(posAndState.action==1) // write
         {
-               Things[posAndState.type].Add(posAndState.value);
-               DEBUG = Things["Bomb"];
+            if(posAndState.value!=null)
+            {
+                Things[posAndState.type].Add(posAndState.value);
+            }
         }
-        else
+
+        if (posAndState.action == 2)//overwrite
         {
-            Things[posAndState.type].Remove(posAndState.value);             
+        }
+
+        if(posAndState.action==3)// erase
+        {    
+            if(Things[posAndState.type].Contains(posAndState.value))
+                Things[posAndState.type].Remove(posAndState.value);             
         }
        
     }
