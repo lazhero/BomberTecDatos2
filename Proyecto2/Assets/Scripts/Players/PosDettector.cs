@@ -8,7 +8,6 @@ public class PosDettector : MonoBehaviour
 {
     public GameObject bomba;
     public Controller cont;
-    public Queue<GameObject> collisions;
     private void Start() {
         cont = transform.parent.GetComponent<Controller>();
 
@@ -23,11 +22,11 @@ public class PosDettector : MonoBehaviour
 
             var pastBlock = cont.currentBlock;
             if (pastBlock != null)
-                cont.myMap.ThingChange(new message("itemOrPlayer", Convert.ToInt32(cont.currentBlock.name),
+                cont.myMap.ThingChange(new message("Player", Convert.ToInt32(cont.currentBlock.name),
                     message.Erase));
 
             cont.currentBlock = other.gameObject;
-            cont.myMap.ThingChange(new message("itemOrPlayer", Convert.ToInt32(cont.currentBlock.name), message.Write));
+            cont.myMap.ThingChange(new message("Player", Convert.ToInt32(cont.currentBlock.name), message.Write));
         
            
     }

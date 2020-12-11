@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3688625191752810610}
   - component: {fileID: 579866046551627578}
   - component: {fileID: 3349440075242651747}
+  - component: {fileID: -6841641780017981473}
   m_Layer: 0
   m_Name: IA_COMPONENTS
   m_TagString: Untagged
@@ -72,3 +73,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myMap: {fileID: 0}
+  Focus: Player
+--- !u!114 &-6841641780017981473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6915973164748203142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad5b720a79f74b408551c9edbe681d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMap: {fileID: 0}
+  Focus: Items

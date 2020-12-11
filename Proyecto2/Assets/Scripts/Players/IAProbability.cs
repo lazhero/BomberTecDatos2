@@ -1,31 +1,65 @@
-﻿using DataStructures;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using DataStructures;
 using Players.Behaviors;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
 public class IAProbability : MonoBehaviour
 {
-    [SerializeField] private float[] probabilities;
-    [SerializeField] private AiBehavior[] behaviors;
-    [SerializeField] private int time;
+    [SerializeField] public float[] probabilities;
+    [SerializeField] public AiBehavior[] behaviors { set; get; }
+    [SerializeField] public int time { set; get; } = 3;
 
     private IAMovementController movement;
+    private AiBehavior current;
+    private double timeLeft;
+    private bool launched;
+
 
     private void Start()
     {
         movement = gameObject.GetComponent<IAMovementController>();
         behaviors = GetComponents<AiBehavior>();
-        //InvokeRepeating("RandomWithoutProbs", 1, time * Time.deltaTime);
+        launched = false;
+        StartCoroutine(pause());
+        
+
     }
+
+ 
 
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T)) 
-            RandomWithoutProbs();
+        if (timeLeft <= 0 || !current.stillActive() ||current==null)
+        {
+            if (!launched)
+            {
+                launched = true;
+                movement.emptyMovement();
+                StartCoroutine(pause()); 
+                
+            }
+            
+        }
+        else
+        {
+            timeLeft -= Time.deltaTime;
+        }
+
+
+
     }
-    
+
+    public int getNumberOfActions()
+    {
+        return probabilities.Length;
+    }
     
     public void setBehaviorsNumber(int number)
     {
@@ -48,45 +82,32 @@ public class IAProbability : MonoBehaviour
     
     public void RandomAction()
     {
-        float randomNumber = Random.Range(0, 100);
+        float randomNumber = Random.Range(0, 100)%100;
         int i = 0;
         while (randomNumber > 0)
         {
             if (randomNumber < probabilities[i])
             {
-                behaviors[i].Act();
+                current = behaviors[i];
+                current.Act();
             }
             randomNumber -= probabilities[i];
             i++;
+           
         }
         
     }
-    /// <summary>
-    /// this is only for test
-    /// </summary>
-    public void RandomWithoutProbs()
+
+    IEnumerator pause()
     {
-        behaviors[Random.Range(0, behaviors.Length)].Act();
+        yield return new WaitForSeconds(0.5f);
+        timeLeft = time;
+        RandomAction();
+        launched = false;
     }
-    /// <summary>
-    /// this is only for test
-    /// </summary>
-    public void RandomAction2()
-    {
-        float randomNumber = Random.Range(0, 100);
-        int i = 1;
-        float sumatoria = 0;
-        while (randomNumber > 0)
-        {
-            sumatoria += probabilities[i];
-            if (randomNumber < sumatoria)
-            {
-                behaviors[i].Act();
-            }
-            i++;
-        }
-        
-    }
+    
+
+
 }
 
     

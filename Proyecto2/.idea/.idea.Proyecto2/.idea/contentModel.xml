@@ -40,6 +40,7 @@
             <e p="PlayerHealth.cs" t="Include" />
             <e p="PosDettector.cs" t="Include" />
           </e>
+          <e p="ScoreTable.cs" t="Include" />
           <e p="SquaredMapTools" t="Include">
             <e p="MapGenerator.cs" t="Include" />
             <e p="PositionTools.cs" t="Include" />

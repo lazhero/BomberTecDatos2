@@ -32,8 +32,8 @@ namespace DataStructures
             T backup;
             for (int i = 0; i < vector.Length; i++)
             {
-                randomPositionA = Random.Range(0, vector.Length + 1);
-                randomPositionB=Random.Range(0, vector.Length + 1);
+                randomPositionA = Random.Range(0, vector.Length + 1)%vector.Length;
+                randomPositionB=Random.Range(0, vector.Length + 1)%vector.Length;
                 backup = vector[randomPositionA];
                 vector[randomPositionA] = vector[randomPositionB];
                 vector[randomPositionB] = backup;

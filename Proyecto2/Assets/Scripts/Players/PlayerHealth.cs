@@ -139,7 +139,7 @@ namespace Players
         
         private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "Player" || other.gameObject.tag=="Enemy")
             {
                 Physics.IgnoreCollision(other.gameObject.GetComponent<BoxCollider>(),gameObject.GetComponent<BoxCollider>() );
             }

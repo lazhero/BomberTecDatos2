@@ -1,4 +1,5 @@
 ﻿using System;
+using DefaultNamespace;
 using Players.Behaviors;
 using SquaredMapTools;
 using UnityEngine;
@@ -87,6 +88,8 @@ namespace Players
                     UnityEditorInternal.ComponentUtility.PasteComponentAsNew(player);
                 }
                 player.AddComponent<IAProbability>().setBehaviorsNumber(aibehaviors.Length);
+                player.AddComponent<ScoreTable>();
+                player.tag = "Enemy";
             }
             
             

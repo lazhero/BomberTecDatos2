@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Players.Behaviors
 {
@@ -7,10 +8,17 @@ namespace Players.Behaviors
         public  IAMovementController controller { set; get; }
         public  Map myMap ;
         public abstract void Act();
-        private void Start()
+        public void Start()
         {
             controller = GetComponent<IAMovementController>();
             myMap = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
         }
+
+        public virtual bool stillActive()
+        {
+            return controller.Ismoving();
+        }
+        
+        
     }
 }

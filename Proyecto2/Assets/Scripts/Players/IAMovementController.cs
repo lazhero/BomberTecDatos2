@@ -9,11 +9,9 @@ using Vector3 = UnityEngine.Vector3;
 public class IAMovementController:Controller
 { 
         private Queue<GameObject> directions;
-        private Queue<Quaternion> rotation;
         private float cubeSize = 2.1f;
         public int currentObjetive;
-        private bool isMoving;
-            public List<int> DEBUG;
+        public List<int> DEBUG;
 
         //?--------------------------------->
         //!--------------------------------->
@@ -34,6 +32,11 @@ public class IAMovementController:Controller
                 {
                         directions.Enqueue(t);
                 }
+        }
+
+        public void emptyMovement()
+        {
+                directions.Clear();
         }
 
 
@@ -71,6 +74,11 @@ public class IAMovementController:Controller
         private void teinvocosatanas()
         {
                 AddMovement(currentObjetive);
+        }
+
+        public bool Ismoving()
+        {
+                return directions.Count > 0;
         }
         
 } 

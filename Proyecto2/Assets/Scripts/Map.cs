@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using AStar;
 using System.Collections.Generic;
 using SquaredMapTools;
@@ -38,7 +39,7 @@ public class Map : MonoBehaviour {
 
         AStarResponse response= AStar<GameObject>.getRoute(Graph, start, end, WidthAndHeight);
         Stack<int> positions = response.route;
-        positions.Pop();
+        //positions.Pop();
         GameObject[] squaresArray=new GameObject[positions.Count];
         int i = 0;
         int pos;
@@ -115,6 +116,11 @@ public class Map : MonoBehaviour {
     public void BlockDestroyed(int node)
     {
         SetRelations(node,MapGenerator.normalCost,true);
+    }
+
+    public void BlockClosed(int node)
+    {
+        SetRelations(node,Int32.MaxValue ,true);
     }
 
     /// <summary>

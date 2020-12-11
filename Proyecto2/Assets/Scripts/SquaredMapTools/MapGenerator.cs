@@ -19,7 +19,6 @@ namespace SquaredMapTools
 
     public DGraph<GameObject> Graph { get; set; }
     public static int normalCost { get; set; } = 10;
-    private int blockedCost = Int32.MaxValue;
     private int closedCost = Int32.MaxValue;
     private int length;
     private int walkableBlocks = 28;

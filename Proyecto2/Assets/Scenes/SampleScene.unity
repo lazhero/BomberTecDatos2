@@ -213,6 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4905f701cd7f6fd4385d03a25ed62f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rateTime: 0
+  min: 0
 --- !u!4 &272203844
 Transform:
   m_ObjectHideFlags: 0
@@ -739,7 +741,7 @@ PrefabInstance:
     - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}
       propertyPath: AiBehaviors.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}
@@ -763,7 +765,7 @@ PrefabInstance:
         type: 3}
       propertyPath: AiBehaviors.Array.data[3]
       value: 
-      objectReference: {fileID: -4849436769445156937, guid: f264553353ee0c44eb9913d75c083c54,
+      objectReference: {fileID: 3349440075242651747, guid: f264553353ee0c44eb9913d75c083c54,
         type: 3}
     - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}

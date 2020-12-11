@@ -23,7 +23,7 @@ public class Consumable : MonoBehaviour
         var currentBlock = transform.parent;
         
         mymap = currentBlock.transform.parent.GetComponent<Map>();
-        mymap.ThingChange(new message("itemOrPlayer",Convert.ToInt32(currentBlock.name), message.Write));
+        mymap.ThingChange(new message("item",Convert.ToInt32(currentBlock.name), message.Write));
 
         
         Invoke("activateCollider",0.5f);
@@ -32,7 +32,7 @@ public class Consumable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (!other.CompareTag("Player") && !other.CompareTag("Enemy")) return;
 
         var info = other.gameObject.GetComponent<PlayerHealth>();
         
@@ -50,7 +50,7 @@ public class Consumable : MonoBehaviour
     {
         var currentBlock = transform.parent;
         mymap = currentBlock.transform.parent.GetComponent<Map>();
-        mymap.ThingChange(new message("itemOrPlayer",Convert.ToInt32(currentBlock.name), message.Erase));
+        mymap.ThingChange(new message("item",Convert.ToInt32(currentBlock.name), message.Erase));
         Destroy(gameObject);
         
     }

@@ -17,6 +17,7 @@ public class Bomb : MonoBehaviour
         
         map.ThingChange(new message("Bomb",pos, message.Write));
         map.ThingChange(new message("Ratio",radio, message.Write));
+        map.SendMessage("BlockClosed",pos);
 
         
     }
@@ -31,7 +32,7 @@ public class Bomb : MonoBehaviour
         
         map.ThingChange(new message("Bomb",pos, message.Erase));
         map.ThingChange(new message("Ratio",radio, message.Erase));
-
+        map.SendMessage("BlockDestroyed",pos);
         Destroy(gameObject);
 
     }

@@ -1,8 +1,10 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using DataStructures;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
 namespace Genetics
@@ -48,7 +50,7 @@ namespace Genetics
                 son[i] = gene1[i];
             }
 
-            for (int i = gene1.Length / 2; i < gene1.Length; i++)
+            for (int i = gene2.Length / 2; i < gene1.Length; i++)
             {
                 son[i] = gene2[i];
             }
@@ -59,11 +61,15 @@ namespace Genetics
         public static void FixGenome(float[] genome)
         {
             float difference = maxValue - GetSum(genome);
+            if (Math.Abs(difference) < 0.01) return;
             float change = (-difference) / genome.Length;
             for (int i = 0; i < genome.Length; i++)
             {
                 genome[i] += change;
+                if (genome[i] < 0) genome[i] = 0;
+                if (genome[i] > maxValue) genome[i] = maxValue;
             }
+            FixGenome(genome);
         }
 
         public static float GetSum(float[] genome)
@@ -84,8 +90,8 @@ namespace Genetics
          
             foreach (var genome in population)
             {
-                randomPositionA = Random.Range(0, genome.Length + 1);
-                randomPositionB = Random.Range(0, genome.Length + 1);
+                randomPositionA = Random.Range(0, genome.Length + 1)%genome.Length;
+                randomPositionB = Random.Range(0, genome.Length + 1)%genome.Length;
                 if (genome[randomPositionA] < maxValue && genome[randomPositionB] > 0)
                 {
                     genome[randomPositionA]++;
@@ -103,8 +109,8 @@ namespace Genetics
             int randomPosB;
             for (int i = 0; i < membersNumber; i++)
             {
-                randomPosA = Random.Range(0, successPopulation.Length + 1);
-                randomPosB=Random.Range(0, successPopulation.Length + 1);
+                randomPosA = Random.Range(0, successPopulation.Length + 1)%successPopulation.Length;
+                randomPosB=Random.Range(0, successPopulation.Length + 1)%successPopulation.Length;
                 current = Reproduction(successPopulation[randomPosA], successPopulation[randomPosB]);
                 newPopulation[i] = current;
             }
@@ -128,16 +134,20 @@ namespace Genetics
         {
             float left = maxValue;
             float selected;
+            int randomPos;
             float[] genome = new float[attributesNumber];
-            for (int i = 0; i < attributesNumber; i++)
+            while (left > 0.01)
             {
-                selected = Random.Range(0, left+1);
+                
+                randomPos = (int)(Random.Range(0, attributesNumber));
+                randomPos = randomPos % attributesNumber;
+                selected = Random.Range(0, left);
+                genome[randomPos] +=(float) Math.Round(selected,2);
                 left -= selected;
-                genome[i] = selected;
             }
-            ArrayTools<float>.Mix(genome);
             return genome;
 
         }
+        
     }
 }

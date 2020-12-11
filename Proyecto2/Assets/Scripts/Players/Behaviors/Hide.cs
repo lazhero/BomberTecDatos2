@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Collections;
 using UnityEngine;
 
 namespace Players.Behaviors
@@ -12,6 +13,8 @@ namespace Players.Behaviors
         private List<int> BombRatios;
         private List<int[]> solutions;
         private List<int> explored;
+        private bool Finished = false;
+        private bool shoot;
 
 
         private int limit=100; 
@@ -32,6 +35,9 @@ namespace Players.Behaviors
                 Backtracking(currentPos);
                 controller.AddMovement(ClosestSafePoint());
             }
+            Debug.Log("Soy la bomba");
+            
+           
         }
 
         
@@ -118,5 +124,9 @@ namespace Players.Behaviors
 
             }
         }
+      
+
+       
     }
+    
 }

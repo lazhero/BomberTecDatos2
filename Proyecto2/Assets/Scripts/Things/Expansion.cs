@@ -46,7 +46,7 @@ public class Expansion : MonoBehaviour
             other.GetComponent<PlayerHealth>().Health -= 1;
         
         if(other.CompareTag("Bomb"))
-            other.GetComponent<Bomb>().Explote();
+            //other.GetComponent<Bomb>().Explote();
             
         if(other.CompareTag("consumable"))
             other.GetComponent<Consumable>().Disapear();

@@ -12,6 +12,7 @@ TagManager:
   - consumable
   - Canva
   - Mendel
+  - Enemy
   layers:
   - Default
   - TransparentFX
