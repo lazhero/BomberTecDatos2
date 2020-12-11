@@ -7,7 +7,7 @@ namespace Players
     public class PlayerHealth : MonoBehaviour
     {
 
-        private bool _canReceiveDamage = true;
+        public bool _canReceiveDamage = true;
         public TextMeshProUGUI explosionRatio;
         public TextMeshProUGUI evasion;
         public Image face;
@@ -34,6 +34,7 @@ namespace Players
         }
 
         private int _bombRatio;
+        public int PreviusbombRatio;
         public int BombRatio
         {
             get => _bombRatio;
@@ -42,6 +43,33 @@ namespace Players
                 _bombRatio = value;
                 explosionRatio.text = _bombRatio.ToString();
             }
+        }
+
+        public int _evasion=0;
+        public int Evasion
+        {
+            set
+            {
+         
+                if(_evasion > value)
+                {
+                    _evasion = value;
+                }
+                if(_evasion < value)
+                    _evasion = value;
+                if (_evasion > 100)
+                    _evasion = 100;
+
+                if (_evasion <= 0)
+                {
+                    _evasion = 0;
+                }
+
+                evasion.text = _evasion.ToString() + "%";
+
+
+            }
+            get => _evasion;
         }
 
         public int totalHealth = 3;
@@ -99,7 +127,7 @@ namespace Players
         /// <param name="escudo"></param>
         /// <param name="bombas"></param>
         /// <param name="zapato"></param>
-        public void ModifyStats(int vida, int escudo, int bombas, int zapato)
+        public void ModifyStats(int vida, int bombas,int shield)
         {
             Health += vida;
             BombRatio += bombas;

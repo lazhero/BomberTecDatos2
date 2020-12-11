@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1632328008871886025}
   - component: {fileID: 3328985964388345534}
   - component: {fileID: 8161455518367883687}
+  - component: {fileID: 5525304000621489791}
   m_Layer: 0
   m_Name: bomb1
   m_TagString: Bomb
@@ -165,8 +166,20 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.007999999, y: 0.011, z: 0.008}
-  m_Center: {x: 0.0000000011641532, y: 0.00002174615, z: 0}
+  m_Size: {x: 0.014554929, y: 0.011, z: 0.014907213}
+  m_Center: {x: 0.00020457745, y: 0.000021746158, z: 0.000056998135}
+--- !u!114 &5525304000621489791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055081531133671717}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0b5d4cdd3540cea2488b05f4e3be74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9127783550724882065
 GameObject:
   m_ObjectHideFlags: 0

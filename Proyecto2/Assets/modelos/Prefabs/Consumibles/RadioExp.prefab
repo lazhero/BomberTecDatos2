@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6468112457035401664}
   - component: {fileID: 1738947897848229489}
   - component: {fileID: 937432001838739608}
+  - component: {fileID: 9162813777301913766}
   m_Layer: 0
   m_Name: RadioExp
   m_TagString: consumable
@@ -108,7 +109,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb665e6b457dde54ca57ab8ace9c2a8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthRestoration: 0
-  shoe: 0
-  bomb: 1
-  shield: 0
+--- !u!114 &9162813777301913766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967622473775620606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6193b3e1f248878cc4c5cd8a3efd63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

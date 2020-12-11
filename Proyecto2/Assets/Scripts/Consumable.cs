@@ -2,24 +2,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using Players;
+using Players.PowerUps;
 using Things;
 using UnityEngine;
 
 public class Consumable : MonoBehaviour
 {
-    public int healthRestoration = 1;
-    public int shoe = 1;
-    public int bomb = 1;
-    public int shield = 1;
+    
     private Map mymap;
-
     private Collider _collider;
+    private  Component action;
 
-    private void Awake()
+    public bool desactiveOnAwake;
+    
+    private void Start()
     {
         _collider = GetComponent<Collider>();
-        _collider.enabled = false;
+        _collider.enabled = desactiveOnAwake;
 
+        action = GetComponent<PowerUp>();
         var currentBlock = transform.parent;
         
         mymap = currentBlock.transform.parent.GetComponent<Map>();
@@ -33,11 +34,17 @@ public class Consumable : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player") && !other.CompareTag("Enemy")) return;
-
+        if (other.gameObject.GetComponent<PowerUp>() == null)
+        {
+            UnityEditorInternal.ComponentUtility.CopyComponent(action);
+            UnityEditorInternal.ComponentUtility.PasteComponentAsNew(other.gameObject);
+        }
+            
+        /*
         var info = other.gameObject.GetComponent<PlayerHealth>();
         
         info.ModifyStats(healthRestoration,shield,bomb,shoe);
-        
+        */
         Destroy(gameObject);
         
     }

@@ -69,7 +69,7 @@ namespace Genetics
                 if (genome[i] < 0) genome[i] = 0;
                 if (genome[i] > maxValue) genome[i] = maxValue;
             }
-            FixGenome(genome);
+           // FixGenome(genome);
         }
 
         public static float GetSum(float[] genome)

@@ -1,24 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Numerics;
-using System.Timers;
+
 using Players;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 using Vector3 = UnityEngine.Vector3;
 
 public class Expansion : MonoBehaviour
 {
     private float cubeSize=1.8f;
     private bool finishedCondition;
-    
-    public int damage = 1;
-    
-    public Vector3 direction { set; get; }
     public int ratio { set; get; } = 4;
-    public bool untilTheWall { set; get; }
     [SerializeField] private GameObject explosion;
 
 
@@ -42,22 +31,25 @@ public class Expansion : MonoBehaviour
   
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") ||other.CompareTag("Enemy"))
             other.GetComponent<PlayerHealth>().Health -= 1;
         
         if(other.CompareTag("Bomb"))
-            //other.GetComponent<Bomb>().Explote();
+            other.GetComponent<Bomb>().Explote();
             
         if(other.CompareTag("consumable"))
             other.GetComponent<Consumable>().Disapear();
 
-        if (!other.CompareTag("block")) return;
-        
-        Instantiate(explosion).transform.position = transform.position;
-        Block block = other.GetComponent<Block>();
-        if (block.isDestructible)
-            block.DestroyMe();
-        finishedCondition = true;
+        if (other.CompareTag("block")||other.CompareTag("Wall") )
+        {
+
+            Instantiate(explosion).transform.position = transform.position;
+            Block block = other.GetComponent<Block>();
+            if(block!=null)
+                if (block.isDestructible)
+                    block.DestroyMe();
+            finishedCondition = true;
+        }
     }
 
   

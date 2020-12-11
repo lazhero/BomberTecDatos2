@@ -73,10 +73,10 @@ namespace Players
         /// </summary>
         /// <param name="humanController"></param>
         /// <param name="trans"></param>
-        private static void GeneratePlayer(bool humanController, GameObject trans)
+        private static void GeneratePlayer(bool humanController, GameObject trans,string name)
         {
             var player= Instantiate(Static_Player);
-            
+            player.name = name;
             if(humanController) 
                 player.AddComponent<PlayerController>();
             else
@@ -117,7 +117,7 @@ namespace Players
             for (var i=0; i< spawns.Length&& i<maximum;i++ )
             {
              
-                GeneratePlayer(Static_HumansCuantity>0, nodes.getNode(spawns[i]));
+                GeneratePlayer(Static_HumansCuantity>0, nodes.getNode(spawns[i]), i.ToString());
                 Static_HumansCuantity--;
             }
         }
