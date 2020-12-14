@@ -12,13 +12,13 @@ public class Consumable : MonoBehaviour
     private Map mymap;
     private Collider _collider;
     private  Component action;
-
     public bool desactiveOnAwake;
     
     private void Start()
     {
         _collider = GetComponent<Collider>();
         _collider.enabled = desactiveOnAwake;
+
 
         action = GetComponent<PowerUp>();
         var currentBlock = transform.parent;
@@ -34,6 +34,7 @@ public class Consumable : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player") && !other.CompareTag("Enemy")) return;
+        
         if (other.gameObject.GetComponent<PowerUp>() == null)
         {
             UnityEditorInternal.ComponentUtility.CopyComponent(action);

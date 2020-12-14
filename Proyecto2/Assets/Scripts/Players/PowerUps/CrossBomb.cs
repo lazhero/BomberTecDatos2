@@ -8,7 +8,6 @@ namespace Players.PowerUps
             
         public override void Act()
         {
-            if(CompareTag("consumable")) return;
             comp=GetComponent<PlayerHealth>();
             comp.PreviusbombRatio =comp.BombRatio;
             comp.BombRatio = 100;

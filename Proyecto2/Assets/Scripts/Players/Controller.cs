@@ -18,10 +18,13 @@ public abstract class Controller : MonoBehaviour
     private PlayerHealth _stats;
     private Rigidbody rbbody;
     public GameObject MainCamera { set; get; }
+    
+    
+
 
     private static readonly int Moving = Animator.StringToHash("MOVING");
     [SerializeField]
-    private bool DebugMode=true;
+    private bool DebugMode=false;
     //?--------------------------------->
     //!--------------------------------->
     //?--------------------------------->
@@ -35,6 +38,7 @@ public abstract class Controller : MonoBehaviour
         _stats = GetComponent<PlayerHealth>();
         rbbody = GetComponent<Rigidbody>();
         MainCamera = GameObject.FindWithTag("MainCamera");
+
 
     }
     /// <summary>

@@ -4,7 +4,6 @@
     {
         public override void Act()
         {
-            if(CompareTag("consumable")) return;
             GetComponent<PlayerHealth>().Evasion += 10;
             Destroy (this);
         }

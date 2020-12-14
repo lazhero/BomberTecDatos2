@@ -10,7 +10,6 @@ namespace Players.PowerUps
 
         public override void Act()
         {
-            if(CompareTag("consumable")) return;
 
             comp=GetComponent<PlayerHealth>();
             comp._canReceiveDamage = false;

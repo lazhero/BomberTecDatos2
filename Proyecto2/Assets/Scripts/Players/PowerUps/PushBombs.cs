@@ -11,7 +11,6 @@ namespace Players.PowerUps
         
         public override void Act()
         {
-            if(CompareTag("consumable")) return;
 
             comp=GetComponent<PlayerHealth>();
             forward = transform.GetChild(0).transform;

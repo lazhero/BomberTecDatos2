@@ -9,11 +9,16 @@ namespace Players.PowerUps
         public abstract void Act();
         public abstract void Dest();
         protected PlayerHealth comp;
+        private AudioSource Audio;
+
         public int time=15;
 
         public void Start()
         {
+            if(CompareTag("consumable")) return;
             controller = GetComponent<Controller>();
+            Audio = GetComponent<AudioSource>();
+            Audio.Play();
             Act();
         }
         private void setTime()
