@@ -13,6 +13,10 @@ namespace Players
         public Image face;
         public Image body;
 
+        public TextMeshProUGUI powerUpText;
+        public Image powerUpImage { set; get; }
+        
+        
         public int totalShoe = 3;
         private int _shoe;
         private int Shoe
@@ -50,22 +54,13 @@ namespace Players
         {
             set
             {
-         
-                if(_evasion > value)
-                {
-                    _evasion = value;
-                }
-                if(_evasion < value)
-                    _evasion = value;
-                if (_evasion > 100)
-                    _evasion = 100;
 
-                if (_evasion <= 0)
-                {
-                    _evasion = 0;
-                }
+                _evasion = value;
+                
+                if (_evasion > 90)
+                    _evasion = 90;
 
-                evasion.text = _evasion.ToString() + "%";
+                evasion.text = _evasion+ "%";
 
 
             }
@@ -78,10 +73,13 @@ namespace Players
         {
             set
             {
-         
-                if(health > value&& _canReceiveDamage)
+
+                if (health > value && _canReceiveDamage)
                 {
-                    health = value;
+                    int random = Random.Range(0, 100);
+
+                    if(random<=_evasion)
+                        health = value;
                     _canReceiveDamage = false;
                     Invoke("BecomeDamageAble", 2f * Time.deltaTime);
                 }
@@ -132,7 +130,7 @@ namespace Players
             Health += vida;
             BombRatio += bombas;
         }
-
+        
         
         /// <summary>
         /// kills the player

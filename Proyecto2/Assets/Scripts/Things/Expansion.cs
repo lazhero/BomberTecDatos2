@@ -40,7 +40,13 @@ public class Expansion : MonoBehaviour
         if(other.CompareTag("consumable"))
             other.GetComponent<Consumable>().Disapear();
 
-        if (other.CompareTag("block")||other.CompareTag("Wall") )
+
+        if (other.CompareTag("Wall"))
+        {
+            finishedCondition = true;
+            return;
+        }
+        if (other.CompareTag("block") )
         {
 
             Instantiate(explosion).transform.position = transform.position;

@@ -17,6 +17,8 @@ public abstract class Controller : MonoBehaviour
     private float _bombTime;
     private PlayerHealth _stats;
     private Rigidbody rbbody;
+    public GameObject MainCamera { set; get; }
+
     private static readonly int Moving = Animator.StringToHash("MOVING");
     [SerializeField]
     private bool DebugMode=true;
@@ -32,6 +34,7 @@ public abstract class Controller : MonoBehaviour
         _bombTime = bomba.GetComponent<Bomb>().time;
         _stats = GetComponent<PlayerHealth>();
         rbbody = GetComponent<Rigidbody>();
+        MainCamera = GameObject.FindWithTag("MainCamera");
 
     }
     /// <summary>

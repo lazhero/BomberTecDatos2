@@ -243,6 +243,8 @@ MonoBehaviour:
   face: {fileID: 0}
   body: {fileID: 0}
   totalShoe: 3
+  PreviusbombRatio: 0
+  _evasion: 0
   totalHealth: 3
   health: 3
   heartUi: {fileID: 0}
