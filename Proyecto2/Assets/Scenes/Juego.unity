@@ -1508,7 +1508,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 5.9992e-41, z: 0, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4229,7 +4229,7 @@ PrefabInstance:
     - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}
       propertyPath: AiBehaviors.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}

@@ -242,6 +242,7 @@ MonoBehaviour:
   evasion: {fileID: 0}
   face: {fileID: 0}
   body: {fileID: 0}
+  powerUpText: {fileID: 0}
   totalShoe: 3
   PreviusbombRatio: 0
   _evasion: 0
@@ -642,8 +643,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6875901, y: 0.7166922, z: 0.43445683}
-  m_Center: {x: 0.06780362, y: -1.6395966, z: -0.2266283}
+  m_Size: {x: 0.83977294, y: 0.7166922, z: 0.55688906}
+  m_Center: {x: 0.101621985, y: -1.6395966, z: -0.16541219}
 --- !u!114 &129205507642747387
 MonoBehaviour:
   m_ObjectHideFlags: 0

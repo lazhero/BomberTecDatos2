@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using System.Collections.Generic;
+using DefaultNamespace.Configuration;
 using Players;
 
 namespace SquaredMapTools
@@ -30,8 +31,13 @@ namespace SquaredMapTools
 
     public DGraph<GameObject> GenerateNewMap()
     {
+        if (MapConfig.Side != 0)
+            widthAndHeight = MapConfig.Side;
+        
+        
         Graph = new DGraph<GameObject>(widthAndHeight * widthAndHeight);
         forgivenPositions= PositionTools. DetermineForgivenPositions(widthAndHeight);
+
         GenerateGround();
         if(generateMap) GenerateInteractuableBlocks();
         else LinkGraph();

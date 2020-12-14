@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class UIConfig : MonoBehaviour
 {
+    private void Start()
+    {
+        MapConfig.Side = 10;
+
+    }
+
     public void Play()
     {
-        Debug.Log("Map Side: "+MapConfig.Side );
-
         switch (MapConfig.Mode)
         {
             case 1 :

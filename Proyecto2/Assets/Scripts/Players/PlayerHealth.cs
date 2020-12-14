@@ -78,7 +78,7 @@ namespace Players
                 {
                     int random = Random.Range(0, 100);
 
-                    if(random<=_evasion)
+                    if(random>=_evasion)
                         health = value;
                     _canReceiveDamage = false;
                     Invoke("BecomeDamageAble", 2f * Time.deltaTime);
