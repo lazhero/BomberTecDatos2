@@ -55,19 +55,19 @@ namespace SquaredMapTools
         var n2 = n * n;
         var response = new int[8];
         response[0] = n + 1;
-        response[1] = 2 * n - 2;
-        response[2] = n2-2*n + 1;
-        response[3] =n2- n -2 ;
-        response[4] = n / 2 + n;
-        response[5] =(n2 - 1) - n/2 - n;
+        response[1] = 2 * n - 3;
+        response[2] = n2 - 2 * n + 2;
+        response[3] = n2 - 2 * n - 2;
+        response[4] = n / 2 + n+1;
+        response[5] =(n2 - 1) - n/2 - n-1;
         int c;
         if (n % 2 != 0)
             c = n2 / 2 - n / 2 + 1;
         else
             c = n2 / 2 + 1;
         
-        response[6] =c;
-        response[7] = c+n-3;
+        response[6] =c+1;
+        response[7] = c+n-2;
         return response;
     }
     /// <summary>
