@@ -25,6 +25,7 @@ public class Map : MonoBehaviour {
         WidthAndHeight = mg.widthAndHeight;
         cameraObj.transform.position = DeterminesCameraPosition(Graph.Nodes);
         Things= new Dictionary<string, List<int>>();
+        Things.Add("item", new List<int>());
 
     }
 

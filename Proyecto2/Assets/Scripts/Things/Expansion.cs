@@ -1,12 +1,7 @@
+
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Numerics;
-using System.Timers;
 using Players;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 using Vector3 = UnityEngine.Vector3;
 
 public class Expansion : MonoBehaviour
@@ -18,7 +13,6 @@ public class Expansion : MonoBehaviour
     public string Owner { set; get; }
     public Vector3 direction { set; get; }
     public int ratio { set; get; } = 4;
-    public bool untilTheWall { set; get; }
     [SerializeField] private GameObject explosion;
     private Mendel mendel;
 
@@ -48,39 +42,43 @@ public class Expansion : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         int value = 0;
-        
-        if (other.CompareTag("Player") || other.CompareTag("Enemy"))
+        if (other.CompareTag("Player") ||other.CompareTag("Enemy"))
         {
             other.GetComponent<PlayerHealth>().Health -= 1;
             if (other.name.CompareTo(Owner) != 0)
             {
                 value = 50;
-                mendel.updateValue(Int32.Parse(other.gameObject.name),-value );
+                mendel.updateValue(Int32.Parse(other.gameObject.name), -value);
             }
             else value = -50;
-            
+
         }
         
-
-        if (other.CompareTag("consumable"))
-        {
+        if(other.CompareTag("Bomb"))
+            other.GetComponent<Bomb>().Explote();
+            
+        if(other.CompareTag("consumable"))
             other.GetComponent<Consumable>().Disapear();
             value = -10;
-        }
+        
            
 
-        if (other.CompareTag("block"))
+
+        if (other.CompareTag("Wall"))
         {
-            Block block = other.GetComponent<Block>();
-            if (block.isDestructible)
-            {
-                value = 50;
-                block.DestroyMe();
-            }
+            finishedCondition = true;
+            return;
         }
-        mendel.updateValue(Int32.Parse(Owner),value);
-        Instantiate(explosion).transform.position = transform.position;
-        finishedCondition = true;
+        if (other.CompareTag("block") )
+        {
+
+            Instantiate(explosion).transform.position = transform.position;
+            Block block = other.GetComponent<Block>();
+            if(block!=null)
+                if (block.isDestructible)
+                    block.DestroyMe();
+            finishedCondition = true;
+        }
     }
 
   

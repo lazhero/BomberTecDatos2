@@ -16,9 +16,15 @@ public abstract class Controller : MonoBehaviour
     private bool _canPutABomb=true;
     private float _bombTime;
     private PlayerHealth _stats;
+    private Rigidbody rbbody;
+    public GameObject MainCamera { set; get; }
+    
+    
+
+
     private static readonly int Moving = Animator.StringToHash("MOVING");
     [SerializeField]
-    private bool DebugMode=true;
+    private bool DebugMode=false;
     //?--------------------------------->
     //!--------------------------------->
     //?--------------------------------->
@@ -30,6 +36,9 @@ public abstract class Controller : MonoBehaviour
         Anim = _body.GetComponent<Animator>();
         _bombTime = bomba.GetComponent<Bomb>().time;
         _stats = GetComponent<PlayerHealth>();
+        rbbody = GetComponent<Rigidbody>();
+        MainCamera = GameObject.FindWithTag("MainCamera");
+
 
     }
     /// <summary>
@@ -42,7 +51,9 @@ public abstract class Controller : MonoBehaviour
         var angle = Quaternion.Euler(0,x , 0);
         
         Anim.SetBool(Moving, true);
-        gameObject.transform.Translate(dir * (velocidad * Time.deltaTime),Space.World);
+        //gameObject.transform.Translate(dir * (velocidad * Time.deltaTime),Space.World);
+        //rbbody.velocity = _body.transform.forward*velocidad;
+        rbbody.MovePosition(transform.position+dir * (velocidad * Time.deltaTime));
         _body.transform.rotation = angle;
 
     }

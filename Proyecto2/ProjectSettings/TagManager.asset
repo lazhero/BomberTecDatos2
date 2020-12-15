@@ -13,6 +13,7 @@ TagManager:
   - Canva
   - Mendel
   - Enemy
+  - Wall
   layers:
   - Default
   - TransparentFX

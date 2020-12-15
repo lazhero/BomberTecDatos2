@@ -61,7 +61,9 @@ namespace Players
             health.evasion        = pHud.Evasion;
             health.face           = pHud.Face;
             health.body           = pHud.colorID;
-        
+
+            health.powerUpImage = pHud.powerUp;
+            health.powerUpText = pHud.powerUpText;
             player.GetComponent<Controller>().bomba = Static_BombPrefab;
             player.transform.GetComponentInChildren<MeshRenderer>().material .SetColor("_Color",myColor);
           

@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\luisA\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\luisA\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Proyecto2.-1814912413.00" t="ExcludeRecursive" />
-    <e p="C:\Users\luisA\OneDrive\Escritorio\BomberTec\BomberTecDatos2\Proyecto2" t="IncludeRecursive">
+    <e p="C:\Users\Adrián González\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Adrián González\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_Proyecto2.-1709785170.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Adrián González\Desktop\BomberTecDatos2\Proyecto2" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="modelos" t="Include">
+          <e p="Prefabs" t="Include">
+            <e p="LowPolyTreePack" t="Include">
+              <e p="README.txt" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Player.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="AStar" t="Include">
@@ -13,6 +20,13 @@
             <e p="AStarResponse.cs" t="Include" />
           </e>
           <e p="Bomb.cs" t="Include" />
+          <e p="Configuration" t="Include">
+            <e p="LevelLoader.cs" t="Include" />
+            <e p="Loading.cs" t="Include" />
+            <e p="MapConfig.cs" t="Include" />
+            <e p="UIConfig.cs" t="Include" />
+            <e p="ValueBetweenButtons.cs" t="Include" />
+          </e>
           <e p="Consumable.cs" t="Include" />
           <e p="DataStructures" t="Include">
             <e p="ArrayTools.cs" t="Include" />
@@ -39,6 +53,15 @@
             <e p="PlayerController.cs" t="Include" />
             <e p="PlayerHealth.cs" t="Include" />
             <e p="PosDettector.cs" t="Include" />
+            <e p="PowerUps" t="Include">
+              <e p="BombRatioPlus.cs" t="Include" />
+              <e p="CrossBomb.cs" t="Include" />
+              <e p="Cure.cs" t="Include" />
+              <e p="ModifyEvasion.cs" t="Include" />
+              <e p="PowerUp.cs" t="Include" />
+              <e p="PushBombs.cs" t="Include" />
+              <e p="Shield.cs" t="Include" />
+            </e>
           </e>
           <e p="ScoreTable.cs" t="Include" />
           <e p="SquaredMapTools" t="Include">

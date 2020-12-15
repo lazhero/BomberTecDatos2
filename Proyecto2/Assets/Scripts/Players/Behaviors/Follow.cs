@@ -17,7 +17,11 @@ namespace Players.Behaviors
 
         protected void FollowTarget( )
         {
+
+
+            Debug.Log("voy a buscar :" +Focus);
             var targets = myMap.Things[Focus];
+            if(targets.Count<0) return;
             var Target = Random.Range(0, targets.Count);
             controller.AddMovement(targets[Target]);
             

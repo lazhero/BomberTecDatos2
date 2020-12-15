@@ -2,18 +2,23 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace Players
 {
     public class PlayerHealth : MonoBehaviour
     {
 
-        private bool _canReceiveDamage = true;
+        public bool _canReceiveDamage = true;
         public TextMeshProUGUI explosionRatio;
         public TextMeshProUGUI evasion;
         public Image face;
         public Image body;
 
+        public TextMeshProUGUI powerUpText;
+        public Image powerUpImage { set; get; }
+        
+        
         public int totalShoe = 3;
         private int _shoe;
         private Mendel _mendel;
@@ -36,6 +41,7 @@ namespace Players
         }
 
         private int _bombRatio;
+        public int PreviusbombRatio;
         public int BombRatio
         {
             get => _bombRatio;
@@ -46,16 +52,37 @@ namespace Players
             }
         }
 
+        public int _evasion=0;
+        public int Evasion
+        {
+            set
+            {
+
+                _evasion = value;
+                
+                if (_evasion > 90)
+                    _evasion = 90;
+
+                evasion.text = _evasion+ "%";
+
+
+            }
+            get => _evasion;
+        }
+
         public int totalHealth = 3;
         public int health;
         public int Health
         {
             set
             {
-         
-                if(health > value&& _canReceiveDamage)
+
+                if (health > value && _canReceiveDamage)
                 {
-                    health = value;
+                    int random = Random.Range(0, 100);
+
+                    if(random>=_evasion)
+                        health = value;
                     _canReceiveDamage = false;
                     Invoke("BecomeDamageAble", 2f * Time.deltaTime);
                 }
@@ -102,12 +129,12 @@ namespace Players
         /// <param name="escudo"></param>
         /// <param name="bombas"></param>
         /// <param name="zapato"></param>
-        public void ModifyStats(int vida, int escudo, int bombas, int zapato)
+        public void ModifyStats(int vida, int bombas,int shield)
         {
             Health += vida;
             BombRatio += bombas;
         }
-
+        
         
         /// <summary>
         /// kills the player
