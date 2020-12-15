@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,7 @@ namespace Players
 
         public int totalShoe = 3;
         private int _shoe;
+        private Mendel _mendel;
         private int Shoe
         {
 
@@ -90,6 +92,7 @@ namespace Players
         {
             Health = totalHealth;
             Anim = GetComponentInChildren<Animator>();
+            _mendel = GameObject.FindObjectOfType<Mendel>();
             BombRatio = 2;
         }
         /// <summary>
@@ -143,6 +146,7 @@ namespace Players
         {
             if (other.gameObject.tag == "Player" || other.gameObject.tag=="Enemy")
             {
+                _mendel.updateValue(Int32.Parse(gameObject.name),20 );
                 Physics.IgnoreCollision(other.gameObject.GetComponent<BoxCollider>(),gameObject.GetComponent<BoxCollider>() );
             }
         }

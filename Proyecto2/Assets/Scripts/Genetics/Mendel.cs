@@ -99,15 +99,24 @@ public class Mendel : MonoBehaviour
         float[] currentScores = getSucessOfActualPoblation();
         float minScore = getAverage(currentScores);
         float[][] newPopulation = ProbabilitiesGenetic.Genetic(currentPopulationGenes, currentScores, minScore);
+        scoresToValue(0);
         setStats(newPopulation);
 
+    }
+
+    void scoresToValue(float value)
+    {
+        foreach (var score in scores)
+        {
+            score.score = value;
+        }
     }
 
     public void updateValue(int position,int value)
     {
         int index = position - startPos;
         if (index < 0 || index >= scores.Length) return;
-        scores[index].score = value;
+        scores[index].score += value;
     }
 
     float getAverage(float[] array)

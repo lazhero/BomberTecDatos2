@@ -55,14 +55,13 @@ namespace Genetics
                 son[i] = parentsArray[parentPos][i];
 
             }
-            FixGenome(son);
             return son;
         }
 
         public static void FixGenome(float[] genome)
         {
             float difference = maxValue - GetSum(genome);
-            if (difference < 5 && difference>=0) return;
+            if (Math.Abs(difference) < 0.1) return;
             float change = (difference) / genome.Length;
             for (int i = 0; i < genome.Length; i++)
             {
@@ -98,6 +97,7 @@ namespace Genetics
                     genome[randomPositionA]++;
                     genome[randomPositionB]--;
                 }
+                FixGenome(genome);
                 
             }
         }
@@ -116,7 +116,6 @@ namespace Genetics
                 
                 current = Reproduction(successPopulation[randomPosA], successPopulation[randomPosB]);
                 
-
                 newPopulation[i] = current;
             }
 
