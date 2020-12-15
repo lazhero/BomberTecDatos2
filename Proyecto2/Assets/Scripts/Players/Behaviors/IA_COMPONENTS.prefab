@@ -87,4 +87,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myMap: {fileID: 0}
-  Focus: Items
+  Focus: items
