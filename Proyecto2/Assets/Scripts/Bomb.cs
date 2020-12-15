@@ -9,6 +9,7 @@ public class Bomb : MonoBehaviour
     public float time;
     public int radio = 2;
     public BoxCollider bc;
+    public string Owner { get; set; }
     void Start()
     {
         bc = GetComponent<BoxCollider>();
@@ -28,7 +29,9 @@ public class Bomb : MonoBehaviour
         
         GameObject exp=Instantiate(explosion);
         exp.transform.position= transform.position;
-        exp.GetComponent<Estela>().Ratio = radio  ;
+        Estela estela=exp.GetComponent<Estela>()  ;
+        estela.Ratio = radio;
+        estela.Owner = Owner;
         
         map.ThingChange(new message("Bomb",pos, message.Erase));
         map.ThingChange(new message("Ratio",radio, message.Erase));

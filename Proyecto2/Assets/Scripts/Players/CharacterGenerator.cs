@@ -64,19 +64,20 @@ namespace Players
         
             player.GetComponent<Controller>().bomba = Static_BombPrefab;
             player.transform.GetComponentInChildren<MeshRenderer>().material .SetColor("_Color",myColor);
+          
 
         }
     
     
-        /// <summary>
+       /// <summary>
         /// Generates a new one player with certain position
         /// </summary>
         /// <param name="humanController"></param>
         /// <param name="trans"></param>
-        private static void GeneratePlayer(bool humanController, GameObject trans)
+        private static void GeneratePlayer(bool humanController, GameObject trans,string name)
         {
             var player= Instantiate(Static_Player);
-            
+            player.name = name;
             if(humanController) 
                 player.AddComponent<PlayerController>();
             else
@@ -90,12 +91,13 @@ namespace Players
                 player.AddComponent<IAProbability>().setBehaviorsNumber(aibehaviors.Length);
                 player.AddComponent<ScoreTable>();
                 player.tag = "Enemy";
+                geneticFather.AddNewBean(player);
             }
             
             
             player.transform.position = trans.transform.position+ new Vector3(0,3,0);
             DefineDefaultSettings(player,humanController);
-            geneticFather.AddNewBean(player);
+            
         }
     
     
@@ -111,15 +113,15 @@ namespace Players
             
             
             int[] spawns = PositionTools.DetermineSpawns(n);
-            
-            geneticFather.Being = new GameObject[spawns.Length];
-            
+            geneticFather.Being = new GameObject[maximum-Static_HumansCuantity];
+            geneticFather.startPos = Static_HumansCuantity;
             for (var i=0; i< spawns.Length&& i<maximum;i++ )
             {
              
-                GeneratePlayer(Static_HumansCuantity>0, nodes.getNode(spawns[i]));
+                GeneratePlayer(Static_HumansCuantity>0, nodes.getNode(spawns[i]), i.ToString());
                 Static_HumansCuantity--;
             }
+            geneticFather.init();
         }
     
     }

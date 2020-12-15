@@ -35,9 +35,8 @@ namespace Players.Behaviors
                 Backtracking(currentPos);
                 controller.AddMovement(ClosestSafePoint());
             }
-            Debug.Log("Soy la bomba");
-            
-           
+
+
         }
 
         

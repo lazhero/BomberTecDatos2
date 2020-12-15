@@ -10,7 +10,9 @@ public class Mendel : MonoBehaviour
     public GameObject[] Being { set; get; }
     public float rateTime;
     private IAProbability[] ProbabilitiesComponents;
-    private ScoreTable[] scores;
+    public ScoreTable[] scores;
+    
+    public int startPos { get; set; }
     public float min;
     
     
@@ -22,21 +24,22 @@ public class Mendel : MonoBehaviour
             if (Being[iterator] == null)
             {
                 Being[iterator] = player;
+                break;
             }
         }
     }
     
-    
-    
-    void Start()
+
+
+
+
+    public void init()
     {
-        Being = GameObject.FindGameObjectsWithTag("Enemy");
         GetProbabiliesComponent();
         GetScoresTableComponent();
         float[][] initialProbabilities=ProbabilitiesGenetic.generateInitialPopulation(Being.Length, ProbabilitiesComponents[0].getNumberOfActions());
         setStats(initialProbabilities);
         InvokeRepeating("changeMyProbabilities",1,Time.deltaTime*rateTime);
-
     }
     
     
@@ -98,6 +101,13 @@ public class Mendel : MonoBehaviour
         float[][] newPopulation = ProbabilitiesGenetic.Genetic(currentPopulationGenes, currentScores, minScore);
         setStats(newPopulation);
 
+    }
+
+    public void updateValue(int position,int value)
+    {
+        int index = position - startPos;
+        if (index < 0 || index >= scores.Length) return;
+        scores[index].score = value;
     }
 
     float getAverage(float[] array)

@@ -27,7 +27,7 @@ namespace Genetics
             Stack<float[]> sucessFullPopulation =new Stack<float[]>();
             for (int i = 0; i < success.Length; i++)
             {
-                if (Finess(success[i]))
+                if (Finess(success[i]) && population[i]!=null)
                 {
                     sucessFullPopulation.Push(population[i]);
                 }
@@ -44,15 +44,16 @@ namespace Genetics
 
         public static float[] Reproduction(float[] gene1, float[] gene2)
         {
+            float[][] parentsArray=new float[2][];
+            parentsArray[0] = gene1;
+            parentsArray[1] = gene2;
             float[] son=new float[gene1.Length];
-            for (int i = 0; i < gene1.Length / 2;i++)
+            int parentPos;
+            for (int i = 0; i < son.Length; i++)
             {
-                son[i] = gene1[i];
-            }
+                parentPos = Random.Range(0, parentsArray.Length) % parentsArray.Length;// un poco de hardcoding , pero esto no va cambiar nunca, una correcion posible seria meter ambos genes en un array 
+                son[i] = parentsArray[parentPos][i];
 
-            for (int i = gene2.Length / 2; i < gene1.Length; i++)
-            {
-                son[i] = gene2[i];
             }
             FixGenome(son);
             return son;
@@ -61,8 +62,8 @@ namespace Genetics
         public static void FixGenome(float[] genome)
         {
             float difference = maxValue - GetSum(genome);
-            if (Math.Abs(difference) < 0.01) return;
-            float change = (-difference) / genome.Length;
+            if (difference < 5 && difference>=0) return;
+            float change = (difference) / genome.Length;
             for (int i = 0; i < genome.Length; i++)
             {
                 genome[i] += change;
@@ -109,9 +110,13 @@ namespace Genetics
             int randomPosB;
             for (int i = 0; i < membersNumber; i++)
             {
-                randomPosA = Random.Range(0, successPopulation.Length + 1)%successPopulation.Length;
-                randomPosB=Random.Range(0, successPopulation.Length + 1)%successPopulation.Length;
+                randomPosA = Random.Range(0, successPopulation.Length)%successPopulation.Length;
+                randomPosB=Random.Range(0, successPopulation.Length)%successPopulation.Length;
+                if(randomPosA>=successPopulation.Length || randomPosB>=successPopulation.Length)Debug.Log("Me pase de las dimensiones");
+                
                 current = Reproduction(successPopulation[randomPosA], successPopulation[randomPosB]);
+                
+
                 newPopulation[i] = current;
             }
 

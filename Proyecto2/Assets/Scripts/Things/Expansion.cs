@@ -15,12 +15,17 @@ public class Expansion : MonoBehaviour
     private bool finishedCondition;
     
     public int damage = 1;
-    
+    public string Owner { set; get; }
     public Vector3 direction { set; get; }
     public int ratio { set; get; } = 4;
     public bool untilTheWall { set; get; }
     [SerializeField] private GameObject explosion;
+    private Mendel mendel;
 
+    private void Start()
+    {
+        mendel = GameObject.FindObjectOfType<Mendel>();
+    }
 
     private void Update()
     {   
@@ -42,21 +47,39 @@ public class Expansion : MonoBehaviour
   
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        int value = 0;
+        
+        if (other.CompareTag("Player") || other.CompareTag("Enemy"))
+        {
             other.GetComponent<PlayerHealth>().Health -= 1;
-        
-        if(other.CompareTag("Bomb"))
-            //other.GetComponent<Bomb>().Explote();
+            if (other.name.CompareTo(Owner) != 0)
+            {
+                value = 50;
+                mendel.updateValue(Int32.Parse(other.gameObject.name),-value );
+            }
+            else value = -50;
             
-        if(other.CompareTag("consumable"))
-            other.GetComponent<Consumable>().Disapear();
-
-        if (!other.CompareTag("block")) return;
+        }
         
+
+        if (other.CompareTag("consumable"))
+        {
+            other.GetComponent<Consumable>().Disapear();
+            value = -10;
+        }
+           
+
+        if (other.CompareTag("block"))
+        {
+            Block block = other.GetComponent<Block>();
+            if (block.isDestructible)
+            {
+                value = 50;
+                block.DestroyMe();
+            }
+        }
+        mendel.updateValue(Int32.Parse(Owner),value);
         Instantiate(explosion).transform.position = transform.position;
-        Block block = other.GetComponent<Block>();
-        if (block.isDestructible)
-            block.DestroyMe();
         finishedCondition = true;
     }
 

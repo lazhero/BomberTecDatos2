@@ -116,7 +116,9 @@ namespace Players
             ColorUtility.TryParseHtmlString("#2E2E2E", out color);
             face.color = color;
             body.color = color;
-            
+            Invoke("Destroying",0.5f);
+           
+
         }
         
         /// <summary>
@@ -143,6 +145,11 @@ namespace Players
             {
                 Physics.IgnoreCollision(other.gameObject.GetComponent<BoxCollider>(),gameObject.GetComponent<BoxCollider>() );
             }
+        }
+
+        private void Destroying()
+        {
+            Destroy(gameObject);
         }
     }
 }

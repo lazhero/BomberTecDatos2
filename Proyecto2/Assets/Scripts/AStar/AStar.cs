@@ -2,9 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using DataStructures;
+  using UnityEngine;
 
 
-namespace AStar
+  namespace AStar
 {
     public class AStar<T>
     {
@@ -161,6 +162,12 @@ namespace AStar
             }
             AStarResponse response=new AStarResponse();
             response.route = route;
+            if(endPos<0 || endPos>PricesFromTheNode.Length)
+            {
+                int i = 0;
+                i++;
+                return response;
+            }
             response.value = PricesFromTheNode[endPos];
             return response;
 

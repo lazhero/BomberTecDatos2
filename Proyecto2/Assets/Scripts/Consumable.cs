@@ -32,12 +32,11 @@ public class Consumable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player") && !other.CompareTag("Enemy")) return;
+        if (!other.CompareTag("Player") & !other.CompareTag("Enemy")) return;
 
         var info = other.gameObject.GetComponent<PlayerHealth>();
-        
+        GameObject.FindObjectOfType<Mendel>().updateValue(Int32.Parse(other.name),30 );
         info.ModifyStats(healthRestoration,shield,bomb,shoe);
-        
         Destroy(gameObject);
         
     }

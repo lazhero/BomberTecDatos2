@@ -36,12 +36,18 @@ namespace SquaredMapTools
         if(generateMap) GenerateInteractuableBlocks();
         else LinkGraph();
         CharacterGenerator.GenerateAllPlayers(widthAndHeight,Graph);
+        justAPrint();
         return Graph;
     }
     void justAPrint()
     {
         Debug.Log("Voy a entrar a ver las relaciones");
         var relations = Graph.GetRelations(27);
+        for (int i = 0; i < relations.Length; i++)
+        {
+            
+            if(relations[i]<Int32.MaxValue)Debug.Log(i);
+        }
        
     }
 
@@ -113,7 +119,6 @@ namespace SquaredMapTools
             if (PositionTools.IsSide(node.name,widthAndHeight)) continue;
             if (PositionTools.IsAForgivenOne(node.name, forgivenPositions))
             {
-                    
                 setRelations(i,normalCost,true);
                 continue;
             }

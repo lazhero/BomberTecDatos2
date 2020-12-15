@@ -5,6 +5,6 @@ namespace DefaultNamespace
    
     public class ScoreTable:MonoBehaviour
     {
-        public float score { set; get; }
+        [SerializeField]public float score { set; get; }
     }
 }

@@ -13,7 +13,7 @@ public class IAProbability : MonoBehaviour
 {
     [SerializeField] public float[] probabilities;
     [SerializeField] public AiBehavior[] behaviors { set; get; }
-    [SerializeField] public int time { set; get; } = 3;
+    [SerializeField] public float time { set; get; } 
 
     private IAMovementController movement;
     private AiBehavior current;
@@ -23,6 +23,7 @@ public class IAProbability : MonoBehaviour
 
     private void Start()
     {
+        time = 20000 * Time.deltaTime;
         movement = gameObject.GetComponent<IAMovementController>();
         behaviors = GetComponents<AiBehavior>();
         launched = false;
@@ -84,16 +85,16 @@ public class IAProbability : MonoBehaviour
     {
         float randomNumber = Random.Range(0, 100)%100;
         int i = 0;
-        while (randomNumber > 0)
+        while (randomNumber > 0 && i<probabilities.Length)
         {
-            if (randomNumber < probabilities[i])
+            if (randomNumber <= probabilities[i])
             {
                 current = behaviors[i];
                 current.Act();
             }
             randomNumber -= probabilities[i];
             i++;
-           
+
         }
         
     }

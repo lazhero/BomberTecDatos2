@@ -18,9 +18,11 @@ namespace DataStructures
         public static T[] getArrayFromStack(Stack<T> stack)
         {
             T[] array=new T[stack.Count];
-            for (int i = 0; i < stack.Count; i++)
+            int i = 0;
+            while (stack.Count > 0)
             {
                 array[i] = stack.Pop();
+                i++;
             }
             return array;
         }

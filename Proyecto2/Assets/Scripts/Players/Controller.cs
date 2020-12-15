@@ -61,6 +61,7 @@ public abstract class Controller : MonoBehaviour
         if(_canPutABomb || DebugMode)
         {
             GameObject bombita = Instantiate(bomba);
+            bombita.GetComponent<Bomb>().Owner = gameObject.name;
             bombita.transform.position = currentBlock.transform.position + new Vector3(0, 1.5f, 0);
             _canPutABomb = false;
             
@@ -68,8 +69,9 @@ public abstract class Controller : MonoBehaviour
             info.map = myMap;
             info.pos = Convert.ToInt32(currentBlock.name);
             info.radio = _stats.BombRatio;
-            
+
             Invoke("CanPutAgain",_bombTime);
+            
 
         }
     
