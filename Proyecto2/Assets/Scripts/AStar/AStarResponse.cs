@@ -5,5 +5,6 @@ namespace AStar
       {
             public float value { set; get; }
             public Stack<int> route { set; get; }
+            public int reacheableClosestNode { set; get; }
       }
 }

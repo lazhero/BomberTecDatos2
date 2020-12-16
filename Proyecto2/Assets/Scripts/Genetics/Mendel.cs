@@ -87,7 +87,7 @@ public class Mendel : MonoBehaviour
         float[] sucessRate = new float[Being.Length];
         for (int i = 0; i < sucessRate.Length; i++)
         {
-            sucessRate[i] = scores[i].score;
+            sucessRate[i] = scores[i].score+scores[i].SuccessBombs*1000+(1/scores[i].shortestDistanceFromPlayer)*100;
         }
 
         return sucessRate;

@@ -18,6 +18,7 @@ using DataStructures;
         private static int[] heuristic; //this will save the h
         private static int[] predecessor;  //saving the predecessor for each node
         private static bool[] visited;
+        private static int nodewithTheLowestHeuristic;
 
         /// <summary>
         /// Get the route from one to another using the A* algorithms, this is though as a chest board for calculating the heuristic through the manhathan distance
@@ -40,9 +41,10 @@ using DataStructures;
             ArrayTools<bool>.initArray(visited,false);
             
             calculateHeuristic(endPosition,rowSize);
-            
+            nodewithTheLowestHeuristic = startPosition;
             PricesFromTheNode[startPosition] = 0;
             processSteps(startPosition,endPosition);
+            
             return buildAStar(startPosition, endPosition);
 
 
@@ -107,6 +109,7 @@ using DataStructures;
         /// <param name="position"> Position of the node to add </param>
         private static void addNodeClosed(int position)
         {
+            
             visited[position] = true;
             float actualPrice;
             float newPrice;
@@ -121,6 +124,8 @@ using DataStructures;
                     predecessor[i] = position;
                 }
             }
+
+            if (heuristic[position] < heuristic[nodewithTheLowestHeuristic]) nodewithTheLowestHeuristic = position;
 
         }
 
@@ -162,13 +167,9 @@ using DataStructures;
             }
             AStarResponse response=new AStarResponse();
             response.route = route;
-            if(endPos<0 || endPos>PricesFromTheNode.Length)
-            {
-                int i = 0;
-                i++;
-                return response;
-            }
             response.value = PricesFromTheNode[endPos];
+            response.reacheableClosestNode = nodewithTheLowestHeuristic;
+            
             return response;
 
         }

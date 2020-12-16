@@ -40,6 +40,10 @@ public class Map : MonoBehaviour {
 
         AStarResponse response= AStar<GameObject>.getRoute(Graph, start, end, WidthAndHeight);
         Stack<int> positions = response.route;
+        if (positions.Count <= 1)
+        {
+            response = AStar<GameObject>.getRoute(Graph, start, response.reacheableClosestNode, WidthAndHeight);
+        }
         //positions.Pop();
         GameObject[] squaresArray=new GameObject[positions.Count];
         int i = 0;
@@ -174,4 +178,20 @@ public class Map : MonoBehaviour {
         var inf = Graph.getNode(blockNumber).GetComponent<GroundBlock>();
         return inf.blockObject ==null && !inf.isWall ;
     }
+
+    public float calculateDistance(int BlockNumber,string tag)
+    {
+        float distance=Int32.MaxValue;
+        List<int> myFocusList = Things[tag];
+        AStarResponse response;
+        foreach (var element in myFocusList)
+        {
+            response = AStar<GameObject>.getRoute(Graph, BlockNumber, element, WidthAndHeight);
+            if (response.value < distance) distance = response.value;
+        }
+
+        return distance;
+
+    }
+    
 }

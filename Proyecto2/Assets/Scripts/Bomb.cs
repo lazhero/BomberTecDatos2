@@ -19,8 +19,9 @@ public class Bomb : MonoBehaviour
         map.ThingChange(new message("Bomb",pos, message.Write));
         map.ThingChange(new message("Ratio",radio, message.Write));
         map.SendMessage("BlockClosed",pos);
+        float distance = map.calculateDistance(pos, "Player");
 
-        
+
     }
     /// <summary>
     ///  Destroy gameObject and generates the explosion
