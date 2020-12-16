@@ -852,6 +852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rateTime: 0
+  scores: []
   min: 0
 --- !u!4 &272203844
 Transform:
