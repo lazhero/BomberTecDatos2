@@ -158,6 +158,7 @@ using DataStructures;
         /// <returns>An AStarResponse packing the route and the price </returns>
         private static AStarResponse buildAStar(int starPos,int endPos)
         {
+            if (endPos < 0|| heuristic.Length<=endPos  ) return null;
             int pos = endPos;
             Stack<int> route=new Stack<int>();
             while (pos != nullValue)
@@ -166,6 +167,7 @@ using DataStructures;
                 pos = predecessor[pos];
             }
             AStarResponse response=new AStarResponse();
+            
             response.route = route;
             response.value = PricesFromTheNode[endPos];
             response.reacheableClosestNode = nodewithTheLowestHeuristic;

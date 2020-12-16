@@ -21,8 +21,9 @@ namespace Players.Behaviors
 
             Debug.Log("voy a buscar :" +Focus);
             var targets = myMap.Things[Focus];
-            if(targets.Count<0) return;
+            //if(targets.Count<0) return;
             var Target = Random.Range(0, targets.Count-1);
+            
             controller.AddMovement(targets[Target]);
             
         }

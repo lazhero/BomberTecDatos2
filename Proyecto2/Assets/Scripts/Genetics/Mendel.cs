@@ -39,7 +39,7 @@ public class Mendel : MonoBehaviour
         GetScoresTableComponent();
         float[][] initialProbabilities=ProbabilitiesGenetic.generateInitialPopulation(Being.Length, ProbabilitiesComponents[0].getNumberOfActions());
         setStats(initialProbabilities);
-        InvokeRepeating("changeMyProbabilities",1,Time.deltaTime*rateTime);
+        InvokeRepeating("changeMyProbabilities",5,Time.deltaTime*rateTime);
     }
     
     
@@ -85,9 +85,22 @@ public class Mendel : MonoBehaviour
     float[] getSucessOfActualPoblation()
     {
         float[] sucessRate = new float[Being.Length];
+        float score;
+        float SucessScore;
+        float ShortestScore;
         for (int i = 0; i < sucessRate.Length; i++)
         {
-            sucessRate[i] = scores[i].score+scores[i].SuccessBombs*1000+(1/scores[i].shortestDistanceFromPlayer)*100;
+            if (Being[i] == null) sucessRate[i] = 0;
+            else
+            {
+                score = scores[i].score;
+                SucessScore = scores[i].SuccessBombs * 1000;
+                if (scores[i].shortestDistanceFromPlayer >= 100000) ShortestScore = 0;
+                else ShortestScore = (1 / scores[i].shortestDistanceFromPlayer) * 100;
+                sucessRate[i] = score+SucessScore+ShortestScore; 
+            }
+            
+            
         }
 
         return sucessRate;
@@ -99,16 +112,16 @@ public class Mendel : MonoBehaviour
         float[] currentScores = getSucessOfActualPoblation();
         float minScore = getAverage(currentScores);
         float[][] newPopulation = ProbabilitiesGenetic.Genetic(currentPopulationGenes, currentScores, minScore);
-        scoresToValue(0);
+        resetScores();
         setStats(newPopulation);
 
     }
 
-    void scoresToValue(float value)
+    void resetScores()
     {
         foreach (var score in scores)
         {
-            score.score = value;
+            if(score!=null) score.resetToClean();
         }
     }
 
@@ -130,5 +143,25 @@ public class Mendel : MonoBehaviour
         }
         if (i == 0) return 0;
         return sum / i;
+    }
+
+    public void updateClosestBomb(int pos, float value)
+    {
+        int index = pos - startPos;
+        if (!verification(index)) return;
+        ScoreTable currentFocus=scores[index];
+       if(currentFocus.shortestDistanceFromPlayer>value) currentFocus.shortestDistanceFromPlayer = value;
+    }
+
+    public void AddSucessBomb(int pos)
+    {
+        int index = pos - startPos;
+        if (!verification(index)) return;
+        scores[index].SuccessBombs++;
+    }
+
+    private bool verification(int pos)
+    {
+        return pos >= 0 && pos < Being.Length;
     }
 }

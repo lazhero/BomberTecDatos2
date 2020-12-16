@@ -8,7 +8,7 @@ public abstract class Controller : MonoBehaviour
 {
     protected Animator Anim;
     private GameObject _body;
-    public float velocidad = 10;
+    public float velocidad = 7f;
     public GameObject currentBlock;
     [SerializeField]
     public GameObject bomba;

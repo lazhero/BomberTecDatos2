@@ -20,21 +20,29 @@ namespace Players.Behaviors
         private int limit=100; 
         public override void Act()
         {
-            
-            //Primero calcula quien lo mata, luego explora las distintas soluciones, luego encuentra la mas cercana
-            if(!myMap.Things.ContainsKey("Bomb")) return;
-            bombPositions = myMap.Things["Bomb"];
-            BombRatios    = myMap.Things["Ratio"];
-            
-            int currentPos    = Convert.ToInt32(controller.currentBlock.name);
-            List<int> killers = CalculatePossibleKillers(currentPos,bombPositions,BombRatios);
-
-            limit = 100;
-            if (killers.Count > 0)
+            try
             {
-                Backtracking(currentPos);
-                controller.AddMovement(ClosestSafePoint());
+                //Primero calcula quien lo mata, luego explora las distintas soluciones, luego encuentra la mas cercana
+                if(!myMap.Things.ContainsKey("Bomb")) return;
+                bombPositions = myMap.Things["Bomb"];
+                BombRatios    = myMap.Things["Ratio"];
+            
+                int currentPos    = Convert.ToInt32(controller.currentBlock.name);
+                List<int> killers = CalculatePossibleKillers(currentPos,bombPositions,BombRatios);
+
+                limit = 100;
+                if (killers.Count > 0)
+                {
+                    Backtracking(currentPos);
+                    controller.AddMovement(ClosestSafePoint());
+                }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+               
+            }
+            
            
         }
 

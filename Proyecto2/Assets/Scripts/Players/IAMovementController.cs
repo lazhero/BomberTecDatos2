@@ -28,6 +28,7 @@ public class IAMovementController:Controller
         {
                 var currentPosition=Int32.Parse(currentBlock.name);
                 GameObject[] objects = myMap.GetRoute(currentPosition, endpos);
+                if (objects == null) return;
                 if (objects.Length <= 1) return;
                 foreach (var t in objects)
                 {

@@ -59,9 +59,8 @@ public class Expansion : MonoBehaviour
             
         if(other.CompareTag("consumable"))
             other.GetComponent<Consumable>().Disapear();
-            value = -10;
-        
-           
+
+
 
 
         if (other.CompareTag("Wall"))
@@ -78,7 +77,9 @@ public class Expansion : MonoBehaviour
                 if (block.isDestructible)
                     block.DestroyMe();
             finishedCondition = true;
+            value = 5;
         }
+        mendel.updateValue(Int32.Parse(Owner),value);
     }
 
   
