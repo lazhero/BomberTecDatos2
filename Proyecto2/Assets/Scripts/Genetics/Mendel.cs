@@ -95,9 +95,15 @@ public class Mendel : MonoBehaviour
             {
                 score = scores[i].score;
                 SucessScore = scores[i].SuccessBombs * 1000;
-                if (scores[i].shortestDistanceFromPlayer >= 100000) ShortestScore = 0;
+                if (scores[i].shortestDistanceFromPlayer == 0) ShortestScore = 100;
+                else if (scores[i].shortestDistanceFromPlayer >= 10000) ShortestScore = 0;
                 else ShortestScore = (1 / scores[i].shortestDistanceFromPlayer) * 100;
-                sucessRate[i] = score+SucessScore+ShortestScore; 
+                if (ShortestScore > 100) ShortestScore = 0;
+                sucessRate[i] = score+SucessScore+ShortestScore;
+                if (sucessRate[i] > 10000)
+                {
+                    Debug.Log("La cague");
+                }
             }
             
             

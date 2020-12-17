@@ -14,22 +14,29 @@ public class Bomb : MonoBehaviour
     void Start()
     {
         bc = GetComponent<BoxCollider>();
-        Invoke("Explote",time);
         bc.enabled = false;
         
+
+    }
+
+    public void Show()
+    {
         map.ThingChange(new message("Bomb",pos, message.Write));
         map.ThingChange(new message("Ratio",radio, message.Write));
         map.SendMessage("BlockClosed",pos);
         float distance = map.calculateDistance(pos, "Player",Int32.Parse(Owner));
-        GameObject.FindObjectOfType<Mendel>().updateClosestBomb(Int32.Parse(Owner),distance);
+        GameObject.FindObjectOfType<Mendel>().updateClosestBomb(Int32.Parse(Owner),distance); 
+    }
 
-
+    public void makeExplote()
+    {
+        Invoke("Explote",time);
     }
     /// <summary>
     ///  Destroy gameObject and generates the explosion
     /// </summary>
-    public void Explote(){
-        
+    public void Explote()
+    {
         GameObject exp=Instantiate(explosion);
         exp.transform.position= transform.position;
         Estela estela=exp.GetComponent<Estela>()  ;

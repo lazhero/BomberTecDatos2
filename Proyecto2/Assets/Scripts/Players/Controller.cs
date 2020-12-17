@@ -80,6 +80,8 @@ public abstract class Controller : MonoBehaviour
             info.map = myMap;
             info.pos = Convert.ToInt32(currentBlock.name);
             info.radio = _stats.BombRatio;
+            info.Show();
+            info.makeExplote();
 
             Invoke("CanPutAgain",_bombTime);
             

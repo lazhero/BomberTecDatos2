@@ -15,6 +15,7 @@ namespace Genetics
         private static int maxValue = 100;
         public static float[][] Genetic(float[][] populationGenomes, float[] successRate, float minSuccess)
         {
+            
             Debug.Log("Entre a mendel");
             ProbabilitiesGenetic.successRate = minSuccess;
             float[][] sucessPopulation = GetSuccess(populationGenomes, successRate);
