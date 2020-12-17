@@ -70,7 +70,6 @@ public class Expansion : MonoBehaviour
         }
         if (other.CompareTag("block") )
         {
-
             Instantiate(explosion).transform.position = transform.position;
             Block block = other.GetComponent<Block>();
             if(block!=null)
@@ -79,7 +78,7 @@ public class Expansion : MonoBehaviour
             finishedCondition = true;
             value = 5;
         }
-        mendel.updateValue(Int32.Parse(Owner),value);
+        if(Owner!=null) mendel.updateValue(Int32.Parse(Owner),value);
     }
 
   

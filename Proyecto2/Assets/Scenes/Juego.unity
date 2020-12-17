@@ -1590,7 +1590,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 3.0201e-41, z: 0, w: 9.403955e-38}
+  m_BoundingSphereOverride: {x: 0, y: NaN, z: 0, w: 5.452945e-10}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4272,7 +4272,7 @@ PrefabInstance:
     - target: {fileID: 7897797667288956981, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}
       propertyPath: widthAndHeight
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}
@@ -4289,7 +4289,7 @@ PrefabInstance:
     - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}
       propertyPath: maxPlayers
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}
