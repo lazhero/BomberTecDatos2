@@ -50,6 +50,7 @@
             <e p="Controller.cs" t="Include" />
             <e p="IAMovementController.cs" t="Include" />
             <e p="IAProbability.cs" t="Include" />
+            <e p="JoystickController.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
             <e p="PlayerHealth.cs" t="Include" />
             <e p="PosDettector.cs" t="Include" />

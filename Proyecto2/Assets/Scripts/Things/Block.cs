@@ -38,9 +38,13 @@ public class Block : MonoBehaviour
         
         isDestroy = true;
         Invoke("Destr",0.1f);
+        int r = Random.Range(0, 10);
+        if (r > 5)
+        {
+            GameObject myConsumable = Instantiate(consumables[Random.Range(0,consumables.Length)], transform.parent, true);
+            myConsumable.transform.position = gameObject.transform.position ;    
+        }
         
-        GameObject myConsumable = Instantiate(consumables[Random.Range(0,consumables.Length)], transform.parent, true);
-        myConsumable.transform.position = gameObject.transform.position ;
     }
 
 

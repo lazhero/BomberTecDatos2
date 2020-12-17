@@ -48,7 +48,8 @@ public class Expansion : MonoBehaviour
             if (other.name.CompareTo(Owner) != 0)
             {
                 value = 50;
-                mendel.updateValue(Int32.Parse(other.gameObject.name), -value);
+                if(other.gameObject.name!=null)
+                    mendel.updateValue(Int32.Parse(other.gameObject.name), -value);
             }
             else value = -50;
 
