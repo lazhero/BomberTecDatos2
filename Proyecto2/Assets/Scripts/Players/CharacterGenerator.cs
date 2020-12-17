@@ -1,5 +1,6 @@
 ﻿using System;
 using DefaultNamespace;
+using DefaultNamespace.Configuration;
 using Players.Behaviors;
 using SquaredMapTools;
 using UnityEngine;
@@ -36,6 +37,12 @@ namespace Players
             geneticFather       = GameObject.FindGameObjectWithTag("Mendel").GetComponent<Mendel>();
             aibehaviors           = AiBehaviors;
             maximum = maxPlayers;
+            int h = MapConfig.Humans;
+            if (h > 1)
+            {
+                Static_HumansCuantity = h;
+            }
+            
         }
 
 
@@ -80,8 +87,15 @@ namespace Players
         {
             var player= Instantiate(Static_Player);
             player.name = name;
-            if(humanController) 
-                player.AddComponent<PlayerController>();
+            if(humanController)
+            {
+                if (Static_HumansCuantity > 1)
+                    player.AddComponent<JoystickController>();
+                else
+                    player.AddComponent<PlayerController>();
+
+
+            }
             else
             {
                 player.AddComponent<IAMovementController>();

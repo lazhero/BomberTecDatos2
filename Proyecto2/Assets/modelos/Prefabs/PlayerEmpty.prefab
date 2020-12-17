@@ -224,8 +224,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3999069, y: 2.07, z: 1.1291976}
-  m_Center: {x: 0.06765258, y: -0.6234311, z: 0.019006014}
+  m_Size: {x: 1.0179226, y: 2.07, z: 0.67732334}
+  m_Center: {x: 0.058971047, y: -0.6234311, z: -0.07266569}
 --- !u!114 &6020081157150938748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,8 +247,8 @@ MonoBehaviour:
   totalShoe: 3
   PreviusbombRatio: 0
   _evasion: 0
-  totalHealth: 3
-  health: 3
+  totalHealth: 10
+  health: 10
   heartUi: {fileID: 0}
   shoeUi: {fileID: 0}
 --- !u!82 &5402019588426180423

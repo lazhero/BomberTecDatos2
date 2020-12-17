@@ -101,7 +101,7 @@ public class IAProbability : MonoBehaviour
 
     IEnumerator pause()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         timeLeft = time;
         launched = false;
         RandomAction();

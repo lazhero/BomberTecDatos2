@@ -17,25 +17,22 @@ public class JoystickController : Controller
         float xaxis = Input.GetAxis("MHorizontal");
         float yaxis = Input.GetAxis("MVertical");
 
-        if (xaxis > 0 || yaxis> 0)
+        if (xaxis != 0 || yaxis!= 0)
         {
-            Vector3 movement= new Vector3();
             if (Mathf.Abs(xaxis)  > Mathf.Abs(yaxis))
-            {
-                
-            }
+                Move(-Vector3.right *Mathf.Sign(xaxis));
+            else
+                Move(Vector3.forward *Mathf.Sign(yaxis));
         }
-
+        else
+        {
+            setMoving(false);
+        }
         if (Input.GetButton("pbomb"))
         {
-            
+            GenerateBomb();
         }
-        if(Input.GetKey("w"))    Move(-Vector3.forward);
-        else if(Input.GetKey("s"))Move(Vector3.forward);
-        else if(Input.GetKey("d"))Move(-Vector3.right );
-        else if(Input.GetKey("a"))Move(Vector3.right) ;
-        else setMoving(false);
-        if (Input.GetKeyDown("space")) GenerateBomb();
+
         
     }
     public void setMoving(bool value)

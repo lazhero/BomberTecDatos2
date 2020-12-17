@@ -70,7 +70,7 @@ namespace Players
             get => _evasion;
         }
 
-        public int totalHealth = 3;
+        public int totalHealth = 10;
         public int health;
         public int Health
         {
