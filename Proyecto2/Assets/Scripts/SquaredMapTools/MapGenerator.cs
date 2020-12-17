@@ -47,7 +47,7 @@ namespace SquaredMapTools
     }
     void justAPrint()
     {
-        Debug.Log("Voy a entrar a ver las relaciones");
+        //Debug.Log("Voy a entrar a ver las relaciones");
         var relations = Graph.GetRelations(27);
         for (int i = 0; i < relations.Length; i++)
         {

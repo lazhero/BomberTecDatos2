@@ -85,11 +85,13 @@ namespace Players
             else
             {
                 player.AddComponent<IAMovementController>();
+                #if UNITY_EDITOR
                 foreach (Component VARIABLE in aibehaviors)
                 {
                     UnityEditorInternal.ComponentUtility.CopyComponent(VARIABLE);
                     UnityEditorInternal.ComponentUtility.PasteComponentAsNew(player);
                 }
+                #endif
                 player.AddComponent<IAProbability>().setBehaviorsNumber(aibehaviors.Length);
                 player.AddComponent<ScoreTable>();
                 player.tag = "Enemy";

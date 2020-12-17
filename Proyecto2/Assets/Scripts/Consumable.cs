@@ -37,8 +37,10 @@ public class Consumable : MonoBehaviour
         
         if (other.gameObject.GetComponent<PowerUp>() == null)
         {
+#if UNITY_EDITOR
             UnityEditorInternal.ComponentUtility.CopyComponent(action);
             UnityEditorInternal.ComponentUtility.PasteComponentAsNew(other.gameObject);
+#endif
         }
             
         /*
