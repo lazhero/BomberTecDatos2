@@ -67,7 +67,7 @@ namespace SquaredMapTools
             c = n2 / 2 + 1;
         
         response[6] =c+1;
-        response[7] = c+n-3;
+        response[7] = c+n-3+15;
         return response;
     }
     /// <summary>

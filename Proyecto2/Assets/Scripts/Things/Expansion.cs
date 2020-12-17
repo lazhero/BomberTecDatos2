@@ -75,9 +75,12 @@ public class Expansion : MonoBehaviour
             Block block = other.GetComponent<Block>();
             if(block!=null)
                 if (block.isDestructible)
+                {
                     block.DestroyMe();
+                    value = 10;
+                }
             finishedCondition = true;
-            value = 5;
+            
         }
         mendel.updateValue(Int32.Parse(Owner),value);
     }

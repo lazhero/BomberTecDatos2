@@ -11,6 +11,9 @@ public class Mendel : MonoBehaviour
     public float rateTime;
     private IAProbability[] ProbabilitiesComponents;
     public ScoreTable[] scores;
+    private int FreeCost = 10;
+    private int BlockedCost=100;
+    private int ClosedCost=Int32.MaxValue;
     
     public int startPos { get; set; }
     public float min;
@@ -95,21 +98,37 @@ public class Mendel : MonoBehaviour
             {
                 score = scores[i].score;
                 SucessScore = scores[i].SuccessBombs * 1000;
-                if (scores[i].shortestDistanceFromPlayer == 0) ShortestScore = 100;
-                else if (scores[i].shortestDistanceFromPlayer >= 10000) ShortestScore = 0;
-                else ShortestScore = (1 / scores[i].shortestDistanceFromPlayer) * 100;
-                if (ShortestScore > 100) ShortestScore = 0;
+                ShortestScore = getCostFromCloserBomb(scores[i].shortestDistanceFromPlayer);
                 sucessRate[i] = score+SucessScore+ShortestScore;
-                if (sucessRate[i] > 10000)
-                {
-                    Debug.Log("La cague");
-                }
+                if (sucessRate[i] > 10000) ;
             }
             
             
         }
 
         return sucessRate;
+    }
+
+    private float getCostFromCloserBomb(float price)
+    {
+        if (price >= ClosedCost) return 0;
+        int FreeBlocks;
+        int BlockedBlocks;
+        int value=0;
+        BlockedBlocks = (int)price / BlockedCost;
+        price -= BlockedBlocks * BlockedCost;
+        FreeBlocks = (int) price / FreeCost;
+        if (FreeBlocks <= 10)
+        {
+            value += 500 - 10 * FreeBlocks;
+        }
+
+        if (BlockedCost <=5)
+        {
+            value+=500-100*BlockedCost;
+        }
+        return value;
+        
     }
 
     void changeMyProbabilities()

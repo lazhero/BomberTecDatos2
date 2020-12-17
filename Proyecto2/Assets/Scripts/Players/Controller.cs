@@ -82,7 +82,6 @@ public abstract class Controller : MonoBehaviour
             info.radio = _stats.BombRatio;
             info.Show();
             info.makeExplote();
-
             Invoke("CanPutAgain",_bombTime);
             
 

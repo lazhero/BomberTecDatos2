@@ -40,10 +40,9 @@ public class Consumable : MonoBehaviour
             UnityEditorInternal.ComponentUtility.CopyComponent(action);
             UnityEditorInternal.ComponentUtility.PasteComponentAsNew(other.gameObject);
         }
-            
+        GameObject.FindObjectOfType<Mendel>().updateValue(Int32.Parse(other.name),30 );  
         /*
         var info = other.gameObject.GetComponent<PlayerHealth>();
-        GameObject.FindObjectOfType<Mendel>().updateValue(Int32.Parse(other.name),30 );
         info.ModifyStats(healthRestoration,shield,bomb,shoe);
         */
         Destroy(gameObject);

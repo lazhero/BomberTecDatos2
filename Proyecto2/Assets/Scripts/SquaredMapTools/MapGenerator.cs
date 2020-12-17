@@ -19,7 +19,9 @@ namespace SquaredMapTools
     [SerializeField] private bool generateMap = true;
 
     public DGraph<GameObject> Graph { get; set; }
+    public DGraph<GameObject> otherGraph { get; set; }
     public static int normalCost { get; set; } = 10;
+    public static int blockedCost = 100;
     private int closedCost = Int32.MaxValue;
     private int length;
     private int walkableBlocks = 28;
@@ -36,11 +38,11 @@ namespace SquaredMapTools
         
         
         Graph = new DGraph<GameObject>(widthAndHeight * widthAndHeight);
+        otherGraph=new DGraph<GameObject>(widthAndHeight * widthAndHeight);
         forgivenPositions= PositionTools. DetermineForgivenPositions(widthAndHeight);
 
         GenerateGround();
         if(generateMap) GenerateInteractuableBlocks();
-        else LinkGraph();
         CharacterGenerator.GenerateAllPlayers(widthAndHeight,Graph);
         justAPrint();
         return Graph;
@@ -63,27 +65,38 @@ namespace SquaredMapTools
        // GameObject Node;
         for (int i = 0; i < widthAndHeight*widthAndHeight; i++)
         {
-            setRelations(i,normalCost,true);
+            setRelations(i,normalCost,blockedCost,true);
             
         }
     }
 
-    private void setRelations(int node, int price,bool reverse)
+    private void setRelations(int node, int price,int price2,bool reverse)
     {
    
         Stack<int> relatedNodes;
         relatedNodes = SquaredMapTools.PositionTools.getRelatedPositions(node, widthAndHeight);
+        int pos;
         while (relatedNodes.Count > 0)
         {
-            if(!reverse) setRelation(node,relatedNodes.Pop(),price);
-            else setRelation(relatedNodes.Pop(),node,price);
+            pos = relatedNodes.Pop();
+            if (!reverse)
+            {
+                setRelation(node,pos,price,Graph);
+                setRelation(node,pos,price2,otherGraph);
+                
+            }
+            else
+            {
+                setRelation(pos,node,price,Graph);
+                setRelation(pos,node,price2,otherGraph);
+            }
         }
 
     }
 
-    private void setRelation(int start, int end,float price)
+    private void setRelation(int start, int end,float price,DGraph<GameObject> myGraph)
     {
-        Graph.SetRelationShip(start,end,price);
+        myGraph.SetRelationShip(start,end,price);
     }
    
     /// <summary>
@@ -125,7 +138,7 @@ namespace SquaredMapTools
             if (PositionTools.IsSide(node.name,widthAndHeight)) continue;
             if (PositionTools.IsAForgivenOne(node.name, forgivenPositions))
             {
-                setRelations(i,normalCost,true);
+                setRelations(i,normalCost,normalCost,true);
                 continue;
             }
             GameObject newBlock;
@@ -135,6 +148,7 @@ namespace SquaredMapTools
             if (Random.Range(0, 100) < 70)
             {
                 newBlock = Instantiate(blocksPrefab[Random.Range(0, 3)], node.transform, true);
+                setRelations(i, closedCost,blockedCost, true);
                 walkableBlocks++;
             }
             else
@@ -142,8 +156,9 @@ namespace SquaredMapTools
                
                 newBlock = Instantiate(indestructibleBlockPrefab, node.transform, true);
                 newBlock.transform.GetChild(0).gameObject.SetActive(false);
+                setRelations(i, closedCost,closedCost, true);
             }
-            setRelations(i, closedCost, true);
+           
             
 
             groundBlockInfo.Reset();
