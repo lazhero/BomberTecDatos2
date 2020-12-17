@@ -51,7 +51,7 @@ public class Expansion : MonoBehaviour
                 if(other.gameObject.name!=null)
                     mendel.updateValue(Int32.Parse(other.gameObject.name), -value);
             }
-            else value = -50;
+            else value = -300;
 
         }
         
@@ -75,9 +75,12 @@ public class Expansion : MonoBehaviour
             Block block = other.GetComponent<Block>();
             if(block!=null)
                 if (block.isDestructible)
+                {
                     block.DestroyMe();
+                    value = 40;
+                }
             finishedCondition = true;
-            value = 5;
+            
         }
         if(Owner!=null) mendel.updateValue(Int32.Parse(Owner),value);
     }

@@ -11,6 +11,9 @@ public class Mendel : MonoBehaviour
     public float rateTime;
     private IAProbability[] ProbabilitiesComponents;
     public ScoreTable[] scores;
+    private int FreeCost = 10;
+    private int BlockedCost=100;
+    private int ClosedCost=Int32.MaxValue;
     
     public int startPos { get; set; }
     public float min;
@@ -39,7 +42,7 @@ public class Mendel : MonoBehaviour
         GetScoresTableComponent();
         float[][] initialProbabilities=ProbabilitiesGenetic.generateInitialPopulation(Being.Length, ProbabilitiesComponents[0].getNumberOfActions());
         setStats(initialProbabilities);
-        InvokeRepeating("changeMyProbabilities",5,Time.deltaTime*rateTime);
+        InvokeRepeating("changeMyProbabilities",5,rateTime);
     }
     
     
@@ -95,15 +98,39 @@ public class Mendel : MonoBehaviour
             {
                 score = scores[i].score;
                 SucessScore = scores[i].SuccessBombs * 1000;
-                if (scores[i].shortestDistanceFromPlayer >= 100000) ShortestScore = 0;
-                else ShortestScore = (1 / scores[i].shortestDistanceFromPlayer) * 100;
-                sucessRate[i] = score+SucessScore+ShortestScore; 
+                ShortestScore = getCostFromCloserBomb(scores[i].shortestDistanceFromPlayer);
+                sucessRate[i] = score+SucessScore+ShortestScore;
+                if (sucessRate[i] > 10000) ;
             }
             
             
         }
 
         return sucessRate;
+    }
+
+    private float getCostFromCloserBomb(float price)
+    {
+        if (price >= ClosedCost) return 0;
+        if (price > 6 * BlockedCost) return 10;
+        int FreeBlocks;
+        int BlockedBlocks;
+        int value=0;
+        BlockedBlocks = (int)price / BlockedCost;
+        price -= BlockedBlocks * BlockedCost;
+        FreeBlocks = (int) price / FreeCost;
+        
+        if (FreeBlocks <= 10)
+        {
+            value += 1000 - 100 * FreeBlocks;
+        }
+
+        if (BlockedCost <=8)
+        {
+            value+=640-80*BlockedCost;
+        }
+        return value;
+        
     }
 
     void changeMyProbabilities()

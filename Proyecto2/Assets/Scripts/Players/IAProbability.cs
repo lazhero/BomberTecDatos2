@@ -103,8 +103,8 @@ public class IAProbability : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         timeLeft = time;
-        RandomAction();
         launched = false;
+        RandomAction();
     }
     
 

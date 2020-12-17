@@ -26,6 +26,7 @@ public class IAMovementController:Controller
   
         public void AddMovement(int endpos)
         {
+                if (currentBlock == null) return;
                 var currentPosition=Int32.Parse(currentBlock.name);
                 GameObject[] objects = myMap.GetRoute(currentPosition, endpos);
                 if (objects == null) return;

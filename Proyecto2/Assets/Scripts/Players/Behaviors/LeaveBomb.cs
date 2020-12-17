@@ -14,8 +14,9 @@ namespace Players
             bombLaunched = false;
             controller.GenerateBomb();
             myBehaviour=gameObject.GetComponent<Hide>();
-            Invoke("RunAway",0.5f);
-            
+            bombLaunched = true;
+            // Invoke("RunAway",0.5f);
+
         }
 
         private void RunAway()

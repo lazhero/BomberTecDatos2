@@ -15,6 +15,7 @@ namespace Genetics
         private static int maxValue = 100;
         public static float[][] Genetic(float[][] populationGenomes, float[] successRate, float minSuccess)
         {
+            
             Debug.Log("Entre a mendel");
             ProbabilitiesGenetic.successRate = minSuccess;
             float[][] sucessPopulation = GetSuccess(populationGenomes, successRate);
@@ -88,15 +89,20 @@ namespace Genetics
         {
             int randomPositionA;
             int randomPositionB;
-         
+            float change;
             foreach (var genome in population)
             {
                 randomPositionA = Random.Range(0, genome.Length + 1)%genome.Length;
                 randomPositionB = Random.Range(0, genome.Length + 1)%genome.Length;
                 if (genome[randomPositionA] < maxValue && genome[randomPositionB] > 0)
                 {
-                    genome[randomPositionA]++;
-                    genome[randomPositionB]--;
+                    if (genome[randomPositionA] > genome[randomPositionB])
+                    {
+                        change = Random.Range(0, genome[randomPositionB]);
+                    }
+                    else change=Random.Range(0, genome[randomPositionA]);
+                    genome[randomPositionA]+=change;
+                    genome[randomPositionB]-=change;
                 }
                 FixGenome(genome);
                 

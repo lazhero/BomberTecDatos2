@@ -8,6 +8,7 @@ using Things;
 public class Map : MonoBehaviour {
     
     private DGraph<GameObject> Graph { get; set; }
+    private DGraph<GameObject> otherGraph;
     public int WidthAndHeight { get; set; } = 10;
     public Dictionary<string, List<int>> Things { get; set; }
 
@@ -22,6 +23,7 @@ public class Map : MonoBehaviour {
     private void Start()
     {
         Graph = mg.GenerateNewMap();
+        otherGraph = mg.otherGraph;
         WidthAndHeight = mg.widthAndHeight;
         cameraObj.transform.position = DeterminesCameraPosition(Graph.Nodes);
         Things= new Dictionary<string, List<int>>();
@@ -191,7 +193,7 @@ public class Map : MonoBehaviour {
         {
             i++;
             if (i == excludedPos) continue;
-            response = AStar<GameObject>.getRoute(Graph, BlockNumber, element, WidthAndHeight);
+            response = AStar<GameObject>.getRoute(otherGraph, BlockNumber, element, WidthAndHeight);
             if (response.value < distance) distance = response.value;
         }
 
