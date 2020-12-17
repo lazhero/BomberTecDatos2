@@ -42,7 +42,7 @@ public class Mendel : MonoBehaviour
         GetScoresTableComponent();
         float[][] initialProbabilities=ProbabilitiesGenetic.generateInitialPopulation(Being.Length, ProbabilitiesComponents[0].getNumberOfActions());
         setStats(initialProbabilities);
-        InvokeRepeating("changeMyProbabilities",5,Time.deltaTime*rateTime);
+        InvokeRepeating("changeMyProbabilities",5,rateTime);
     }
     
     
@@ -112,20 +112,22 @@ public class Mendel : MonoBehaviour
     private float getCostFromCloserBomb(float price)
     {
         if (price >= ClosedCost) return 0;
+        if (price > 6 * BlockedCost) return 10;
         int FreeBlocks;
         int BlockedBlocks;
         int value=0;
         BlockedBlocks = (int)price / BlockedCost;
         price -= BlockedBlocks * BlockedCost;
         FreeBlocks = (int) price / FreeCost;
+        
         if (FreeBlocks <= 10)
         {
-            value += 500 - 10 * FreeBlocks;
+            value += 1000 - 100 * FreeBlocks;
         }
 
-        if (BlockedCost <=5)
+        if (BlockedCost <=8)
         {
-            value+=500-100*BlockedCost;
+            value+=640-80*BlockedCost;
         }
         return value;
         

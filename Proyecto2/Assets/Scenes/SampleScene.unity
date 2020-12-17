@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4905f701cd7f6fd4385d03a25ed62f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rateTime: 100
+  rateTime: 25
   scores: []
   min: 0
 --- !u!4 &272203844

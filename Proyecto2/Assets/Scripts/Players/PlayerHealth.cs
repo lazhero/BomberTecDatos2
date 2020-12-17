@@ -173,7 +173,7 @@ namespace Players
         {
             if (other.gameObject.tag == "Player" || other.gameObject.tag=="Enemy")
             {
-                _mendel.updateValue(Int32.Parse(gameObject.name),30 );
+               // _mendel.updateValue(Int32.Parse(gameObject.name),40 );
                 Physics.IgnoreCollision(other.gameObject.GetComponent<BoxCollider>(),gameObject.GetComponent<BoxCollider>() );
             }
         }
