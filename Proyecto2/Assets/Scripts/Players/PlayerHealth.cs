@@ -1,6 +1,7 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Timeline;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -12,6 +13,8 @@ namespace Players
         public bool _canReceiveDamage = true;
         public TextMeshProUGUI explosionRatio;
         public TextMeshProUGUI evasion;
+        public TextMeshProUGUI velocidad;
+        private Controller cont;
         public Image face;
         public Image body;
 
@@ -70,6 +73,28 @@ namespace Players
             get => _evasion;
         }
 
+        
+        public int _velocity=0;
+        public int Velocity
+        {
+            set
+            {
+
+                _velocity = value;
+                
+                if (_velocity > 6)
+                {
+                    _velocity = 6;
+                    return;
+                }
+                velocidad.text = _velocity.ToString();
+                cont.velocidad += 1;
+
+            }
+            get => _velocity;
+        }
+
+        
         public int totalHealth = 10;
         public int health;
         public int Health
@@ -120,6 +145,7 @@ namespace Players
             Health = totalHealth;
             Anim = GetComponentInChildren<Animator>();
             _mendel = GameObject.FindObjectOfType<Mendel>();
+            cont = GetComponent<Controller>();
             BombRatio = 2;
         }
         /// <summary>
@@ -184,3 +210,4 @@ namespace Players
         }
     }
 }
+

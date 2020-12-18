@@ -8,7 +8,7 @@ public abstract class Controller : MonoBehaviour
 {
     protected Animator Anim;
     private GameObject _body;
-    public float velocidad = 7f;
+    public float velocidad = 5f;
     public GameObject currentBlock;
     [SerializeField]
     public GameObject bomba;
@@ -51,8 +51,6 @@ public abstract class Controller : MonoBehaviour
         var angle = Quaternion.Euler(0,x , 0);
         
         Anim.SetBool(Moving, true);
-        //gameObject.transform.Translate(dir * (velocidad * Time.deltaTime),Space.World);
-        //rbbody.velocity = _body.transform.forward*velocidad;
         rbbody.MovePosition(transform.position+dir * (velocidad * Time.deltaTime));
         _body.transform.rotation = angle;
 

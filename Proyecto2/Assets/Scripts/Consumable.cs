@@ -13,7 +13,8 @@ public class Consumable : MonoBehaviour
     private Collider _collider;
     private  Component action;
     public bool desactiveOnAwake;
-    
+    [SerializeField] private Sprite logo; 
+
     private void Start()
     {
         _collider = GetComponent<Collider>();
@@ -37,10 +38,14 @@ public class Consumable : MonoBehaviour
         
         if (other.gameObject.GetComponent<PowerUp>() == null)
         {
-#if UNITY_EDITOR
-            UnityEditorInternal.ComponentUtility.CopyComponent(action);
-            UnityEditorInternal.ComponentUtility.PasteComponentAsNew(other.gameObject);
-#endif
+            ComponentUtil.CopyComponent(action,other.gameObject);
+            if (logo != null)
+            {
+                other.GetComponent<PowerUp>().logo = logo;
+            }
+            //UnityEditorInternal.ComponentUtility.CopyComponent(action);
+            //UnityEditorInternal.ComponentUtility.PasteComponentAsNew(other.gameObject);
+
         }
         GameObject.FindObjectOfType<Mendel>().updateValue(Int32.Parse(other.name),30 );  
         /*

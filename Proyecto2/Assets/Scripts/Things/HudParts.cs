@@ -11,6 +11,7 @@ public class HudParts : MonoBehaviour
    public RectTransform Velocity;
    public TextMeshProUGUI ExplosionRatio;
    public TextMeshProUGUI Evasion;
+   public TextMeshProUGUI velocityText;
    public Image powerUp;
    public TextMeshProUGUI powerUpText;
    public Image colorID;

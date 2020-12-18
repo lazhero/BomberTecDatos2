@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myMap: {fileID: 0}
-  Focus: Player
+  Focus: item
 --- !u!114 &-6841641780017981473
 MonoBehaviour:
   m_ObjectHideFlags: 0

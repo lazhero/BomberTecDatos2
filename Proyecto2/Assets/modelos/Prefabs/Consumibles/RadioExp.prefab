@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desactiveOnAwake: 0
+  logo: {fileID: -1965415979573175098, guid: d6dfc0975bf71834e8d60a28f7b16311, type: 3}
 --- !u!114 &9162813777301913766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f6193b3e1f248878cc4c5cd8a3efd63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 15
   logo: {fileID: -1965415979573175098, guid: d6dfc0975bf71834e8d60a28f7b16311, type: 3}
+  time: 15
 --- !u!82 &4706416467973725137
 AudioSource:
   m_ObjectHideFlags: 0

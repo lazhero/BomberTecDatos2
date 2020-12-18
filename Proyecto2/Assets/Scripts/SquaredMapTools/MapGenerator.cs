@@ -44,7 +44,7 @@ namespace SquaredMapTools
         GenerateGround();
         if(generateMap) GenerateInteractuableBlocks();
         CharacterGenerator.GenerateAllPlayers(widthAndHeight,Graph);
-        justAPrint();
+        //justAPrint();
         return Graph;
     }
     void justAPrint()

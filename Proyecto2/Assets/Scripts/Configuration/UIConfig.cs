@@ -19,7 +19,7 @@ public class UIConfig : MonoBehaviour
                 LevelLoader.LoadLevel("Juego");
                 break;
             case 2:
-                Debug.Log("Modo Local");
+                LevelLoader.LoadLevel("Juego");
                 break;
             case 3:
                 Debug.Log("Modo Team" +MapConfig.ip);

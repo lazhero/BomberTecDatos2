@@ -224,8 +224,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0179226, y: 2.07, z: 0.67732334}
-  m_Center: {x: 0.058971047, y: -0.6234311, z: -0.07266569}
+  m_Size: {x: 0.821692, y: 2.07, z: 0.58755684}
+  m_Center: {x: 0.059817076, y: -0.6234311, z: -0.02778244}
 --- !u!114 &6020081157150938748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,12 +241,14 @@ MonoBehaviour:
   _canReceiveDamage: 1
   explosionRatio: {fileID: 0}
   evasion: {fileID: 0}
+  velocidad: {fileID: 0}
   face: {fileID: 0}
   body: {fileID: 0}
   powerUpText: {fileID: 0}
   totalShoe: 3
   PreviusbombRatio: 0
   _evasion: 0
+  _velocity: 1
   totalHealth: 10
   health: 10
   heartUi: {fileID: 0}
@@ -740,8 +742,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.83977294, y: 0.7166922, z: 0.55688906}
-  m_Center: {x: 0.101621985, y: -1.6395966, z: -0.16541219}
+  m_Size: {x: 0.6510329, y: 0.7166922, z: 0.522676}
+  m_Center: {x: 0.07958245, y: -1.6395966, z: -0.18251872}
 --- !u!114 &129205507642747387
 MonoBehaviour:
   m_ObjectHideFlags: 0

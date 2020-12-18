@@ -5,6 +5,8 @@ using Players.Behaviors;
 using SquaredMapTools;
 using UnityEngine;
 using Genetics;
+using Things;
+using UnityEditor;
 using Random = UnityEngine.Random;
 
 namespace Players
@@ -68,7 +70,7 @@ namespace Players
             health.evasion        = pHud.Evasion;
             health.face           = pHud.Face;
             health.body           = pHud.colorID;
-
+            health.velocidad = pHud.velocityText;
             health.powerUpImage = pHud.powerUp;
             health.powerUpText = pHud.powerUpText;
             player.GetComponent<Controller>().bomba = Static_BombPrefab;
@@ -99,13 +101,15 @@ namespace Players
             else
             {
                 player.AddComponent<IAMovementController>();
-                #if UNITY_EDITOR
+
                 foreach (Component VARIABLE in aibehaviors)
                 {
-                    UnityEditorInternal.ComponentUtility.CopyComponent(VARIABLE);
-                    UnityEditorInternal.ComponentUtility.PasteComponentAsNew(player);
+                    ComponentUtil.CopyComponent(VARIABLE,player);
+                
+                    //UnityEditorInternal.ComponentUtility.CopyComponent(VARIABLE);
+                    //UnityEditorInternal.ComponentUtility.PasteComponentAsNew(player);
                 }
-                #endif
+
                 player.AddComponent<IAProbability>().setBehaviorsNumber(aibehaviors.Length);
                 player.AddComponent<ScoreTable>();
                 player.tag = "Enemy";

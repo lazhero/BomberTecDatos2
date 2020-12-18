@@ -4,7 +4,6 @@ namespace Players.PowerUps
     public class CrossBomb:PowerUp
     {
         
-        [SerializeField] private Sprite logo; 
             
         public override void Act()
         {

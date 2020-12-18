@@ -6,7 +6,6 @@ namespace Players.PowerUps
     public class PushBombs : PowerUp
     {
         private Transform forward;
-        [SerializeField] private Sprite logo; 
 
         
         public override void Act()

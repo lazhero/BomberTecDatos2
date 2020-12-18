@@ -6,7 +6,7 @@ namespace Players.PowerUps
     {
         private PlayerHealth comp;
         
-        [SerializeField] private Sprite logo; 
+        
 
         public override void Act()
         {

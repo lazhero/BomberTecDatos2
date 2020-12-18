@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -8682371724582569869}
   - component: {fileID: 8693939844049860260}
   m_Layer: 0
-  m_Name: Shield
+  m_Name: Shieldp
   m_TagString: consumable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desactiveOnAwake: 0
+  logo: {fileID: 5945800911735737381, guid: d6dfc0975bf71834e8d60a28f7b16311, type: 3}
 --- !u!114 &-8682371724582569869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c209c99b594bf5ab12470cbc278ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 15
   logo: {fileID: 5945800911735737381, guid: d6dfc0975bf71834e8d60a28f7b16311, type: 3}
+  time: 15
 --- !u!82 &8693939844049860260
 AudioSource:
   m_ObjectHideFlags: 0

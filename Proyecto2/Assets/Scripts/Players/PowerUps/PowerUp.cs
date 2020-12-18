@@ -10,6 +10,7 @@ namespace Players.PowerUps
         public abstract void Dest();
         protected PlayerHealth comp;
         private AudioSource Audio;
+        public Sprite logo; 
 
         public int time=15;
 

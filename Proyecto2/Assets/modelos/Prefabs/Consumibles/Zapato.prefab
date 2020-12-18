@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6067289925460060772}
   - component: {fileID: 910235906495715301}
   - component: {fileID: 1516345013499632241}
-  - component: {fileID: 5679520483274353472}
   - component: {fileID: -8628758367741800538}
+  - component: {fileID: 163352317159599944}
   m_Layer: 0
   m_Name: Zapato
   m_TagString: consumable
@@ -111,20 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desactiveOnAwake: 0
---- !u!114 &5679520483274353472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6766404395314388412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf0b5d4cdd3540cea2488b05f4e3be74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 15
-  logo: {fileID: -7970110998204125812, guid: d6dfc0975bf71834e8d60a28f7b16311, type: 3}
+  logo: {fileID: 0}
 --- !u!82 &-8628758367741800538
 AudioSource:
   m_ObjectHideFlags: 0
@@ -221,3 +208,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &163352317159599944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6766404395314388412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d42711ee8fec4854a1eee79aa247daed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logo: {fileID: 0}
+  time: 0

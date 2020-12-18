@@ -660,7 +660,7 @@ PrefabInstance:
     - target: {fileID: 4229722434491082356, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}
       propertyPath: m_Name
-      value: Map
+      value: Mapg
       objectReference: {fileID: 0}
     - target: {fileID: 4229722434491082356, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}
@@ -826,7 +826,7 @@ PrefabInstance:
     - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}
       propertyPath: humanPlayers
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8505780044405214541, guid: eb99f3c19a2f9554e8d61302509c3c91,
         type: 3}
@@ -955,6 +955,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plane
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7761376219490487674, guid: c53afbf92a9a6a943b5949f4cdb7f314, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c53afbf92a9a6a943b5949f4cdb7f314, type: 3}

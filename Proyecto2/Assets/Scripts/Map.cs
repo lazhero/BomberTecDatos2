@@ -20,7 +20,7 @@ public class Map : MonoBehaviour {
     //!--------------------------------->
     //?--------------------------------->
 
-    private void Start()
+    private void Awake()
     {
         Graph = mg.GenerateNewMap();
         otherGraph = mg.otherGraph;
