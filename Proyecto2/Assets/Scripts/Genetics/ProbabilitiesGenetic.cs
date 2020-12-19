@@ -22,7 +22,12 @@ namespace Genetics
             float[][] newPopulation = GetNewPopulation(populationGenomes.Length, sucessPopulation);
             return newPopulation;
         }
-
+/// <summary>
+/// aux for fitness
+/// </summary>
+/// <param name="population"></param>
+/// <param name="success"></param>
+/// <returns></returns>
         public static float[][] GetSuccess(float[][] population, float[] success)
         {
             
@@ -43,7 +48,12 @@ namespace Genetics
         {
             return success >= successRate;
         }
-
+/// <summary>
+/// mutate two genes
+/// </summary>
+/// <param name="gene1"></param>
+/// <param name="gene2"></param>
+/// <returns></returns>
         public static float[] Reproduction(float[] gene1, float[] gene2)
         {
             float[][] parentsArray=new float[2][];
@@ -59,7 +69,10 @@ namespace Genetics
             }
             return son;
         }
-
+/// <summary>
+/// fix a genome
+/// </summary>
+/// <param name="genome"></param>
         public static void FixGenome(float[] genome)
         {
             float difference = maxValue - GetSum(genome);
@@ -84,7 +97,10 @@ namespace Genetics
 
             return sum;
         }
-
+/// <summary>
+/// produces a mutation in genes
+/// </summary>
+/// <param name="population"></param>
         public static void Mutate(float[][] population)
         {
             int randomPositionA;
@@ -108,7 +124,12 @@ namespace Genetics
                 
             }
         }
-
+/// <summary>
+/// modify population
+/// </summary>
+/// <param name="membersNumber"></param>
+/// <param name="successPopulation"></param>
+/// <returns></returns>
         public static float[][] GetNewPopulation(int membersNumber,float[][] successPopulation)
         {
             float[][] newPopulation=new float[membersNumber][];

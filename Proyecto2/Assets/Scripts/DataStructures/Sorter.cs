@@ -4,7 +4,12 @@ namespace DataStructures
 {
     public class Sorter 
     {
-
+        /// <summary>
+        /// sorts a list
+        /// </summary>
+        /// <param name="list"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static T[] BubbleSort<T>(T[] list)
         {
             bool KeepIterating = true;

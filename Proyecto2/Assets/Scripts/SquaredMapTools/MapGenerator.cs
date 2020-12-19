@@ -30,7 +30,10 @@ namespace SquaredMapTools
     private  float blockSize = 1.9f;
 
         
-
+/// <summary>
+/// generates a new map
+/// </summary>
+/// <returns></returns>
     public DGraph<GameObject> GenerateNewMap()
     {
         if (MapConfig.Side != 0)

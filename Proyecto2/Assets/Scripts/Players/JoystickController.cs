@@ -11,7 +11,9 @@ public class JoystickController : Controller
         keyPulsation();
             
     }
-
+/// <summary>
+/// dettects control pulsation
+/// </summary>
     void keyPulsation()
     {
         float xaxis = Input.GetAxis("MHorizontal");

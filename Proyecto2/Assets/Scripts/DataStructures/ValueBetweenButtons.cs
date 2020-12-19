@@ -13,7 +13,10 @@ public class ValueBetweenButtons : MonoBehaviour
     
     public TextMeshProUGUI text;
     public string type;
-        
+    /// <summary>
+    /// dummy method for limts
+    /// </summary>
+    /// <param name="v"></param>
     public void Add(int v)
     {
         value += v;

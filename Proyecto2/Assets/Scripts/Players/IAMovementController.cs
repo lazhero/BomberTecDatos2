@@ -23,7 +23,10 @@ public class IAMovementController:Controller
                 directions=new Queue<GameObject>();      
         }
 
-  
+  /// <summary>
+  /// add a movement to stack
+  /// </summary>
+  /// <param name="endpos"></param>
         public void AddMovement(int endpos)
         {
                 if (currentBlock == null) return;
@@ -47,13 +50,12 @@ public class IAMovementController:Controller
         private void Update()
         {
                 moving();
-               if (Input.GetKeyDown(KeyCode.K))
-               { 
-                       teinvocosatanas();
-               }
+ 
 
         }
-
+/// <summary>
+/// moves the bot
+/// </summary>
         private void moving(){
                 if (directions.Count > 0)
                 {
@@ -74,10 +76,7 @@ public class IAMovementController:Controller
                 
         }
 
-        private void teinvocosatanas()
-        {
-                AddMovement(currentObjetive);
-        }
+
 
         public bool Ismoving()
         {

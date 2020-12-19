@@ -10,7 +10,9 @@ public class UIConfig : MonoBehaviour
         MapConfig.Side = 10;
 
     }
-
+    /// <summary>
+    /// loads the game
+    /// </summary>
     public void Play()
     {
         switch (MapConfig.Mode)

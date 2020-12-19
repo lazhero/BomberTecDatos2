@@ -18,7 +18,9 @@ public class Bomb : MonoBehaviour
         
 
     }
-
+    /// <summary>
+    /// Tells map when it exist
+    /// </summary>
     public void Show()
     {
         map.ThingChange(new message("Bomb",pos, message.Write));
@@ -27,7 +29,9 @@ public class Bomb : MonoBehaviour
         float distance = map.calculateDistance(pos, "Player",Int32.Parse(Owner));
         GameObject.FindObjectOfType<Mendel>().updateClosestBomb(Int32.Parse(Owner),distance); 
     }
-
+    /// <summary>
+    /// makes the explosion
+    /// </summary>
     public void makeExplote()
     {
         Invoke("Explote",time);

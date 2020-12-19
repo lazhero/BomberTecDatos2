@@ -25,7 +25,6 @@
             <e p="Loading.cs" t="Include" />
             <e p="MapConfig.cs" t="Include" />
             <e p="UIConfig.cs" t="Include" />
-            <e p="ValueBetweenButtons.cs" t="Include" />
           </e>
           <e p="Consumable.cs" t="Include" />
           <e p="DataStructures" t="Include">
@@ -33,6 +32,7 @@
             <e p="DGraph.cs" t="Include" />
             <e p="LinkedList.cs" t="Include" />
             <e p="Sorter.cs" t="Include" />
+            <e p="ValueBetweenButtons.cs" t="Include" />
           </e>
           <e p="Genetics" t="Include">
             <e p="Mendel.cs" t="Include" />

@@ -35,7 +35,9 @@ public class Mendel : MonoBehaviour
 
 
 
-
+/// <summary>
+/// initiates the mendel algorithm
+/// </summary>
     public void init()
     {
         GetProbabiliesComponent();
@@ -108,7 +110,11 @@ public class Mendel : MonoBehaviour
 
         return sucessRate;
     }
-
+/// <summary>
+/// calculate cost from closet bomb
+/// </summary>
+/// <param name="price"></param>
+/// <returns></returns>
     private float getCostFromCloserBomb(float price)
     {
         if (price >= ClosedCost) return 0;
@@ -132,7 +138,9 @@ public class Mendel : MonoBehaviour
         return value;
         
     }
-
+/// <summary>
+/// mutate probabilities
+/// </summary>
     void changeMyProbabilities()
     {
         float[][] currentPopulationGenes = getActualPoblation();
@@ -171,7 +179,11 @@ public class Mendel : MonoBehaviour
         if (i == 0) return 0;
         return sum / i;
     }
-
+/// <summary>
+/// update stats when a bomb is close
+/// </summary>
+/// <param name="pos"></param>
+/// <param name="value"></param>
     public void updateClosestBomb(int pos, float value)
     {
         int index = pos - startPos;
@@ -186,7 +198,11 @@ public class Mendel : MonoBehaviour
         if (!verification(index)) return;
         scores[index].SuccessBombs++;
     }
-
+/// <summary>
+/// Dummy verification
+/// </summary>
+/// <param name="pos"></param>
+/// <returns></returns>
     private bool verification(int pos)
     {
         return pos >= 0 && pos < Being.Length;
